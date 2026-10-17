@@ -13,6 +13,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float minInterval = 0.2f;
     [SerializeField] float intervalDecayPerSecond = 0.01f; // 경과 1초당 줄어드는 간격
 
+    [Header("보스전")]
+    [SerializeField, Range(0f, 1f)] float spawnRateDuringBoss = 0f; // 0 = 보스 생존 중 스폰 중지
+
     float elapsed;
     float timer;
 
@@ -33,7 +36,11 @@ public class EnemySpawner : MonoBehaviour
         elapsed += Time.deltaTime;
         if (player == null || enemyTypes == null || enemyTypes.Length == 0) return;
 
-        timer += Time.deltaTime;
+        // 보스 생존 중에는 스폰 속도를 줄이거나(0~1) 멈춤(0)
+        float rate = GameManager.Instance.BossAlive ? spawnRateDuringBoss : 1f;
+        if (rate <= 0f) return;
+
+        timer += Time.deltaTime * rate;
         float interval = CurrentInterval;
         while (timer >= interval)
         {

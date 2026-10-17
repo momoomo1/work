@@ -125,7 +125,7 @@ public static class SetupEnemy
     }
 
     // 레이어가 없으면 비어있는 첫 슬롯(8~31)에 추가
-    static int EnsureLayer(string name)
+    internal static int EnsureLayer(string name)
     {
         int existing = LayerMask.NameToLayer(name);
         if (existing >= 0) return existing;
