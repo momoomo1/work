@@ -13,7 +13,7 @@ public class SkillDebugInput : MonoBehaviour
     void Update()
     {
         var kb = Keyboard.current;
-        if (kb == null) return;
+        if (kb == null || LevelUpUI.BlocksInput) return; // 레벨업 카드 선택과 숫자키 충돌 방지
 
         var keys = new[] { kb.digit1Key, kb.digit2Key, kb.digit3Key, kb.digit4Key, kb.digit5Key };
         for (int i = 0; i < keys.Length; i++)

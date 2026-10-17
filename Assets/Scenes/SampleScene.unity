@@ -402,6 +402,52 @@ MonoBehaviour:
   m_ShadowLayerMask: 1
   m_RenderingLayers: 1
   m_ShadowRenderingLayers: 1
+--- !u!1 &631099394
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 631099396}
+  - component: {fileID: 631099395}
+  m_Layer: 0
+  m_Name: ExpOrbSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &631099395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631099394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0de000000000000000000000000002f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ExpOrbSpawner
+  orbPrefab: {fileID: 4825137265500672484, guid: 98a1ecdadef19e04e8ed2f754b1a34bc, type: 3}
+  orbY: 0.5
+--- !u!4 &631099396
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 631099394}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -582,6 +628,7 @@ GameObject:
   - component: {fileID: 910000009}
   - component: {fileID: 910000011}
   - component: {fileID: 910000010}
+  - component: {fileID: 910000012}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -794,6 +841,26 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 925625d2b6e84504e896b44aad0e1971, type: 2}
   - {fileID: 11400000, guid: a0bd8c50fb3153c4c87e3a325bae56bd, type: 2}
   - {fileID: 11400000, guid: a6fa6b28acf409d44a30477501f56b12, type: 2}
+--- !u!114 &910000012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910000000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0de000000000000000000000000002d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerExperience
+  baseExp: 5
+  growth: 1.15
+  addPerLevel: 3
+  pickupRange: 4
+  debugKey: 1
+  debugExp: 50
+  level: 1
+  currentExp: 0
 --- !u!1 &920000000
 GameObject:
   m_ObjectHideFlags: 0
@@ -903,3 +970,4 @@ SceneRoots:
   - {fileID: 900000001}
   - {fileID: 910000001}
   - {fileID: 1653511948}
+  - {fileID: 631099396}
