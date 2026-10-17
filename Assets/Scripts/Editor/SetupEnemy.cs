@@ -40,6 +40,9 @@ public static class SetupEnemy
         visual.transform.SetParent(root.transform, false);
         visual.GetComponent<MeshRenderer>().sharedMaterial = mat;
 
+        int enemyLayer = EnsureLayer("Enemy");
+        foreach (var t in root.GetComponentsInChildren<Transform>(true)) t.gameObject.layer = enemyLayer;
+
         var prefab = PrefabUtility.SaveAsPrefabAsset(root, PrefabPath);
         Object.DestroyImmediate(root);
 
@@ -78,10 +81,69 @@ public static class SetupEnemy
         if (player != null) so.FindProperty("player").objectReferenceValue = player.transform;
         so.ApplyModifiedProperties();
 
+        // 기본 공격용 투사체 프리팹 + 플레이어 공격 컴포넌트
+        var projPrefab = CreateProjectilePrefab();
+        if (player != null)
+        {
+            var atk = player.GetComponent<PlayerAttack>();
+            if (atk == null) atk = Undo.AddComponent<PlayerAttack>(player);
+            var aso = new SerializedObject(atk);
+            aso.FindProperty("projectilePrefab").objectReferenceValue = projPrefab;
+            aso.ApplyModifiedProperties();
+        }
+
         AssetDatabase.SaveAssets();
         AssetDatabase.Refresh();
         Selection.activeObject = data;
         Debug.Log("적 프리팹/EnemyData/스포너 생성 완료. 씬을 저장(Ctrl+S)하세요.");
+    }
+
+    static GameObject CreateProjectilePrefab()
+    {
+        var mat = AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/Projectile_Yellow.mat");
+        if (mat == null)
+        {
+            mat = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+            AssetDatabase.CreateAsset(mat, "Assets/Materials/Projectile_Yellow.mat");
+        }
+        mat.SetColor("_BaseColor", Color.yellow);
+        mat.color = Color.yellow;
+        EditorUtility.SetDirty(mat);
+
+        var root = new GameObject("Projectile_Basic");
+        root.AddComponent<Projectile>();
+        var visual = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        visual.name = "Visual";
+        Object.DestroyImmediate(visual.GetComponent<SphereCollider>());
+        visual.transform.SetParent(root.transform, false);
+        visual.transform.localScale = Vector3.one * 0.4f;
+        visual.GetComponent<MeshRenderer>().sharedMaterial = mat;
+
+        var prefab = PrefabUtility.SaveAsPrefabAsset(root, "Assets/Prefabs/Projectile_Basic.prefab");
+        Object.DestroyImmediate(root);
+        return prefab;
+    }
+
+    // 레이어가 없으면 비어있는 첫 슬롯(8~31)에 추가
+    static int EnsureLayer(string name)
+    {
+        int existing = LayerMask.NameToLayer(name);
+        if (existing >= 0) return existing;
+
+        var tagManager = new SerializedObject(AssetDatabase.LoadAllAssetsAtPath("ProjectSettings/TagManager.asset")[0]);
+        var layers = tagManager.FindProperty("layers");
+        for (int i = 8; i < layers.arraySize; i++)
+        {
+            var sp = layers.GetArrayElementAtIndex(i);
+            if (string.IsNullOrEmpty(sp.stringValue))
+            {
+                sp.stringValue = name;
+                tagManager.ApplyModifiedProperties();
+                return i;
+            }
+        }
+        Debug.LogError("빈 레이어 슬롯이 없습니다.");
+        return 0;
     }
 
     static void EnsureFolder(string path)
