@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0de0000000000000000000000000022, type: 3}
+  m_Name: Skill_Sura
+  m_EditorClassIdentifier: Assembly-CSharp::SkillData
+  id: sura
+  displayName: "\uC218\uB77C\uCC38"
+  description: "\uAC00\uC7A5 \uAC00\uAE4C\uC6B4 \uC801\uC5D0\uAC8C \uAD00\uD1B5 \uD22C\uC0AC\uCCB4\uB97C
+    \uBC1C\uC0AC\uD55C\uB2E4."
+  icon: {fileID: 0}
+  type: 0
+  prefab: {fileID: 0}
+  levels:
+  - damage: 10
+    cooldown: 1.2
+    count: 1
+    area: 0.5
+    speed: 15
+    pierceCount: 1
+    duration: 1.5
+    tickInterval: 0
+  - damage: 15
+    cooldown: 1.1
+    count: 1
+    area: 0.5
+    speed: 15
+    pierceCount: 2
+    duration: 1.5
+    tickInterval: 0
+  - damage: 20
+    cooldown: 1
+    count: 2
+    area: 0.5
+    speed: 15
+    pierceCount: 3
+    duration: 1.5
+    tickInterval: 0
+  - damage: 25
+    cooldown: 0.90000004
+    count: 2
+    area: 0.5
+    speed: 15
+    pierceCount: 4
+    duration: 1.5
+    tickInterval: 0
+  - damage: 30
+    cooldown: 0.8000001
+    count: 3
+    area: 0.5
+    speed: 15
+    pierceCount: 5
+    duration: 1.5
+    tickInterval: 0
+  evolvesFrom: {fileID: 0}
