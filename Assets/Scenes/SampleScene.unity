@@ -792,6 +792,7 @@ MonoBehaviour:
   allSkills:
   - {fileID: 11400000, guid: ad3f7d957c517bb4187c7d3b9c71297e, type: 2}
   - {fileID: 11400000, guid: 925625d2b6e84504e896b44aad0e1971, type: 2}
+  - {fileID: 11400000, guid: a0bd8c50fb3153c4c87e3a325bae56bd, type: 2}
 --- !u!1 &920000000
 GameObject:
   m_ObjectHideFlags: 0

@@ -68,6 +68,26 @@ public static class SetupSkills
         hell.secondaryPrefab = warnPrefab;
         EditorUtility.SetDirty(hell);
 
+        var blade = LoadOrCreate("Assets/Data/Skills/Skill_Blade.asset");
+        blade.id = "blade";
+        blade.displayName = "회전 칼날";
+        blade.description = "플레이어 주변을 도는 칼날이 닿는 적을 벤다.";
+        blade.type = SkillType.Orbit;
+        blade.evolvesFrom = null;
+        int[] bn = { 2, 3, 3, 4, 5 };
+        float[] bd = { 8f, 10f, 12f, 15f, 18f };
+        float[] br = { 2.5f, 2.7f, 3f, 3.2f, 3.5f };
+        float[] bs = { 180f, 200f, 220f, 250f, 280f };
+        blade.levels = new SkillLevelStat[5];
+        for (int i = 0; i < 5; i++)
+            blade.levels[i] = new SkillLevelStat
+            {
+                damage = bd[i], cooldown = 1f, count = bn[i], area = br[i],
+                speed = bs[i], pierceCount = 0, duration = 0f, tickInterval = 0.3f
+            };
+        blade.prefab = CreateBladePrefab();
+        EditorUtility.SetDirty(blade);
+
         // 플레이어에 SkillManager + 디버그 입력 부착
         var player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
@@ -78,7 +98,8 @@ public static class SetupSkills
 
             var so = new SerializedObject(mgr);
             var list = so.FindProperty("allSkills");
-            list.arraySize = 3;
+            list.arraySize = 4;
+            list.GetArrayElementAtIndex(3).objectReferenceValue = blade;
             list.GetArrayElementAtIndex(0).objectReferenceValue = sura;
             list.GetArrayElementAtIndex(1).objectReferenceValue = vacuum;
             list.GetArrayElementAtIndex(2).objectReferenceValue = hell;
@@ -117,6 +138,25 @@ public static class SetupSkills
         trail.sharedMaterial = trailMat;
 
         var prefab = PrefabUtility.SaveAsPrefabAsset(root, "Assets/Prefabs/Projectile_Sura.prefab");
+        Object.DestroyImmediate(root);
+        return prefab;
+    }
+
+    // 납작한 Cube 칼날 (임시 비주얼)
+    static GameObject CreateBladePrefab()
+    {
+        var mat = LoadOrCreateMat("Assets/Materials/Blade.mat", "Universal Render Pipeline/Lit", new Color(0.8f, 0.85f, 0.9f));
+
+        var root = new GameObject("Blade_Orbit");
+        root.AddComponent<OrbitBlade>();
+        var visual = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        visual.name = "Visual";
+        Object.DestroyImmediate(visual.GetComponent<BoxCollider>());
+        visual.transform.SetParent(root.transform, false);
+        visual.transform.localScale = new Vector3(0.35f, 0.08f, 1.2f);
+        visual.GetComponent<MeshRenderer>().sharedMaterial = mat;
+
+        var prefab = PrefabUtility.SaveAsPrefabAsset(root, "Assets/Prefabs/Blade_Orbit.prefab");
         Object.DestroyImmediate(root);
         return prefab;
     }

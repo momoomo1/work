@@ -19,6 +19,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   type: 0
   prefab: {fileID: 6676461340365100548, guid: d95b5a09fceebdc4b9561c8ffbc63ab5, type: 3}
+  secondaryPrefab: {fileID: 0}
   levels:
   - damage: 40
     cooldown: 0.8

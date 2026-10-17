@@ -11,7 +11,7 @@ public class SkillManager : MonoBehaviour
     {
         { SkillType.Projectile, typeof(ProjectileSkill) },
         { SkillType.Explosion,  typeof(ExplosionSkill) },
-        { SkillType.Orbit,      typeof(PlaceholderSkill) },
+        { SkillType.Orbit,      typeof(OrbitSkill) },
         { SkillType.Zone,       typeof(PlaceholderSkill) },
     };
 
