@@ -9,7 +9,7 @@ public class SkillManager : MonoBehaviour
     // 새 스킬 종류를 만들면 여기에 매핑만 추가
     static readonly Dictionary<SkillType, Type> skillClasses = new Dictionary<SkillType, Type>
     {
-        { SkillType.Projectile, typeof(PlaceholderSkill) },
+        { SkillType.Projectile, typeof(ProjectileSkill) },
         { SkillType.Explosion,  typeof(PlaceholderSkill) },
         { SkillType.Orbit,      typeof(PlaceholderSkill) },
         { SkillType.Zone,       typeof(PlaceholderSkill) },

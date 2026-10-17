@@ -11,13 +11,15 @@ public class Projectile : MonoBehaviour, IPoolable
 
     readonly HashSet<int> hitIds = new HashSet<int>();
     readonly Collider[] hits = new Collider[16];
+    TrailRenderer trail;
     Vector3 direction = Vector3.forward;
     int pierceLeft;
     float timeLeft;
 
     // 풀에서 꺼낸 직후 호출. 이후 스킬에서도 재사용.
-    public void Launch(Vector3 dir, float speed, float damage, int pierceCount, float lifetime)
+    public void Launch(Vector3 dir, float speed, float damage, int pierceCount, float lifetime, float hitRadius = -1f)
     {
+        if (hitRadius > 0f) this.hitRadius = hitRadius;
         direction = dir.sqrMagnitude > 0.0001f ? dir.normalized : transform.forward;
         this.speed = speed;
         this.damage = damage;
@@ -30,6 +32,8 @@ public class Projectile : MonoBehaviour, IPoolable
 
     public void OnSpawn()
     {
+        if (trail == null) trail = GetComponentInChildren<TrailRenderer>(true);
+        if (trail != null) trail.Clear(); // 풀 재사용 시 이전 위치에서 이어지는 꼬리 방지
         hitIds.Clear(); // 풀 재사용 시 이전 적중 기록 제거
         direction = transform.forward;
         pierceLeft = pierceCount;
