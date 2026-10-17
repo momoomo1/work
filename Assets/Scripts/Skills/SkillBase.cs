@@ -1,0 +1,43 @@
+using UnityEngine;
+
+// 플레이어 자식 오브젝트에 붙는 스킬 동작의 기반 클래스
+public abstract class SkillBase : MonoBehaviour
+{
+    public SkillData Data { get; private set; }
+    public int Level { get; private set; }
+    public SkillLevelStat Stat => Data.levels[Level - 1];
+    public bool IsMaxLevel => Level >= Data.MaxLevel;
+    public Transform Owner => transform.parent != null ? transform.parent : transform;
+
+    float cooldownTimer;
+
+    public void Init(SkillData data)
+    {
+        Data = data;
+        Level = 1;
+        cooldownTimer = 0f;
+        OnInit();
+    }
+
+    public void LevelUp()
+    {
+        if (IsMaxLevel) return;
+        Level++;
+        OnLevelUp();
+    }
+
+    protected virtual void OnInit() { }
+    protected virtual void OnLevelUp() { }
+
+    // 쿨타임마다 호출. 상시 유지형 스킬은 OnInit/OnLevelUp에서 처리하고 Activate는 비워도 됨.
+    protected abstract void Activate();
+
+    protected virtual void Update()
+    {
+        if (Data == null) return;
+        cooldownTimer -= Time.deltaTime;
+        if (cooldownTimer > 0f) return;
+        cooldownTimer = Stat.cooldown;
+        Activate();
+    }
+}
