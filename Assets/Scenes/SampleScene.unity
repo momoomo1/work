@@ -579,6 +579,7 @@ GameObject:
   - component: {fileID: 910000006}
   - component: {fileID: 910000007}
   - component: {fileID: 910000008}
+  - component: {fileID: 910000009}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -742,6 +743,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   debugDamage: 10
+--- !u!114 &910000009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910000000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0de0000000000000000000000000017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
+  projectilePrefab: {fileID: 7174948159645569316, guid: 7b2838377ca2ae64fbaf36f65bc89feb, type: 3}
+  attackInterval: 0.6
+  attackRange: 12
+  damage: 10
+  projectileSpeed: 15
+  pierceCount: 0
+  projectileLifetime: 1.2
+  muzzleOffset: 0.6
 --- !u!1 &920000000
 GameObject:
   m_ObjectHideFlags: 0
