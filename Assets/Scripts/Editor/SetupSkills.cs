@@ -41,9 +41,9 @@ public static class SetupSkills
             vacuum.levels[i] = new SkillLevelStat
             {
                 damage = 40f + 10f * i, cooldown = 0.8f - 0.1f * i, count = 3 + i,
-                area = 1f, speed = 18f, pierceCount = 99, duration = 2f, tickInterval = 0f
+                area = 0.9f + 0.1f * i, speed = 18f, pierceCount = 999, duration = 2f, tickInterval = 0f
             };
-        vacuum.prefab = suraPrefab; // 임시: 진공참 전용 비주얼 전까지 공용
+        vacuum.prefab = CreateTrailProjectilePrefab("Vacuum", new Color(0.7f, 0.4f, 1f), new Vector3(0.6f, 0.6f, 2.2f), 1f);
         EditorUtility.SetDirty(vacuum);
 
         var hell = LoadOrCreate("Assets/Data/Skills/Skill_Hellfire.asset");
@@ -88,6 +88,29 @@ public static class SetupSkills
         blade.prefab = CreateBladePrefab();
         EditorUtility.SetDirty(blade);
 
+        // 서리 구름: speed = 슬로우 비율, count = 장판 수, duration = 장판 지속시간
+        var frost = LoadOrCreate("Assets/Data/Skills/Skill_Frost.asset");
+        frost.id = "frost";
+        frost.displayName = "서리 구름";
+        frost.description = "적이 모인 곳에 장판을 깔아 피해를 주고 느리게 만든다.";
+        frost.type = SkillType.Zone;
+        frost.evolvesFrom = null;
+        float[] fd = { 6f, 8f, 10f, 12f, 15f };
+        float[] fc = { 5f, 4.8f, 4.5f, 4.2f, 4f };
+        int[] fn = { 1, 1, 1, 2, 2 };
+        float[] fa = { 3f, 3.5f, 4f, 4.5f, 5f };
+        float[] fs = { 0.3f, 0.35f, 0.4f, 0.45f, 0.5f };
+        float[] fu = { 3f, 3.5f, 4f, 4.5f, 5f };
+        frost.levels = new SkillLevelStat[5];
+        for (int i = 0; i < 5; i++)
+            frost.levels[i] = new SkillLevelStat
+            {
+                damage = fd[i], cooldown = fc[i], count = fn[i], area = fa[i],
+                speed = fs[i], pierceCount = 0, duration = fu[i], tickInterval = 0.5f
+            };
+        frost.prefab = CreateFrostPrefab();
+        EditorUtility.SetDirty(frost);
+
         // 플레이어에 SkillManager + 디버그 입력 부착
         var player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
@@ -98,7 +121,8 @@ public static class SetupSkills
 
             var so = new SerializedObject(mgr);
             var list = so.FindProperty("allSkills");
-            list.arraySize = 4;
+            list.arraySize = 5;
+            list.GetArrayElementAtIndex(4).objectReferenceValue = frost;
             list.GetArrayElementAtIndex(3).objectReferenceValue = blade;
             list.GetArrayElementAtIndex(0).objectReferenceValue = sura;
             list.GetArrayElementAtIndex(1).objectReferenceValue = vacuum;
@@ -112,33 +136,55 @@ public static class SetupSkills
 
     // 길쭉한 Cube + Trail Renderer (임시 비주얼)
     static GameObject CreateSuraPrefab()
+        => CreateTrailProjectilePrefab("Sura", new Color(0.4f, 0.9f, 1f), new Vector3(0.2f, 0.2f, 1.2f), 0.3f);
+
+    static GameObject CreateTrailProjectilePrefab(string key, Color color, Vector3 cubeScale, float trailWidth)
     {
         foreach (var f in new[] { "Assets/Prefabs", "Assets/Materials" })
             if (!AssetDatabase.IsValidFolder(f)) AssetDatabase.CreateFolder("Assets", f.Substring(7));
 
-        var cubeMat = LoadOrCreateMat("Assets/Materials/Sura_Cube.mat", "Universal Render Pipeline/Lit", new Color(0.4f, 0.9f, 1f));
-        var trailMat = LoadOrCreateMat("Assets/Materials/Sura_Trail.mat", "Universal Render Pipeline/Particles/Unlit", new Color(0.4f, 0.9f, 1f));
+        var cubeMat = LoadOrCreateMat($"Assets/Materials/{key}_Cube.mat", "Universal Render Pipeline/Lit", color);
+        var trailMat = LoadOrCreateMat($"Assets/Materials/{key}_Trail.mat", "Universal Render Pipeline/Particles/Unlit", color);
 
-        var root = new GameObject("Projectile_Sura");
+        var root = new GameObject($"Projectile_{key}");
         root.AddComponent<Projectile>();
 
         var visual = GameObject.CreatePrimitive(PrimitiveType.Cube);
         visual.name = "Visual";
         Object.DestroyImmediate(visual.GetComponent<BoxCollider>());
         visual.transform.SetParent(root.transform, false);
-        visual.transform.localScale = new Vector3(0.2f, 0.2f, 1.2f);
+        visual.transform.localScale = cubeScale;
         visual.GetComponent<MeshRenderer>().sharedMaterial = cubeMat;
 
         var trail = root.AddComponent<TrailRenderer>();
         trail.time = 0.25f;
-        trail.startWidth = 0.3f;
+        trail.startWidth = trailWidth;
         trail.endWidth = 0f;
-        trail.startColor = new Color(0.4f, 0.9f, 1f, 1f);
-        trail.endColor = new Color(0.4f, 0.9f, 1f, 0f);
+        trail.startColor = color;
+        trail.endColor = new Color(color.r, color.g, color.b, 0f);
         trail.sharedMaterial = trailMat;
 
-        var prefab = PrefabUtility.SaveAsPrefabAsset(root, "Assets/Prefabs/Projectile_Sura.prefab");
+        var prefab = PrefabUtility.SaveAsPrefabAsset(root, $"Assets/Prefabs/Projectile_{key}.prefab");
         Object.DestroyImmediate(root);
+        return prefab;
+    }
+
+    // 하늘색 반투명 납작 원기둥 장판 (임시 비주얼)
+    static GameObject CreateFrostPrefab()
+    {
+        var mat = LoadOrCreateMat("Assets/Materials/Frost_Zone.mat", "Universal Render Pipeline/Lit", new Color(0.5f, 0.85f, 1f, 0.45f));
+        MakeTransparent(mat);
+
+        var z = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+        z.name = "Zone_Frost";
+        Object.DestroyImmediate(z.GetComponent<CapsuleCollider>());
+        z.transform.localScale = new Vector3(1f, 0.03f, 1f);
+        z.GetComponent<MeshRenderer>().sharedMaterial = mat;
+        z.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        z.AddComponent<FrostZone>();
+
+        var prefab = PrefabUtility.SaveAsPrefabAsset(z, "Assets/Prefabs/Zone_Frost.prefab");
+        Object.DestroyImmediate(z);
         return prefab;
     }
 

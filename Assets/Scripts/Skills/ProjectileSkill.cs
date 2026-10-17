@@ -27,7 +27,12 @@ public class ProjectileSkill : SkillBase
             Vector3 d = Quaternion.AngleAxis(angle, Vector3.up) * dir;
 
             var obj = ObjectPool.Get(Data.prefab, origin + d * muzzleOffset, Quaternion.LookRotation(d));
-            obj.GetComponent<Projectile>().Launch(d, stat.speed, stat.damage, stat.pierceCount, stat.duration, stat.area);
+            var proj = obj.GetComponent<Projectile>();
+            proj.Launch(d, stat.speed, stat.damage, stat.pierceCount, stat.duration, stat.area);
+            OnLaunched(proj, stat);
         }
     }
+
+    // 파생 스킬(진공참 등)이 투사체에 추가 효과를 줄 때 사용
+    protected virtual void OnLaunched(Projectile projectile, SkillLevelStat stat) { }
 }

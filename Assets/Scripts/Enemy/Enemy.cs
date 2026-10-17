@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour, IPoolable
     Health health;
     float nextAttackTime;
     float fixedY;
+    float speedMultiplier = 1f;
+    float slowUntil;
 
     public EnemyData Data => data;
 
@@ -55,9 +57,28 @@ public class Enemy : MonoBehaviour, IPoolable
         fixedY = transform.position.y;
     }
 
+    // 이동 속도 배율 적용 (예: 0.6 = 40% 감속). duration 동안 유지되며 더 강한 감속이 우선.
+    public void SetSpeedMultiplier(float multiplier, float duration)
+    {
+        if (Time.time >= slowUntil || multiplier <= speedMultiplier)
+        {
+            speedMultiplier = multiplier;
+            slowUntil = Time.time + duration;
+        }
+    }
+
+    // 외부 힘으로 위치를 밀거나 당김 (수평만)
+    public void ApplyDisplacement(Vector3 delta)
+    {
+        delta.y = 0f;
+        transform.position += delta;
+    }
+
     public void OnSpawn()
     {
         data = null; // Init 전까지 동작 안 함
+        slowUntil = 0f;
+        speedMultiplier = 1f;
         active.Add(this);
     }
 
@@ -75,7 +96,8 @@ public class Enemy : MonoBehaviour, IPoolable
         Vector3 dir = dist > 0.001f ? toPlayer / dist : Vector3.zero;
 
         // 직선 추적 (접촉 거리 안이면 멈춤)
-        Vector3 velocity = dist > contactRange * 0.8f ? dir * data.moveSpeed : Vector3.zero;
+        float speed = data.moveSpeed * (Time.time < slowUntil ? speedMultiplier : 1f);
+        Vector3 velocity = dist > contactRange * 0.8f ? dir * speed : Vector3.zero;
 
         // 겹침 방지: 가까운 적에게서 멀어지는 방향으로 밀기
         Vector3 push = Vector3.zero;
@@ -92,7 +114,7 @@ public class Enemy : MonoBehaviour, IPoolable
             float d = Mathf.Sqrt(sqr);
             push += away / d * (1f - d / separationRadius);
         }
-        velocity += push * (separationStrength * data.moveSpeed);
+        velocity += push * (separationStrength * speed);
 
         pos += velocity * Time.deltaTime;
         pos.y = fixedY;

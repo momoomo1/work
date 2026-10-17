@@ -12,8 +12,17 @@ public class SkillManager : MonoBehaviour
         { SkillType.Projectile, typeof(ProjectileSkill) },
         { SkillType.Explosion,  typeof(ExplosionSkill) },
         { SkillType.Orbit,      typeof(OrbitSkill) },
-        { SkillType.Zone,       typeof(PlaceholderSkill) },
+        { SkillType.Zone,       typeof(ZoneSkill) },
     };
+
+    // 같은 종류 안에서 특별한 동작이 필요한 스킬(진화 스킬 등)은 id로 클래스를 덮어씀
+    static readonly Dictionary<string, Type> idOverrides = new Dictionary<string, Type>
+    {
+        { "vacuum", typeof(VacuumSkill) },
+    };
+
+    // 진화로 대체된 원본 스킬: 다시 선택지에 나오지 않게 함
+    readonly HashSet<SkillData> evolvedAway = new HashSet<SkillData>();
 
     readonly Dictionary<SkillData, SkillBase> owned = new Dictionary<SkillData, SkillBase>();
 
@@ -35,16 +44,24 @@ public class SkillManager : MonoBehaviour
             return skill;
         }
 
-        if (!skillClasses.TryGetValue(data.type, out var cls))
+        Type cls = null;
+        if (data.id == null || !idOverrides.TryGetValue(data.id, out cls)) skillClasses.TryGetValue(data.type, out cls);
+        if (cls == null)
         {
             Debug.LogError($"SkillType {data.type}에 매핑된 클래스가 없습니다.");
             return null;
         }
 
-        if (data.evolvesFrom != null && owned.TryGetValue(data.evolvesFrom, out var baseSkill))
+        // 진화: 원본 스킬 제거 후 진화 스킬 추가
+        if (data.evolvesFrom != null)
         {
-            Destroy(baseSkill.gameObject);
-            owned.Remove(data.evolvesFrom);
+            if (owned.TryGetValue(data.evolvesFrom, out var baseSkill))
+            {
+                Destroy(baseSkill.gameObject);
+                owned.Remove(data.evolvesFrom);
+                OnSkillChanged?.Invoke(data.evolvesFrom, 0);
+            }
+            evolvedAway.Add(data.evolvesFrom);
         }
 
         var go = new GameObject($"Skill_{data.displayName}");
@@ -62,7 +79,7 @@ public class SkillManager : MonoBehaviour
         var candidates = new List<SkillData>();
         foreach (var data in allSkills)
         {
-            if (data == null) continue;
+            if (data == null || evolvedAway.Contains(data)) continue;
             if (data.IsEvolution)
             {
                 // 원본이 최대 레벨이고 아직 진화 스킬이 없을 때만

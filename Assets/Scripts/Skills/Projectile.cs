@@ -10,8 +10,10 @@ public class Projectile : MonoBehaviour, IPoolable
     [SerializeField] float hitRadius = 0.3f;
 
     readonly HashSet<int> hitIds = new HashSet<int>();
-    readonly Collider[] hits = new Collider[16];
+    readonly Collider[] hits = new Collider[48];
     TrailRenderer trail;
+    float pullRadius;
+    float pullStrength;
     Vector3 direction = Vector3.forward;
     int pierceLeft;
     float timeLeft;
@@ -30,8 +32,17 @@ public class Projectile : MonoBehaviour, IPoolable
         transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
     }
 
+    // 지나가는 적을 투사체 쪽으로 끌어당김 (진공참). Launch 이후 호출.
+    public void SetPull(float radius, float strength)
+    {
+        pullRadius = radius;
+        pullStrength = strength;
+    }
+
     public void OnSpawn()
     {
+        pullRadius = 0f;
+        pullStrength = 0f;
         if (trail == null) trail = GetComponentInChildren<TrailRenderer>(true);
         if (trail != null) trail.Clear(); // 풀 재사용 시 이전 위치에서 이어지는 꼬리 방지
         hitIds.Clear(); // 풀 재사용 시 이전 적중 기록 제거
@@ -42,12 +53,29 @@ public class Projectile : MonoBehaviour, IPoolable
 
     public void OnDespawn() { }
 
+    void PullEnemies()
+    {
+        int n = Physics.OverlapSphereNonAlloc(transform.position, pullRadius, hits,
+            TargetFinder.EnemyMask, QueryTriggerInteraction.Collide);
+        for (int i = 0; i < n; i++)
+        {
+            if (!hits[i].TryGetComponent<Enemy>(out var enemy)) continue; // 보스는 끌어당기지 않음
+            Vector3 to = transform.position - enemy.transform.position;
+            to.y = 0f;
+            float dist = to.magnitude;
+            if (dist < 0.05f) continue;
+            enemy.ApplyDisplacement(to / dist * Mathf.Min(dist, pullStrength * Time.deltaTime));
+        }
+    }
+
     void Update()
     {
         transform.position += direction * (speed * Time.deltaTime);
 
         timeLeft -= Time.deltaTime;
         if (timeLeft <= 0f) { ObjectPool.Release(gameObject); return; }
+
+        if (pullRadius > 0f) PullEnemies();
 
         int n = Physics.OverlapSphereNonAlloc(transform.position, hitRadius, hits,
             TargetFinder.EnemyMask, QueryTriggerInteraction.Collide);
