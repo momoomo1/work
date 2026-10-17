@@ -46,6 +46,28 @@ public static class SetupSkills
         vacuum.prefab = suraPrefab; // 임시: 진공참 전용 비주얼 전까지 공용
         EditorUtility.SetDirty(vacuum);
 
+        var hell = LoadOrCreate("Assets/Data/Skills/Skill_Hellfire.asset");
+        hell.id = "hellfire";
+        hell.displayName = "헬파이어";
+        hell.description = "적이 가장 밀집한 곳에 경고 후 폭발을 일으킨다.";
+        hell.type = SkillType.Explosion;
+        hell.evolvesFrom = null;
+        float[] hd = { 30f, 40f, 50f, 65f, 80f };
+        float[] hc = { 4f, 3.8f, 3.5f, 3.2f, 3f };
+        int[] hn = { 1, 1, 2, 2, 3 };
+        float[] ha = { 3f, 3.5f, 3.5f, 4f, 4.5f };
+        hell.levels = new SkillLevelStat[5];
+        for (int i = 0; i < 5; i++)
+            hell.levels[i] = new SkillLevelStat
+            {
+                damage = hd[i], cooldown = hc[i], count = hn[i], area = ha[i],
+                speed = 0f, pierceCount = 0, duration = 0.3f, tickInterval = 0f
+            };
+        CreateHellfirePrefabs(out var boomPrefab, out var warnPrefab);
+        hell.prefab = boomPrefab;
+        hell.secondaryPrefab = warnPrefab;
+        EditorUtility.SetDirty(hell);
+
         // 플레이어에 SkillManager + 디버그 입력 부착
         var player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
@@ -56,9 +78,10 @@ public static class SetupSkills
 
             var so = new SerializedObject(mgr);
             var list = so.FindProperty("allSkills");
-            list.arraySize = 2;
+            list.arraySize = 3;
             list.GetArrayElementAtIndex(0).objectReferenceValue = sura;
             list.GetArrayElementAtIndex(1).objectReferenceValue = vacuum;
+            list.GetArrayElementAtIndex(2).objectReferenceValue = hell;
             so.ApplyModifiedProperties();
         }
 
@@ -96,6 +119,56 @@ public static class SetupSkills
         var prefab = PrefabUtility.SaveAsPrefabAsset(root, "Assets/Prefabs/Projectile_Sura.prefab");
         Object.DestroyImmediate(root);
         return prefab;
+    }
+
+    // 폭발(오렌지 Sphere, 커짐) + 경고 원(붉은 납작 원기둥, 고정). 둘 다 TimedScaleVfx.
+    static void CreateHellfirePrefabs(out GameObject boom, out GameObject warn)
+    {
+        var boomMat = LoadOrCreateMat("Assets/Materials/Hellfire_Boom.mat", "Universal Render Pipeline/Lit", new Color(1f, 0.5f, 0.1f, 0.7f));
+        var warnMat = LoadOrCreateMat("Assets/Materials/Hellfire_Warn.mat", "Universal Render Pipeline/Lit", new Color(1f, 0.1f, 0.1f, 0.4f));
+        MakeTransparent(boomMat);
+        MakeTransparent(warnMat);
+
+        var b = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        b.name = "Explosion_Hellfire";
+        Object.DestroyImmediate(b.GetComponent<SphereCollider>());
+        b.GetComponent<MeshRenderer>().sharedMaterial = boomMat;
+        b.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        SetVfx(b.AddComponent<TimedScaleVfx>(), true, false);
+        boom = PrefabUtility.SaveAsPrefabAsset(b, "Assets/Prefabs/Explosion_Hellfire.prefab");
+        Object.DestroyImmediate(b);
+
+        var w = GameObject.CreatePrimitive(PrimitiveType.Cylinder);
+        w.name = "Warning_Hellfire";
+        Object.DestroyImmediate(w.GetComponent<CapsuleCollider>());
+        w.transform.localScale = new Vector3(1f, 0.02f, 1f); // 납작하게
+        w.GetComponent<MeshRenderer>().sharedMaterial = warnMat;
+        w.GetComponent<MeshRenderer>().shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+        SetVfx(w.AddComponent<TimedScaleVfx>(), false, true);
+        warn = PrefabUtility.SaveAsPrefabAsset(w, "Assets/Prefabs/Warning_Hellfire.prefab");
+        Object.DestroyImmediate(w);
+    }
+
+    static void SetVfx(TimedScaleVfx vfx, bool grow, bool flat)
+    {
+        var so = new SerializedObject(vfx);
+        so.FindProperty("grow").boolValue = grow;
+        so.FindProperty("flat").boolValue = flat;
+        so.ApplyModifiedPropertiesWithoutUndo();
+    }
+
+    // URP Lit을 투명 모드로 전환
+    static void MakeTransparent(Material mat)
+    {
+        mat.SetFloat("_Surface", 1f);
+        mat.SetFloat("_Blend", 0f);
+        mat.SetFloat("_SrcBlend", (float)UnityEngine.Rendering.BlendMode.SrcAlpha);
+        mat.SetFloat("_DstBlend", (float)UnityEngine.Rendering.BlendMode.OneMinusSrcAlpha);
+        mat.SetFloat("_ZWrite", 0f);
+        mat.SetOverrideTag("RenderType", "Transparent");
+        mat.EnableKeyword("_SURFACE_TYPE_TRANSPARENT");
+        mat.renderQueue = (int)UnityEngine.Rendering.RenderQueue.Transparent;
+        EditorUtility.SetDirty(mat);
     }
 
     static Material LoadOrCreateMat(string path, string shader, Color color)

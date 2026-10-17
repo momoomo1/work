@@ -10,7 +10,7 @@ public class SkillManager : MonoBehaviour
     static readonly Dictionary<SkillType, Type> skillClasses = new Dictionary<SkillType, Type>
     {
         { SkillType.Projectile, typeof(ProjectileSkill) },
-        { SkillType.Explosion,  typeof(PlaceholderSkill) },
+        { SkillType.Explosion,  typeof(ExplosionSkill) },
         { SkillType.Orbit,      typeof(PlaceholderSkill) },
         { SkillType.Zone,       typeof(PlaceholderSkill) },
     };

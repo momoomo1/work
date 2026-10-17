@@ -9,6 +9,8 @@ public class SkillData : ScriptableObject
     public Sprite icon;
     public SkillType type;
     public GameObject prefab;
+    [Tooltip("보조 비주얼 (헬파이어의 경고 원 등). 파티클 등으로 교체 가능")]
+    public GameObject secondaryPrefab;
     public SkillLevelStat[] levels = new SkillLevelStat[1] { new SkillLevelStat() }; // levels[0] = 레벨 1
 
     [Header("진화")]

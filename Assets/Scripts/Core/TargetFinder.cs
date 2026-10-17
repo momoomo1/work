@@ -49,9 +49,28 @@ public static class TargetFinder
 
     // 반경 안에서 clusterRadius 이내 이웃이 가장 많은 지점(이웃들의 평균 위치). 적이 없으면 false.
     public static bool FindDensestPoint(Vector3 center, float radius, float clusterRadius, out Vector3 point)
+        => FindDensestPoint(center, radius, clusterRadius, null, 0f, out point);
+
+    // exclude의 각 지점에서 excludeRadius 이내의 적은 후보에서 제외 (여러 폭발을 서로 다른 곳에 두기 위함)
+    public static bool FindDensestPoint(Vector3 center, float radius, float clusterRadius,
+        List<Vector3> exclude, float excludeRadius, out Vector3 point)
     {
         int n = Physics.OverlapSphereNonAlloc(center, radius, buffer, EnemyMask, QueryTriggerInteraction.Collide);
         point = center;
+
+        if (exclude != null && exclude.Count > 0)
+        {
+            float exSqr = excludeRadius * excludeRadius;
+            int w = 0;
+            for (int i = 0; i < n; i++)
+            {
+                bool skip = false;
+                for (int e = 0; e < exclude.Count && !skip; e++)
+                    skip = Flat(buffer[i].transform.position - exclude[e]).sqrMagnitude <= exSqr;
+                if (!skip) buffer[w++] = buffer[i];
+            }
+            n = w;
+        }
         if (n == 0) return false;
 
         float clusterSqr = clusterRadius * clusterRadius;

@@ -18,46 +18,46 @@ MonoBehaviour:
     \uBC1C\uC0AC\uD55C\uB2E4."
   icon: {fileID: 0}
   type: 0
-  prefab: {fileID: 0}
+  prefab: {fileID: 6676461340365100548, guid: d95b5a09fceebdc4b9561c8ffbc63ab5, type: 3}
   levels:
-  - damage: 10
-    cooldown: 1.2
+  - damage: 12
+    cooldown: 1
     count: 1
-    area: 0.5
-    speed: 15
-    pierceCount: 1
-    duration: 1.5
-    tickInterval: 0
-  - damage: 15
-    cooldown: 1.1
-    count: 1
-    area: 0.5
-    speed: 15
+    area: 0.4
+    speed: 16
     pierceCount: 2
-    duration: 1.5
+    duration: 1.2
+    tickInterval: 0
+  - damage: 16
+    cooldown: 0.95
+    count: 1
+    area: 0.4
+    speed: 16
+    pierceCount: 3
+    duration: 1.2
     tickInterval: 0
   - damage: 20
-    cooldown: 1
+    cooldown: 0.9
     count: 2
-    area: 0.5
-    speed: 15
+    area: 0.4
+    speed: 16
     pierceCount: 3
-    duration: 1.5
+    duration: 1.2
     tickInterval: 0
   - damage: 25
-    cooldown: 0.90000004
+    cooldown: 0.8
     count: 2
-    area: 0.5
-    speed: 15
+    area: 0.4
+    speed: 16
     pierceCount: 4
-    duration: 1.5
+    duration: 1.2
     tickInterval: 0
-  - damage: 30
-    cooldown: 0.8000001
+  - damage: 32
+    cooldown: 0.7
     count: 3
-    area: 0.5
-    speed: 15
+    area: 0.4
+    speed: 16
     pierceCount: 5
-    duration: 1.5
+    duration: 1.2
     tickInterval: 0
   evolvesFrom: {fileID: 0}
