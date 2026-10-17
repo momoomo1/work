@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0de0000000000000000000000000034, type: 3}
+  m_Name: Boss_Basic
+  m_EditorClassIdentifier: Assembly-CSharp::BossData
+  displayName: Boss
+  prefab: {fileID: 5941825966784713292, guid: 4cde7ec6136f0814392c48025cfe8e1c, type: 3}
+  maxHealth: 1500
+  moveSpeed: 2.5
+  spawnRadius: 14
+  spawnY: 2.5
+  contactRange: 2.8
+  contactDamage: 15
+  contactInterval: 1
+  patternInterval: 4
+  chargeWarnTime: 1
+  chargeSpeed: 18
+  chargeDuration: 0.8
+  chargeDamage: 30
+  telegraphWidth: 3
+  projectilePrefab: {fileID: 2695544815835055331, guid: 698473f39a4d80c479e7a034df259155, type: 3}
+  projectileCount: 12
+  radialWindup: 0.6
+  projectileSpeed: 8
+  projectileDamage: 10
+  projectileLifetime: 4
+  expReward: 100
+  orbCount: 20
