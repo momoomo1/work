@@ -560,6 +560,9 @@ GameObject:
   - component: {fileID: 910000003}
   - component: {fileID: 910000004}
   - component: {fileID: 910000005}
+  - component: {fileID: 910000006}
+  - component: {fileID: 910000007}
+  - component: {fileID: 910000008}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -672,6 +675,49 @@ MonoBehaviour:
   rotateSpeed: 12
   gravity: -20
   cameraTransform: {fileID: 330585546}
+--- !u!114 &910000006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910000000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0de0000000000000000000000000002, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  maxHealth: 100
+  currentHealth: 100
+--- !u!114 &910000007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910000000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0de0000000000000000000000000003, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  health: {fileID: 910000006}
+  targetRenderer: {fileID: 910000003}
+  flashColor: {r: 1, g: 1, b: 1, a: 1}
+  duration: 0.1
+--- !u!114 &910000008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 910000000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0de0000000000000000000000000004, type: 3}
+  m_Name:
+  m_EditorClassIdentifier:
+  debugDamage: 10
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
