@@ -122,7 +122,7 @@ public static class SetupLevelUpUI
     }
 
     // 한글 표시를 위해 맑은 고딕으로 동적 TMP 폰트 에셋 생성
-    static TMP_FontAsset GetKoreanFont()
+    internal static TMP_FontAsset GetKoreanFont()
     {
         var existing = AssetDatabase.LoadAssetAtPath<TMP_FontAsset>(FontAssetPath);
         if (existing != null) return existing;
@@ -151,7 +151,7 @@ public static class SetupLevelUpUI
         return fa;
     }
 
-    static RectTransform MakeRect(string name, Transform parent, Vector2 aMin, Vector2 aMax, Vector2 pos, Vector2 size)
+    internal static RectTransform MakeRect(string name, Transform parent, Vector2 aMin, Vector2 aMax, Vector2 pos, Vector2 size)
     {
         var rt = new GameObject(name, typeof(RectTransform)).GetComponent<RectTransform>();
         if (parent != null) rt.SetParent(parent, false);
@@ -163,7 +163,7 @@ public static class SetupLevelUpUI
         return rt;
     }
 
-    static TMP_Text MakeText(string name, Transform parent, Vector2 aMin, Vector2 aMax, Vector2 pos, Vector2 size,
+    internal static TMP_Text MakeText(string name, Transform parent, Vector2 aMin, Vector2 aMax, Vector2 pos, Vector2 size,
         string text, float fontSize, Color color, TMP_FontAsset font)
     {
         var rt = MakeRect(name, parent, aMin, aMax, pos, size);

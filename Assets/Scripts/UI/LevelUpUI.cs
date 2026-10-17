@@ -59,6 +59,7 @@ public class LevelUpUI : MonoBehaviour
 
     void HandleLevelUp(int newLevel)
     {
+        if (GameManager.Instance.IsGameOver) return;
         pending++;
         if (!isOpen) ShowNext();
     }

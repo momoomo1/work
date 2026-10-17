@@ -25,9 +25,20 @@ public class GameManager : MonoBehaviour
     [SerializeField] BossData bossData;
 
     bool bossSpawned;
+    Health playerHealth;
 
     public int KillCount => killCount;
     public bool BossAlive { get; private set; }
+    public bool IsGameOver { get; private set; }
+    public float SurvivalTime { get; private set; } // 게임이 멈춰 있는 동안은 증가하지 않음
+
+    public event Action OnPlayerDied;
+
+    public static string FormatTime(float seconds)
+    {
+        int s = Mathf.FloorToInt(seconds);
+        return $"{s / 60:00}:{s % 60:00}";
+    }
 
     // 적 처치 시 발생 (처치된 적의 데이터 전달 → 경험치 등에 사용)
     public event Action<EnemyData> OnEnemyKilled;
@@ -41,6 +52,27 @@ public class GameManager : MonoBehaviour
     {
         if (instance != null && instance != this) { Destroy(gameObject); return; }
         instance = this;
+        Time.timeScale = 1f; // 씬 재로드 시 정지 상태가 남지 않게
+    }
+
+    void Start()
+    {
+        var player = PlayerLocator.Player;
+        if (player != null && player.TryGetComponent(out playerHealth)) playerHealth.OnDeath += HandlePlayerDied;
+    }
+
+    void Update()
+    {
+        if (!IsGameOver) SurvivalTime += Time.deltaTime;
+    }
+
+    void HandlePlayerDied()
+    {
+        if (IsGameOver) return;
+        IsGameOver = true;
+        Time.timeScale = 0f;
+        Debug.Log($"[GameOver] 생존 {FormatTime(SurvivalTime)}, 처치 {killCount}");
+        OnPlayerDied?.Invoke();
     }
 
     void OnEnable()
@@ -57,6 +89,7 @@ public class GameManager : MonoBehaviour
 
     void OnDestroy()
     {
+        if (playerHealth != null) playerHealth.OnDeath -= HandlePlayerDied;
         if (instance == this) instance = null;
     }
 

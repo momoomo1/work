@@ -42,6 +42,7 @@ public class Enemy : MonoBehaviour, IPoolable
 
     void OnDestroy()
     {
+        active.Remove(this); // 씬 재로드로 파괴될 때 정적 목록에 남지 않게
         if (health != null) health.OnDeath -= HandleDeath;
     }
 
