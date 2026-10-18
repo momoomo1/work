@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] AudioClip bgm;
     [SerializeField, Range(0f, 1f)] float bgmVolume = 0.35f;
     [SerializeField, Range(0f, 1f)] float sfxVolume = 1f;
+    [SerializeField, Range(0f, 1f)] float masterVolume = 0.5f; // 전체 볼륨 (BGM과 효과음 모두에 곱해짐)
     [SerializeField] int voiceCount = 8;
     [SerializeField] List<SfxEntry> sfx = new List<SfxEntry>();
 
@@ -43,7 +44,7 @@ public class AudioManager : MonoBehaviour
         bgmSource.loop = true;
         bgmSource.playOnAwake = false;
         bgmSource.spatialBlend = 0f;
-        bgmSource.volume = bgmVolume;
+        bgmSource.volume = bgmVolume * masterVolume;
 
         voices = new AudioSource[Mathf.Max(1, voiceCount)];
         for (int i = 0; i < voices.Length; i++)
@@ -125,6 +126,6 @@ public class AudioManager : MonoBehaviour
         var src = voices[nextVoice];
         nextVoice = (nextVoice + 1) % voices.Length;
         src.pitch = randomPitch ? UnityEngine.Random.Range(0.95f, 1.05f) : 1f;
-        src.PlayOneShot(clip, volume * sfxVolume);
+        src.PlayOneShot(clip, volume * sfxVolume * masterVolume);
     }
 }

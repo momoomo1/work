@@ -13,17 +13,31 @@ public static class SetupWeapons
     [MenuItem("Tools/Setup/Attach Weapons")]
     internal static void Attach()
     {
-        var player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
-        {
-            Undo.RegisterFullObjectHierarchyUndo(player, "Attach Player Weapon");
-            AttachTo(player, PlayerWeapon, 1f, new Vector3(0f, 0f, 0f), Vector3.zero);
-            EditorSceneManager.MarkSceneDirty(player.scene);
-        }
+        // 플레이어는 무기를 들지 않는다 (이미 붙어 있던 무기는 제거)
+        RemovePlayerWeapon();
+
         AttachToPrefab("Assets/Prefabs/Enemy_Basic.prefab", EnemyWeapon, 1f, new Vector3(0f, 0f, 0f), Vector3.zero);
         AttachToPrefab("Assets/Prefabs/Boss.prefab", BossWeapon, 1.8f, new Vector3(0f, 0f, 0f), Vector3.zero);
         AssetDatabase.SaveAssets();
-        Debug.Log("무기 장착 완료. 위치/방향이 어색하면 SetupWeapons.cs 상단 상수와 아래 값을 조정해서 다시 실행하세요. 플레이어는 씬 저장(Ctrl+S) 필요.");
+        Debug.Log("무기 장착 완료 (적, 보스). 위치/방향이 어색하면 SetupWeapons.cs 상단 상수와 아래 값을 조정해서 다시 실행하세요. 플레이어 무기를 제거했다면 씬 저장(Ctrl+S) 필요.");
+    }
+
+    [MenuItem("Tools/Setup/Remove Player Weapon")]
+    static void RemovePlayerWeapon()
+    {
+        var player = GameObject.FindGameObjectWithTag("Player");
+        if (player == null) return;
+
+        var visual = player.transform.Find("Visual");
+        var anim = visual != null ? visual.GetComponentInChildren<Animator>(true) : null;
+        if (anim == null || anim.avatar == null || !anim.avatar.isHuman) return;
+        var hand = anim.GetBoneTransform(HumanBodyBones.RightHand);
+        var weapon = hand != null ? hand.Find("Weapon") : null;
+        if (weapon == null) return;
+
+        Undo.DestroyObjectImmediate(weapon.gameObject);
+        EditorSceneManager.MarkSceneDirty(player.scene);
+        Debug.Log("플레이어 무기를 제거했습니다. 씬을 저장(Ctrl+S)하세요.");
     }
 
     static void AttachToPrefab(string path, string weaponPath, float scale, Vector3 euler, Vector3 offset)

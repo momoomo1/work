@@ -19,8 +19,8 @@ public class SetupVfxWindow : EditorWindow
     [SerializeField] GameObject frost;
     [SerializeField] float frostRefDiameter = 6f;
     [SerializeField] GameObject bladeModel;                 // 검 모델 (있으면 큐브 대신 사용)
-    [SerializeField] float bladeModelScale = 1f;
-    [SerializeField] Vector3 bladeModelEuler = new Vector3(90f, 0f, 0f); // 모델의 칼날 방향을 진행(접선) 방향(+Z)으로 눕힘
+    [SerializeField] float bladeModelScale = 1.8f;            // 칼날 모델의 목표 길이(유닛). 모델 크기에 상관없이 이 길이로 자동 조정
+    [SerializeField] Vector3 bladeModelEuler = Vector3.zero;  // 자동 정렬 후 추가로 돌릴 각도 (칼끝 방향이 반대일 때 Y 180 등)
     [SerializeField] GameObject bladeFx;
     [SerializeField] float bladeFxScale = 0.6f;
     [SerializeField] GameObject basicShot;
@@ -66,8 +66,7 @@ public class SetupVfxWindow : EditorWindow
         w.suraExtra = LoadAny(uni + "Razor Missile Teal.prefab");
         // 헬파이어(진화): 불 슬래시(메인) + 불꽃 돌진(겹침)
         w.vacuumExtra = LoadAny(uni + "Onslaught Fiery.prefab");
-        // 메테오: 불 폭발(메인) + 주황 폭발 파동(겹침)
-        w.hellfireExtra = LoadAny(uni + "Outburst Orange.prefab");
+        // 메테오: 폭발은 너무 커 보여서 UNI VFX를 겹치지 않고 작은 폭발 하나만 사용
         // 서리 구름: 얼음 마법진(메인) + 시안 폭발 파동(생성 시 한 번)
         w.frostExtra = LoadAny(uni + "Outburst Cyan.prefab");
         // 회전 칼날: 카타나 + 트레일 + 은색 오브 광채
@@ -82,8 +81,10 @@ public class SetupVfxWindow : EditorWindow
 
     void LoadPreset()
     {
-        // 메테오(폭발): 불 폭발
-        hellfire = Load("Explosions/CFXR3 Fire Explosion B.prefab");
+        // 메테오(폭발): 자연스러운 작은 폭발 (Particle Pack). 크기가 크면 원본 지름을 더 키우세요(값이 클수록 작아짐)
+        hellfire = LoadAny("Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire & Explosion Effects/Prefabs/SmallExplosion.prefab");
+        if (hellfire == null) hellfire = Load("Explosions/CFXR3 Fire Explosion B.prefab");
+        hellfireRefDiameter = 8f;
         // 서리 구름: 얼음 마법진 (Game VFX - MagicCircle)
         frost = LoadAny("Assets/Game VFX - MagicCircle/Prefabs/FX_MagicCircle_Icearrow.prefab");
         frostRefDiameter = 4f;
@@ -105,8 +106,9 @@ public class SetupVfxWindow : EditorWindow
         bossShot = Load("Fire/CFXR3 Hit Fire B (Air).prefab");
         enemyHit = LoadAny("Assets/Free Slash VFX/Prefabs/Impact.prefab");
         if (enemyHit == null) enemyHit = Load("Impacts/CFXR Hit A (Red).prefab");
-        enemyDeath = Load("Eerie/CFXR2 WW Enemy Explosion.prefab");
-        bossDeath = Load("Explosions/CFXR2 WW Explosion.prefab");
+        // 사망: 폭발 대신 부드러운 연기 퍼프
+        enemyDeath = Load("Misc/CFXR Magic Poof.prefab");
+        bossDeath = enemyDeath;
         playerHit = Load("Impacts/CFXR Hit D 3D (Yellow).prefab");
     }
 
@@ -192,8 +194,8 @@ public class SetupVfxWindow : EditorWindow
         var bDeath = bossDeath != null ? MakePooled("Fx_BossDeath", bossDeath, hitRefDiameter, 3f) : eDeath;
         var pHit = playerHit != null ? MakePooled("Fx_PlayerHit", playerHit, hitRefDiameter, 1.5f) : eHit;
 
-        WirePrefab("Assets/Prefabs/Enemy_Basic.prefab", eHit, eDeath, 2f, 1f, Sfx.EnemyHit, Sfx.EnemyDeath);
-        WirePrefab("Assets/Prefabs/Boss.prefab", eHit, bDeath, 5f, 2.5f, Sfx.EnemyHit, Sfx.EnemyDeath);
+        WirePrefab("Assets/Prefabs/Enemy_Basic.prefab", eHit, eDeath, 1.5f, 1f, Sfx.EnemyHit, Sfx.EnemyDeath);
+        WirePrefab("Assets/Prefabs/Boss.prefab", eHit, bDeath, 4f, 2.5f, Sfx.EnemyHit, Sfx.EnemyDeath);
 
         var player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
@@ -230,6 +232,33 @@ public class SetupVfxWindow : EditorWindow
         return Save(root, name);
     }
 
+    // 모델을 루트(원점) 기준으로 정렬: 가장 긴 축 → +Z(진행 방향), 길이를 targetLength로, 중심을 원점으로
+    static void AlignModel(Transform model, float targetLength, Vector3 extraEuler)
+    {
+        var rs = model.GetComponentsInChildren<Renderer>();
+        if (rs.Length == 0) return;
+
+        Bounds Measure()
+        {
+            var b = rs[0].bounds;
+            foreach (var r in rs) b.Encapsulate(r.bounds);
+            return b;
+        }
+
+        var size = Measure().size;
+        Quaternion align = Quaternion.identity;
+        if (size.y >= size.x && size.y >= size.z) align = Quaternion.Euler(90f, 0f, 0f);   // 세로로 긴 검 → 눕힘
+        else if (size.x >= size.z) align = Quaternion.Euler(0f, 90f, 0f);                    // 가로로 긴 검 → 앞쪽으로
+        model.localRotation = Quaternion.Euler(extraEuler) * align;
+
+        var b2 = Measure();
+        float longest = Mathf.Max(b2.size.x, b2.size.y, b2.size.z);
+        if (longest > 0.0001f) model.localScale = Vector3.one * (targetLength / longest);
+
+        var b3 = Measure();
+        model.position -= b3.center; // 루트가 원점이라 월드 중심 = 루트 기준 중심
+    }
+
     // 회전 칼날: 은색 납작 큐브 + 밝은 트레일 + 빛 이펙트 (루트에 OrbitBlade)
     GameObject MakeBlade()
     {
@@ -253,18 +282,23 @@ public class SetupVfxWindow : EditorWindow
             var model = (GameObject)PrefabUtility.InstantiatePrefab(bladeModel, root.transform);
             model.name = "Model";
             model.transform.localPosition = Vector3.zero;
-            model.transform.localRotation = Quaternion.Euler(bladeModelEuler);
-            model.transform.localScale = Vector3.one * bladeModelScale;
+            model.transform.localRotation = Quaternion.identity;
+            model.transform.localScale = Vector3.one;
             foreach (var c in model.GetComponentsInChildren<Collider>(true)) Object.DestroyImmediate(c);
 
-            // 에셋의 무기 컨트롤러는 인챈트(빛) 메시를 시작할 때 숨기므로 항상 보이게 설정
-            var ctrl = model.GetComponentInChildren<EasyWeapon.weaponControllerAA>(true);
-            if (ctrl != null)
+            // 모델의 가장 긴 축을 진행 방향(+Z)에 맞추고, 목표 길이로 스케일하고, 중심을 루트(이펙트 위치)에 맞춘다
+            // → 이펙트와 무기가 같은 위치에서 같이 움직인다
+            AlignModel(model.transform, bladeModelScale, bladeModelEuler);
+
+            // 에셋의 무기 컨트롤러는 인챈트(빛) 메시를 시작할 때 숨기므로 항상 보이게 설정(Easy Weapons 모델용)
+            var ctrl0 = model.GetComponentInChildren<EasyWeapon.weaponControllerAA>(true);
+            if (ctrl0 != null)
             {
-                var cso = new SerializedObject(ctrl);
-                cso.FindProperty("enchantAlwaysVisable").boolValue = true;
-                cso.ApplyModifiedPropertiesWithoutUndo();
+                var cso0 = new SerializedObject(ctrl0);
+                cso0.FindProperty("enchantAlwaysVisable").boolValue = true;
+                cso0.ApplyModifiedPropertiesWithoutUndo();
             }
+
         }
         else
         {
@@ -277,8 +311,8 @@ public class SetupVfxWindow : EditorWindow
         }
 
         var trail = root.AddComponent<TrailRenderer>();
-        trail.time = 0.35f;
-        trail.startWidth = 0.7f;
+        trail.time = 0.3f;
+        trail.startWidth = 0.4f;
         trail.endWidth = 0f;
         trail.startColor = trailColor;
         trail.endColor = new Color(trailColor.r, trailColor.g, trailColor.b, 0f);
