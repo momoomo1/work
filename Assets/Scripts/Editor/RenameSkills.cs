@@ -5,7 +5,7 @@ using UnityEngine;
 public static class RenameSkills
 {
     [MenuItem("Tools/Setup/Rename Skills (Hellfire / Meteor)")]
-    static void Rename()
+    internal static void Rename()
     {
         Set("Vacuum", "헬파이어", "수라참의 강화형. 거대한 불덩이가 적을 끌어당기며 관통한다.");
         Set("Hellfire", "메테오", "적이 가장 밀집한 곳에 경고 후 폭발을 일으킨다.");

@@ -42,6 +42,46 @@ public class SetupMapWindow : EditorWindow
         if (GUILayout.Button("Build")) Build();
     }
 
+    // Factory_LP 바닥 타일로 아레나를 깔고, 경계 바깥에 공장 소품(탱크, 창고, 정제탑, 나무)을 둘러 배경으로 삼는다.
+    [MenuItem("Tools/Setup/Build Factory Arena (Factory_LP Preset)")]
+    internal static void BuildFactoryPreset()
+    {
+        const string root = "Assets/Factory_LP/Prefabs/";
+        var w = CreateInstance<SetupMapWindow>();
+        w.floorPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(root + "SM_Factory_Ground_01.prefab");
+        if (w.floorPrefab == null) { Debug.LogWarning("SM_Factory_Ground_01 프리팹을 찾지 못했습니다."); DestroyImmediate(w); return; }
+        w.Build();
+
+        var props = new[]
+        {
+            "SM_Factory_Tank_01", "SM_Factory_Warehouse_02", "SM_Factory_Cooling_tower", "SM_Factory_Refinery_01",
+            "SM_Factory_Tree_01", "SM_Factory_Horizontal_tank_01", "SM_Factory_Warehouse_04", "SM_Factory_Tree_03",
+            "SM_Factory_Smoke_pipe_01", "SM_Factory_Storage_room", "SM_Factory_Tree_05", "SM_Factory_Refinery_02",
+        };
+        var parent = new GameObject("FactoryProps").transform;
+        Undo.RegisterCreatedObjectUndo(parent.gameObject, "Factory Props");
+
+        float ring = w.arenaSize * 0.5f + 12f; // 경계 바깥
+        float step = 18f;
+        int idx = 0;
+        for (float p = -ring; p <= ring; p += step)
+        {
+            Prop(parent, root, props[idx++ % props.Length], new Vector3(p, w.floorY, ring), 180f);
+            Prop(parent, root, props[idx++ % props.Length], new Vector3(p, w.floorY, -ring), 0f);
+            Prop(parent, root, props[idx++ % props.Length], new Vector3(ring, w.floorY, p), -90f);
+            Prop(parent, root, props[idx++ % props.Length], new Vector3(-ring, w.floorY, p), 90f);
+        }
+        DestroyImmediate(w);
+        Debug.Log("공장 아레나 생성 완료. 소품이 너무 크거나 작으면 FactoryProps의 스케일/위치를 조정하세요.");
+    }
+
+    static void Prop(Transform parent, string root, string name, Vector3 pos, float yaw)
+    {
+        var prefab = AssetDatabase.LoadAssetAtPath<GameObject>($"{root}{name}.prefab");
+        if (prefab == null) return;
+        Place(prefab, parent, pos, Quaternion.Euler(0f, yaw, 0f));
+    }
+
     void Build()
     {
         var old = GameObject.Find("DungeonMap");
@@ -63,7 +103,7 @@ public class SetupMapWindow : EditorWindow
             floors.SetParent(root.transform, false);
             for (int x = 0; x < n; x++)
                 for (int z = 0; z < n; z++)
-                    Place(floorPrefab, floors, new Vector3(start + x * tile, floorY, start + z * tile), Quaternion.identity);
+                    PlaceFloor(floorPrefab, floors, new Vector3(start + x * tile, floorY, start + z * tile));
 
             if (wallPrefab != null) BuildWalls(root.transform, n * tile * 0.5f + wallOffset, tile);
         }
@@ -119,6 +159,18 @@ public class SetupMapWindow : EditorWindow
         go.transform.SetParent(parent, false);
         go.transform.localPosition = pos;
         go.AddComponent<BoxCollider>().size = size;
+    }
+
+    // 피벗 위치와 상관없이 타일의 가로 중심을 target에, 윗면을 target.y에 맞춘다
+    static void PlaceFloor(GameObject prefab, Transform parent, Vector3 target)
+    {
+        var obj = (GameObject)PrefabUtility.InstantiatePrefab(prefab, parent);
+        obj.transform.position = target;
+        var rs = obj.GetComponentsInChildren<Renderer>();
+        if (rs.Length == 0) return;
+        var b = rs[0].bounds;
+        foreach (var r in rs) b.Encapsulate(r.bounds);
+        obj.transform.position += new Vector3(target.x - b.center.x, target.y - b.max.y, target.z - b.center.z);
     }
 
     static void Place(GameObject prefab, Transform parent, Vector3 pos, Quaternion rot)

@@ -31,7 +31,7 @@ public static class SetupAudio
     };
 
     [MenuItem("Tools/Setup/Create AudioManager")]
-    static void Create()
+    internal static void Create()
     {
         var mgr = UnityEngine.Object.FindFirstObjectByType<AudioManager>();
         if (mgr == null)

@@ -5,6 +5,15 @@ using UnityEngine;
 // 풀 호환 래퍼 프리팹(Assets/Prefabs/Fx_*.prefab)을 만들어 스킬/피격/사망에 연결한다.
 public class SetupVfxWindow : EditorWindow
 {
+    // 메인 이펙트 위에 겹쳐 얹는 추가 이펙트 (예: Cartoon FX 슬래시 + UNI VFX 미사일)
+    [SerializeField] GameObject hellfireExtra;
+    [SerializeField] GameObject frostExtra;
+    [SerializeField] GameObject suraExtra;
+    [SerializeField] GameObject vacuumExtra;
+    [SerializeField] GameObject bladeExtra;
+    [SerializeField] float extraScale = 1f;
+    [SerializeField] float bladeExtraScale = 0.4f;
+
     [SerializeField] GameObject hellfire;
     [SerializeField] float hellfireRefDiameter = 6f;
     [SerializeField] GameObject frost;
@@ -22,6 +31,7 @@ public class SetupVfxWindow : EditorWindow
     [SerializeField] float vacuumScale = 2f;
     [SerializeField] GameObject bossShot;
     [SerializeField] float bossShotScale = 0.6f;
+    [SerializeField] bool suraCore = false; // 수라참에 밝은 큐브+트레일을 추가 (이펙트가 안 보일 때)
     [SerializeField] GameObject enemyHit;
     [SerializeField] GameObject enemyDeath;
     [SerializeField] GameObject bossDeath;
@@ -43,28 +53,68 @@ public class SetupVfxWindow : EditorWindow
         DestroyImmediate(w);
     }
 
+    // 전체 조합: Cartoon FX + Free Slash VFX 기본 위에 UNI VFX(VFX Graph)를 겹쳐 얹는다.
+    // com.unity.visualeffectgraph 패키지가 필요하다.
+    [MenuItem("Tools/Setup/Apply Full VFX Preset (all skills + UNI VFX)")]
+    internal static void ApplyUniPreset()
+    {
+        const string uni = "Assets/UNI VFX/Missiles & Explosions/Prefabs/";
+        var w = CreateInstance<SetupVfxWindow>();
+        w.LoadPreset();
+
+        // 수라참: 물 슬래시(메인) + 청록 레이저 미사일(겹침)
+        w.suraExtra = LoadAny(uni + "Razor Missile Teal.prefab");
+        // 헬파이어(진화): 불 슬래시(메인) + 불꽃 돌진(겹침)
+        w.vacuumExtra = LoadAny(uni + "Onslaught Fiery.prefab");
+        // 메테오: 불 폭발(메인) + 주황 폭발 파동(겹침)
+        w.hellfireExtra = LoadAny(uni + "Outburst Orange.prefab");
+        // 서리 구름: 얼음 마법진(메인) + 시안 폭발 파동(생성 시 한 번)
+        w.frostExtra = LoadAny(uni + "Outburst Cyan.prefab");
+        // 회전 칼날: 카타나 + 트레일 + 은색 오브 광채
+        w.bladeExtra = LoadAny(uni + "Orb Silver.prefab");
+        // 보스 투사체: 보라 오브
+        var orb = LoadAny(uni + "Orb Violet.prefab");
+        if (orb != null) { w.bossShot = orb; w.bossShotScale = 0.6f; }
+
+        w.Apply();
+        DestroyImmediate(w);
+    }
+
     void LoadPreset()
     {
+        // 메테오(폭발): 불 폭발
         hellfire = Load("Explosions/CFXR3 Fire Explosion B.prefab");
-        frost = Load("Ice/CFXR3 Hit Ice B (Air).prefab");
-        frostRefDiameter = 3f;
+        // 서리 구름: 얼음 마법진 (Game VFX - MagicCircle)
+        frost = LoadAny("Assets/Game VFX - MagicCircle/Prefabs/FX_MagicCircle_Icearrow.prefab");
+        frostRefDiameter = 4f;
+        // 기본 공격: 작은 빛 덩어리
         basicShot = Load("Light/CFXR3 LightGlow A (Loop).prefab");
         basicShotScale = 0.5f;
+        // 회전 칼날: 카타나 모델 + 트레일 + 빛 (카타나가 없으면 Easy Weapons 검, 그것도 없으면 큐브)
         bladeFx = basicShot;
         bladeFxScale = 0.6f;
-        bladeModel = AssetDatabase.LoadAssetAtPath<GameObject>(
-            "Assets/Kendall H/Easy Weapons/Prefabs/Regular_Enchanted/sword.RegColor.WithEnch.0.6.prefab"); // 없으면 큐브 사용
-        sura = Load("Sword Trails/Plain/CFXR4 Sword Trail PLAIN (360 Thin Spiral).prefab");
+        bladeModel = LoadAny("Assets/Free Slash VFX/Model/Katana/Low-Poly Katana.prefab");
+        if (bladeModel == null)
+            bladeModel = LoadAny("Assets/Kendall H/Easy Weapons/Prefabs/Regular_Enchanted/sword.RegColor.WithEnch.0.6.prefab");
+        // 수라참: 물(청색) 슬래시 투사체 / 헬파이어(진화): 불 슬래시 투사체 (Free Slash VFX)
+        sura = LoadAny("Assets/Free Slash VFX/Prefabs/Projectiles/Slash Projectile VFX Water.prefab");
         suraScale = 1f;
-        vacuum = AssetDatabase.LoadAssetAtPath<GameObject>(
-            "Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire & Explosion Effects/Prefabs/FireBall.prefab");
-        if (vacuum == null) Debug.LogWarning("Particle Pack의 FireBall을 찾지 못했습니다.");
-        vacuumScale = 2f;
+        suraCore = false;
+        vacuum = LoadAny("Assets/Free Slash VFX/Prefabs/Projectiles/Slash Projectile VFX Fire.prefab");
+        vacuumScale = 1.6f;
         bossShot = Load("Fire/CFXR3 Hit Fire B (Air).prefab");
-        enemyHit = Load("Impacts/CFXR Hit A (Red).prefab");
+        enemyHit = LoadAny("Assets/Free Slash VFX/Prefabs/Impact.prefab");
+        if (enemyHit == null) enemyHit = Load("Impacts/CFXR Hit A (Red).prefab");
         enemyDeath = Load("Eerie/CFXR2 WW Enemy Explosion.prefab");
         bossDeath = Load("Explosions/CFXR2 WW Explosion.prefab");
         playerHit = Load("Impacts/CFXR Hit D 3D (Yellow).prefab");
+    }
+
+    static GameObject LoadAny(string path)
+    {
+        var go = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+        if (go == null) Debug.LogWarning($"프리셋 에셋을 찾지 못했습니다: {path}");
+        return go;
     }
 
     static GameObject Load(string relative)
@@ -110,7 +160,7 @@ public class SetupVfxWindow : EditorWindow
     void Apply()
     {
         // 스킬 비주얼
-        if (hellfire != null) SetSkill("Hellfire", MakePooled("Fx_Hellfire", hellfire, hellfireRefDiameter, 2f));
+        if (hellfire != null) SetSkill("Hellfire", MakePooled("Fx_Hellfire", hellfire, hellfireRefDiameter, 2f, hellfireExtra, extraScale));
         if (frost != null) SetSkill("Frost", MakeFrost());
         if (bladeFx != null || bladeModel != null) SetSkill("Blade", MakeBlade());
         if (basicShot != null)
@@ -126,8 +176,8 @@ public class SetupVfxWindow : EditorWindow
             }
             else Debug.LogWarning("Player의 PlayerAttack을 찾지 못해 기본 공격 투사체는 연결하지 못했습니다.");
         }
-        if (sura != null) SetSkill("Sura", MakeProjectile("Fx_Sura", sura, suraScale, true));
-        if (vacuum != null) SetSkill("Vacuum", MakeProjectile("Fx_Vacuum", vacuum, vacuumScale));
+        if (sura != null) SetSkill("Sura", MakeProjectile("Fx_Sura", sura, suraScale, suraCore, suraExtra, extraScale));
+        if (vacuum != null) SetSkill("Vacuum", MakeProjectile("Fx_Vacuum", vacuum, vacuumScale, false, vacuumExtra, extraScale * vacuumScale));
 
         if (bossShot != null)
         {
@@ -167,7 +217,7 @@ public class SetupVfxWindow : EditorWindow
     }
 
     // 폭발/히트 등 1회성 이펙트: 루트에 PooledVfx
-    static GameObject MakePooled(string name, GameObject fx, float refDiameter, float lifetime)
+    static GameObject MakePooled(string name, GameObject fx, float refDiameter, float lifetime, GameObject extra = null, float extraScale = 1f)
     {
         var root = new GameObject(name);
         var vfx = root.AddComponent<PooledVfx>();
@@ -176,6 +226,7 @@ public class SetupVfxWindow : EditorWindow
         so.FindProperty("lifetime").floatValue = lifetime;
         so.ApplyModifiedPropertiesWithoutUndo();
         Attach(root, fx, 1f);
+        if (extra != null) Attach(root, extra, extraScale);
         return Save(root, name);
     }
 
@@ -234,15 +285,17 @@ public class SetupVfxWindow : EditorWindow
         trail.sharedMaterial = trailMat;
 
         if (bladeFx != null) Attach(root, bladeFx, bladeFxScale);
+        if (bladeExtra != null) Attach(root, bladeExtra, bladeExtraScale);
         return Save(root, "Fx_Blade");
     }
 
     // addCore: 이펙트가 잘 안 보일 때를 대비해 밝은 큐브 + 트레일(기존 임시 비주얼)을 함께 둔다
-    static GameObject MakeProjectile(string name, GameObject fx, float scale, bool addCore = false)
+    static GameObject MakeProjectile(string name, GameObject fx, float scale, bool addCore = false, GameObject extra = null, float extraScale = 1f)
     {
         var root = new GameObject(name);
         root.AddComponent<Projectile>();
         Attach(root, fx, scale);
+        if (extra != null) Attach(root, extra, extraScale);
 
         if (addCore)
         {
@@ -295,6 +348,7 @@ public class SetupVfxWindow : EditorWindow
         var fxGo = new GameObject("FxRoot");
         fxGo.transform.SetParent(root.transform, false);
         Attach(fxGo, frost, 1f);
+        if (frostExtra != null) Attach(fxGo, frostExtra, extraScale);
 
         var so = new SerializedObject(zone);
         so.FindProperty("disc").objectReferenceValue = disc.transform;

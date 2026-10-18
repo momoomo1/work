@@ -8,21 +8,30 @@ public class PooledVfx : MonoBehaviour, IPoolable, IVfx
     [SerializeField] bool forceOneShot = true;     // 루핑 파티클을 1회 재생으로 변경
 
     ParticleSystem[] systems;
+    Component[] graphEffects; // VFX Graph 이펙트
     Vector3 baseScale;
     float timeLeft;
     bool playing;
 
-    // Cartoon FX의 CFXR_Effect는 재생이 끝나면 스스로 Destroy/Disable하므로 풀링과 충돌 → 제거
+    // 이펙트 에셋이 자체적으로 오브젝트를 파괴/이동시키는 스크립트는 풀링·투사체 로직과 충돌 → 제거
+    //  - Cartoon FX의 CFXR_Effect (재생 후 Destroy/Disable)
+    //  - Free Slash VFX 데모의 Projectile 등 (MaykerStudio.Demo 네임스페이스, 스스로 이동)
     public static void StripAutoClear(GameObject root)
     {
         foreach (var mb in root.GetComponentsInChildren<MonoBehaviour>(true))
-            if (mb != null && mb.GetType().Name == "CFXR_Effect") Destroy(mb);
+        {
+            if (mb == null) continue;
+            var type = mb.GetType();
+            if (type.Name == "CFXR_Effect" || (type.Namespace != null && type.Namespace.StartsWith("MaykerStudio.Demo")))
+                Destroy(mb);
+        }
     }
 
     void Awake()
     {
         StripAutoClear(gameObject);
         systems = GetComponentsInChildren<ParticleSystem>(true);
+        graphEffects = VisualEffectUtil.GetAll(gameObject);
         baseScale = transform.localScale;
         // 부모 스케일이 파티클 크기에도 적용되도록
         foreach (var ps in systems)
@@ -49,6 +58,7 @@ public class PooledVfx : MonoBehaviour, IPoolable, IVfx
             ps.Clear(true);
             ps.Play(true);
         }
+        VisualEffectUtil.Restart(graphEffects);
     }
 
     public void OnSpawn() { playing = false; }

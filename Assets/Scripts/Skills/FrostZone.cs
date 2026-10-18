@@ -9,6 +9,7 @@ public class FrostZone : MonoBehaviour, IPoolable
     [SerializeField] float fxReferenceDiameter = 6f;
 
     ParticleSystem[] systems;
+    Component[] graphEffects;
     float baseY;
     float radius;
     float damage;
@@ -27,6 +28,7 @@ public class FrostZone : MonoBehaviour, IPoolable
 
         PooledVfx.StripAutoClear(gameObject);
         systems = GetComponentsInChildren<ParticleSystem>(true);
+        graphEffects = VisualEffectUtil.GetAll(gameObject);
         foreach (var ps in systems)
         {
             var main = ps.main;
@@ -55,6 +57,7 @@ public class FrostZone : MonoBehaviour, IPoolable
             ps.Clear(true);
             ps.Play(true);
         }
+        VisualEffectUtil.Restart(graphEffects);
         active = true;
     }
 

@@ -13,6 +13,8 @@ public class Projectile : MonoBehaviour, IPoolable
     readonly Collider[] hits = new Collider[48];
     TrailRenderer trail;
     bool sanitized;
+    ParticleSystem[] particles;
+    Component[] graphEffects;
     float pullRadius;
     float pullStrength;
     Vector3 direction = Vector3.forward;
@@ -45,6 +47,15 @@ public class Projectile : MonoBehaviour, IPoolable
         pullRadius = 0f;
         pullStrength = 0f;
         if (!sanitized) { PooledVfx.StripAutoClear(gameObject); sanitized = true; } // 이펙트 에셋의 자동 파괴 방지
+        if (graphEffects == null) graphEffects = VisualEffectUtil.GetAll(gameObject);
+        VisualEffectUtil.Restart(graphEffects); // VFX Graph 이펙트 재생
+        if (particles == null) particles = GetComponentsInChildren<ParticleSystem>(true);
+        foreach (var ps in particles)
+        {
+            if (ps == null) continue;
+            ps.Clear(true);
+            ps.Play(true); // playOnAwake가 꺼진 이펙트도 재생되게
+        }
         if (trail == null) trail = GetComponentInChildren<TrailRenderer>(true);
         if (trail != null) trail.Clear(); // 풀 재사용 시 이전 위치에서 이어지는 꼬리 방지
         hitIds.Clear(); // 풀 재사용 시 이전 적중 기록 제거
