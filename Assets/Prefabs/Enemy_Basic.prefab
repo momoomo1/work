@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7623791732402666836}
   - component: {fileID: 6414065283352092945}
   - component: {fileID: 5488262046558283527}
+  - component: {fileID: 7636868989349719867}
   m_Layer: 8
   m_Name: Enemy_Basic
   m_TagString: Untagged
@@ -105,6 +106,24 @@ MonoBehaviour:
   attackRange: 1.6
   attackCooldown: 1
   playDeath: 0
+--- !u!114 &7636868989349719867
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4378532399167756317}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0de0000000000000000000000000045, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFeedback
+  hitVfx: {fileID: 363171300616561230, guid: 3945d7c9ad853a04a8b6d82bfb822462, type: 3}
+  deathVfx: {fileID: 3139119062336181247, guid: d7a3e8a4326fcfc4893aa3778b1a9f10, type: 3}
+  vfxDiameter: 2
+  vfxHeight: 1
+  hitSfx: 4
+  deathSfx: 5
 --- !u!1001 &5697236085178308743
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -407,14 +426,7 @@ PrefabInstance:
       objectReference: {fileID: 9100000, guid: 4502ae61db40d904b83ee8507dd4f36c, type: 2}
     - target: {fileID: 5866666021909216657, guid: 5c27b9b75f3242b4f94b9efc647c18ac, type: 3}
       propertyPath: m_WarningMessage
-      value: "\nBinding warning: Some generic clip(s) animate transforms that are
-        already bound by a Humanoid avatar. These transforms can only be changed
-        by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
-        'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
-        'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
-        'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:LeftHandThumb3'\n\tTransform
-        'mixamorig:RightArm'\n\tand more ...\n\tFrom animation clip 'mixamo.com'\n\tFrom
-        animation clip 'mixamo.com'\n\tFrom animation clip 'mixamo.com'"
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 5866666021909216657, guid: 5c27b9b75f3242b4f94b9efc647c18ac, type: 3}
       propertyPath: m_ApplyRootMotion

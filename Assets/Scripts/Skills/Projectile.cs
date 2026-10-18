@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour, IPoolable
     readonly HashSet<int> hitIds = new HashSet<int>();
     readonly Collider[] hits = new Collider[48];
     TrailRenderer trail;
+    bool sanitized;
     float pullRadius;
     float pullStrength;
     Vector3 direction = Vector3.forward;
@@ -43,6 +44,7 @@ public class Projectile : MonoBehaviour, IPoolable
     {
         pullRadius = 0f;
         pullStrength = 0f;
+        if (!sanitized) { PooledVfx.StripAutoClear(gameObject); sanitized = true; } // 이펙트 에셋의 자동 파괴 방지
         if (trail == null) trail = GetComponentInChildren<TrailRenderer>(true);
         if (trail != null) trail.Clear(); // 풀 재사용 시 이전 위치에서 이어지는 꼬리 방지
         hitIds.Clear(); // 풀 재사용 시 이전 적중 기록 제거

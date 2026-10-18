@@ -18,7 +18,12 @@ public class EnemyProjectile : MonoBehaviour, IPoolable
         timeLeft = lifetime;
     }
 
-    public void OnSpawn() { }
+    bool sanitized;
+
+    public void OnSpawn()
+    {
+        if (!sanitized) { PooledVfx.StripAutoClear(gameObject); sanitized = true; } // 이펙트 에셋의 자동 파괴 방지
+    }
     public void OnDespawn() { }
 
     void Update()

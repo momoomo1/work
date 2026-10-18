@@ -25,6 +25,7 @@ public class FrostZone : MonoBehaviour, IPoolable
         if (disc == null) disc = transform;
         baseY = disc.localScale.y;
 
+        PooledVfx.StripAutoClear(gameObject);
         systems = GetComponentsInChildren<ParticleSystem>(true);
         foreach (var ps in systems)
         {
@@ -46,7 +47,14 @@ public class FrostZone : MonoBehaviour, IPoolable
 
         disc.localScale = new Vector3(radius * 2f, baseY, radius * 2f);
         if (fxRoot != null) fxRoot.localScale = Vector3.one * (radius * 2f / Mathf.Max(0.01f, fxReferenceDiameter));
-        foreach (var ps in systems) { ps.Clear(true); ps.Play(true); }
+        foreach (var ps in systems)
+        {
+            if (ps == null) continue;
+            var main = ps.main;
+            main.stopAction = ParticleSystemStopAction.None;
+            ps.Clear(true);
+            ps.Play(true);
+        }
         active = true;
     }
 

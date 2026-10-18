@@ -19,6 +19,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   type: 0
   prefab: {fileID: 6740702439862557898, guid: f285dcd7b3b292c4b91611d4b78eb592, type: 3}
+  castSfx: {fileID: 8300000, guid: 8b417f5a30d4cb046b983e95379119b9, type: 3}
   secondaryPrefab: {fileID: 0}
   levels:
   - damage: 40

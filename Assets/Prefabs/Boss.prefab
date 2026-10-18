@@ -103,6 +103,7 @@ GameObject:
   - component: {fileID: 4220653915482237309}
   - component: {fileID: 5944952812574618451}
   - component: {fileID: 4289485196659018126}
+  - component: {fileID: 8805824092131613188}
   m_Layer: 8
   m_Name: Boss
   m_TagString: Untagged
@@ -194,6 +195,24 @@ MonoBehaviour:
   attackRange: 3.2
   attackCooldown: 1
   playDeath: 0
+--- !u!114 &8805824092131613188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5941825966784713292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0de0000000000000000000000000045, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::HitFeedback
+  hitVfx: {fileID: 363171300616561230, guid: 3945d7c9ad853a04a8b6d82bfb822462, type: 3}
+  deathVfx: {fileID: 7774330227214182677, guid: 439f2f9554ebd2e4bb13466aa551cd5e, type: 3}
+  vfxDiameter: 5
+  vfxHeight: 2.5
+  hitSfx: 4
+  deathSfx: 5
 --- !u!1001 &905632542015764693
 PrefabInstance:
   m_ObjectHideFlags: 0

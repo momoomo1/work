@@ -12,8 +12,16 @@ public class PooledVfx : MonoBehaviour, IPoolable, IVfx
     float timeLeft;
     bool playing;
 
+    // Cartoon FX의 CFXR_Effect는 재생이 끝나면 스스로 Destroy/Disable하므로 풀링과 충돌 → 제거
+    public static void StripAutoClear(GameObject root)
+    {
+        foreach (var mb in root.GetComponentsInChildren<MonoBehaviour>(true))
+            if (mb != null && mb.GetType().Name == "CFXR_Effect") Destroy(mb);
+    }
+
     void Awake()
     {
+        StripAutoClear(gameObject);
         systems = GetComponentsInChildren<ParticleSystem>(true);
         baseScale = transform.localScale;
         // 부모 스케일이 파티클 크기에도 적용되도록
@@ -34,11 +42,10 @@ public class PooledVfx : MonoBehaviour, IPoolable, IVfx
 
         foreach (var ps in systems)
         {
-            if (forceOneShot)
-            {
-                var main = ps.main;
-                main.loop = false;
-            }
+            if (ps == null) continue;
+            var main = ps.main;
+            main.stopAction = ParticleSystemStopAction.None;
+            if (forceOneShot) main.loop = false;
             ps.Clear(true);
             ps.Play(true);
         }
