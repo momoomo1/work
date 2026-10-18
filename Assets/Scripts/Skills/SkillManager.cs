@@ -13,6 +13,7 @@ public class SkillManager : MonoBehaviour
         { SkillType.Explosion,  typeof(ExplosionSkill) },
         { SkillType.Orbit,      typeof(OrbitSkill) },
         { SkillType.Zone,       typeof(ZoneSkill) },
+        { SkillType.Passive,    typeof(PassiveSkill) },
     };
 
     // 같은 종류 안에서 특별한 동작이 필요한 스킬(진화 스킬 등)은 id로 클래스를 덮어씀

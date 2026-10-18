@@ -11,4 +11,5 @@ public class SkillLevelStat
     public int pierceCount = 0;
     public float duration = 1f;    // 지속시간
     public float tickInterval = 0.5f; // 장판 등 틱 간격
+    public float value;               // 패시브 수치 (예: 최대 체력 증가량)
 }
