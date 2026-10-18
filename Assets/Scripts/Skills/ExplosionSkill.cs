@@ -28,7 +28,7 @@ public class ExplosionSkill : SkillBase
             if (Data.secondaryPrefab != null)
             {
                 var warn = ObjectPool.Get(Data.secondaryPrefab, new Vector3(point.x, groundY, point.z), Quaternion.identity);
-                warn.GetComponent<TimedScaleVfx>().Play(stat.area * 2f, warnTime);
+                warn.GetComponent<IVfx>().Play(stat.area * 2f, warnTime);
             }
             StartCoroutine(Explode(point, stat.damage, stat.area, stat.duration));
         }
@@ -41,7 +41,7 @@ public class ExplosionSkill : SkillBase
         if (Data.prefab != null)
         {
             var vfx = ObjectPool.Get(Data.prefab, point, Quaternion.identity);
-            vfx.GetComponent<TimedScaleVfx>().Play(radius * 2f, vfxDuration);
+            vfx.GetComponent<IVfx>().Play(radius * 2f, vfxDuration);
         }
 
         TargetFinder.FindAll(point, radius, hitBuffer);
