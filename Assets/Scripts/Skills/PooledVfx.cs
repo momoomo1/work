@@ -21,6 +21,7 @@ public class PooledVfx : MonoBehaviour, IPoolable, IVfx
         {
             var main = ps.main;
             main.scalingMode = ParticleSystemScalingMode.Hierarchy;
+            main.stopAction = ParticleSystemStopAction.None; // 에셋의 자동 Destroy/Disable 방지 (풀이 관리)
         }
     }
 

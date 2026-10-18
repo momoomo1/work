@@ -4,6 +4,11 @@ using UnityEngine;
 // 서리 구름 장판. 지속시간 동안 tickInterval마다 안의 적에게 데미지 + 슬로우, 끝나면 풀로 반환.
 public class FrostZone : MonoBehaviour, IPoolable
 {
+    [SerializeField] Transform disc;   // 납작한 바닥 비주얼 (비우면 자기 자신을 스케일)
+    [SerializeField] Transform fxRoot; // 파티클 이펙트 (선택). 반경에 맞춰 균일 스케일
+    [SerializeField] float fxReferenceDiameter = 6f;
+
+    ParticleSystem[] systems;
     float baseY;
     float radius;
     float damage;
@@ -15,7 +20,20 @@ public class FrostZone : MonoBehaviour, IPoolable
 
     readonly List<Transform> targets = new List<Transform>();
 
-    void Awake() => baseY = transform.localScale.y;
+    void Awake()
+    {
+        if (disc == null) disc = transform;
+        baseY = disc.localScale.y;
+
+        systems = GetComponentsInChildren<ParticleSystem>(true);
+        foreach (var ps in systems)
+        {
+            var main = ps.main;
+            main.scalingMode = ParticleSystemScalingMode.Hierarchy;
+            main.stopAction = ParticleSystemStopAction.None; // 에셋의 자동 Destroy 방지
+            main.loop = true; // 장판 지속시간 동안 계속 재생
+        }
+    }
 
     public void Begin(float radius, float damage, float tickInterval, float duration, float slowRatio)
     {
@@ -25,7 +43,10 @@ public class FrostZone : MonoBehaviour, IPoolable
         slowMultiplier = 1f - Mathf.Clamp01(slowRatio);
         timeLeft = duration;
         tickTimer = 0f; // 생성 즉시 첫 틱
-        transform.localScale = new Vector3(radius * 2f, baseY, radius * 2f);
+
+        disc.localScale = new Vector3(radius * 2f, baseY, radius * 2f);
+        if (fxRoot != null) fxRoot.localScale = Vector3.one * (radius * 2f / Mathf.Max(0.01f, fxReferenceDiameter));
+        foreach (var ps in systems) { ps.Clear(true); ps.Play(true); }
         active = true;
     }
 

@@ -9,6 +9,7 @@ public class SkillData : ScriptableObject
     public Sprite icon;
     public SkillType type;
     public GameObject prefab;
+    public AudioClip castSfx; // 발동 사운드 (비워두면 무음)
     [Tooltip("보조 비주얼 (헬파이어의 경고 원 등). 파티클 등으로 교체 가능")]
     public GameObject secondaryPrefab;
     public SkillLevelStat[] levels = new SkillLevelStat[1] { new SkillLevelStat() }; // levels[0] = 레벨 1

@@ -28,6 +28,7 @@ public class ZoneSkill : SkillBase
             points.Add(point);
 
             var obj = ObjectPool.Get(Data.prefab, new Vector3(point.x, groundY, point.z), Quaternion.identity);
+            PlayCastSound();
             obj.GetComponent<FrostZone>().Begin(stat.area, stat.damage, stat.tickInterval, stat.duration, stat.speed);
         }
     }

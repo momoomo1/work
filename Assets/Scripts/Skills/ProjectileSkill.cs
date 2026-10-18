@@ -20,6 +20,7 @@ public class ProjectileSkill : SkillBase
         if (dir.sqrMagnitude < 0.0001f) return;
         dir.Normalize();
 
+        PlayCastSound();
         int count = Mathf.Max(1, stat.count);
         for (int i = 0; i < count; i++)
         {

@@ -26,6 +26,9 @@ public abstract class SkillBase : MonoBehaviour
         OnLevelUp();
     }
 
+    // 스킬이 실제로 발동했을 때 호출 (대상이 없어서 쏘지 못했으면 호출하지 않음)
+    protected void PlayCastSound() => AudioManager.PlayClip(Data.castSfx, 0.8f);
+
     protected virtual void OnInit() { }
     protected virtual void OnLevelUp() { }
 

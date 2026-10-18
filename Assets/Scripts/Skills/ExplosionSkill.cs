@@ -37,6 +37,7 @@ public class ExplosionSkill : SkillBase
     IEnumerator Explode(Vector3 point, float damage, float radius, float vfxDuration)
     {
         yield return new WaitForSeconds(warnTime);
+        PlayCastSound();
 
         if (Data.prefab != null)
         {

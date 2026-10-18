@@ -18,7 +18,7 @@ MonoBehaviour:
     \uBC1C\uC0AC\uD55C\uB2E4."
   icon: {fileID: 0}
   type: 0
-  prefab: {fileID: 6676461340365100548, guid: d95b5a09fceebdc4b9561c8ffbc63ab5, type: 3}
+  prefab: {fileID: 8391444506206641673, guid: 2ec12700e5a8c7f458ff6e20add8d03c, type: 3}
   secondaryPrefab: {fileID: 0}
   levels:
   - damage: 12
