@@ -18,4 +18,5 @@ MonoBehaviour:
   contactDamage: 5
   attackInterval: 1
   expReward: 1
+  scale: 0.45
   prefab: {fileID: 4378532399167756317, guid: bff559b925d096f44a3ba81e69cb7da8, type: 3}

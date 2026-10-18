@@ -6,6 +6,11 @@ public class ExpOrb : MonoBehaviour, IPoolable
     [SerializeField] float attractAccel = 20f;
     [SerializeField] float collectDistance = 0.6f;
 
+    public static int ActiveCount { get; private set; }
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    static void ResetStatics() => ActiveCount = 0;
+
     int value;
     bool attracted;
     float speed;
@@ -17,9 +22,10 @@ public class ExpOrb : MonoBehaviour, IPoolable
     {
         attracted = false;
         speed = attractSpeed;
+        ActiveCount++;
     }
 
-    public void OnDespawn() { }
+    public void OnDespawn() { ActiveCount = Mathf.Max(0, ActiveCount - 1); }
 
     void Update()
     {

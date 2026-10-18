@@ -9,5 +9,6 @@ public class EnemyData : ScriptableObject
     public float contactDamage = 5f;
     public float attackInterval = 1f;
     public int expReward = 1;
+    public float scale = 1f;            // 몸집 배율 (작을수록 가볍고 화면에 많이 보임)
     public GameObject prefab;
 }

@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] BossData bossData;
 
     [Header("무한 웨이브")]
-    [SerializeField] int killsPerBoss = 40;            // 보스를 잡은 뒤 다음 보스까지 필요한 처치 수
+    [SerializeField] int killsPerBoss = 200;           // 보스를 잡은 뒤 다음 보스까지 필요한 처치 수
     [SerializeField] float bossHealthGrowth = 1.6f;    // 보스가 나올 때마다 체력 배율 (곱연산)
     [SerializeField] float bossDamageGrowth = 1.15f;   // 보스 피해량 배율 (곱연산)
     [SerializeField] float enemyHealthGrowth = 0.2f;   // 웨이브가 오를 때마다 일반 적 체력 +20%

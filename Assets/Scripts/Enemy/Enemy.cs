@@ -53,6 +53,7 @@ public class Enemy : MonoBehaviour, IPoolable
     [SerializeField] float knockDecay = 25f; // 넉백 속도가 줄어드는 정도 (클수록 짧게 밀림)
     Vector3 knockVelocity;
     float damageMult = 1f;     // 웨이브 강화 배율
+    float scaleFactor = 1f;    // 몸집 배율 (판정 거리에 반영)
     float baseSpeedMult = 1f;
     float speedMultiplier = 1f;
     float slowUntil;
@@ -79,6 +80,14 @@ public class Enemy : MonoBehaviour, IPoolable
         if (!TryGetComponent<Rigidbody>(out var rb)) rb = gameObject.AddComponent<Rigidbody>();
         rb.isKinematic = true;
         rb.useGravity = false;
+
+        // 수백 마리일 때의 렌더링 비용 절감: 그림자 끄기, 스킨 본 영향 줄이기
+        foreach (var r in GetComponentsInChildren<Renderer>(true))
+        {
+            r.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
+            r.receiveShadows = false;
+            if (r is SkinnedMeshRenderer smr) { smr.quality = SkinQuality.Bone2; smr.skinnedMotionVectors = false; }
+        }
     }
 
     void OnDestroy()
@@ -95,6 +104,8 @@ public class Enemy : MonoBehaviour, IPoolable
         baseSpeedMult = speedMultiplier;
         health.SetMaxHealth(data.maxHealth * healthMultiplier);
         nextAttackTime = Time.time;
+        scaleFactor = Mathf.Max(0.05f, data.scale);
+        transform.localScale = Vector3.one * scaleFactor;
         fixedY = transform.position.y;
     }
 
@@ -147,11 +158,13 @@ public class Enemy : MonoBehaviour, IPoolable
 
         // 직선 추적 (접촉 거리 안이면 멈춤)
         float speed = data.moveSpeed * baseSpeedMult * (Time.time < slowUntil ? speedMultiplier : 1f);
-        Vector3 velocity = dist > contactRange * 0.8f ? dir * speed : Vector3.zero;
+        float reach = contactRange * scaleFactor;
+        Vector3 velocity = dist > reach * 0.8f ? dir * speed : Vector3.zero;
 
         // 겹침 방지: 가까운 적에게서 멀어지는 방향으로 밀기 (격자로 주변 칸만 검사 → 적이 수백 마리여도 가볍다)
         Vector3 push = Vector3.zero;
-        float sqrRadius = separationRadius * separationRadius;
+        float sepRadius = separationRadius * scaleFactor;
+        float sqrRadius = sepRadius * sepRadius;
         BuildGrid();
         int cx = Mathf.FloorToInt(pos.x / CellSize), cz = Mathf.FloorToInt(pos.z / CellSize);
         for (int dx = -1; dx <= 1; dx++)
@@ -169,7 +182,7 @@ public class Enemy : MonoBehaviour, IPoolable
                     if (sqr >= sqrRadius) continue;
                     if (sqr < 0.0001f) { away = UnityEngine.Random.insideUnitSphere; away.y = 0f; sqr = 0.01f; }
                     float d = Mathf.Sqrt(sqr);
-                    push += away / d * (1f - d / separationRadius);
+                    push += away / d * (1f - d / sepRadius);
                 }
             }
         }
@@ -183,7 +196,7 @@ public class Enemy : MonoBehaviour, IPoolable
         if (dir.sqrMagnitude > 0.001f) transform.rotation = Quaternion.LookRotation(dir, Vector3.up);
 
         // 접촉 데미지
-        if (dist <= contactRange && Time.time >= nextAttackTime)
+        if (dist <= reach && Time.time >= nextAttackTime)
         {
             nextAttackTime = Time.time + data.attackInterval;
             playerDamageable?.TakeDamage(data.contactDamage * damageMult);

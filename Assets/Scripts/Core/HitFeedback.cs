@@ -176,12 +176,17 @@ public class HitFeedback : MonoBehaviour
         foreach (var r in flashRenderers) if (r != null) r.SetPropertyBlock(null);
     }
 
+    static float lastVfxTime;
+    [SerializeField] float minVfxInterval = 0.04f; // 적이 많을 때 이펙트가 쏟아지지 않게 하는 전체 최소 간격
+
     void Spawn(GameObject prefab)
     {
         if (prefab == null) return;
+        if (Time.time - lastVfxTime < minVfxInterval && !isBoss && !isPlayer) return;
+        lastVfxTime = Time.time;
         Vector3 pos = transform.position;
         pos.y = vfxHeight; // 월드 높이 고정
         var obj = ObjectPool.Get(prefab, pos, Quaternion.identity);
-        if (obj.TryGetComponent<IVfx>(out var vfx)) vfx.Play(vfxDiameter, 1.5f);
+        if (obj.TryGetComponent<IVfx>(out var vfx)) vfx.Play(vfxDiameter * Mathf.Max(0.3f, transform.lossyScale.x), 1.5f); // 작은 적은 이펙트도 작게
     }
 }

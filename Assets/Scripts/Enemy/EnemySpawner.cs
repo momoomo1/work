@@ -12,7 +12,7 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] int maxAlive = 150;
     [SerializeField] int maxAlivePerWave = 20;         // 웨이브마다 늘어나는 동시 적 수
     [SerializeField] int maxAliveCap = 250;            // 상한 (성능). 컴퓨터가 버티면 올리세요
-    [SerializeField] int prewarmCount = 80;            // 시작할 때 미리 만들어 둘 적 수 (처음 몰려올 때 끊김 방지)
+    [SerializeField] int prewarmCount = 150;            // 시작할 때 미리 만들어 둘 적 수 (처음 몰려올 때 끊김 방지)
 
     [Header("난이도 곡선")]
     [SerializeField] float startInterval = 1f;         // 시작 스폰 간격(초)
@@ -20,16 +20,16 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float intervalDecayPerSecond = 0.004f; // 경과 1초당 줄어드는 간격
 
     [Header("무리 (한 번에 나오는 마리 수)")]
-    [SerializeField] int groupStart = 3;
-    [SerializeField] int groupMax = 16;
-    [SerializeField] float groupGrowSeconds = 20f;     // 이 시간마다 무리가 1마리씩 커짐
-    [SerializeField] int groupPerWave = 2;             // 웨이브마다 추가되는 무리 크기
+    [SerializeField] int groupStart = 8;
+    [SerializeField] int groupMax = 48;
+    [SerializeField] float groupGrowSeconds = 15f;     // 이 시간마다 무리가 1마리씩 커짐
+    [SerializeField] int groupPerWave = 4;             // 웨이브마다 추가되는 무리 크기
     [SerializeField] float groupArc = 40f;             // 한 무리가 퍼지는 각도(도)
 
     [Header("대규모 습격 (플레이어를 빙 둘러싸고 몰려옴)")]
-    [SerializeField] float swarmInterval = 40f;        // 0이면 사용 안 함
-    [SerializeField] int swarmBaseCount = 30;
-    [SerializeField] int swarmPerWave = 10;
+    [SerializeField] float swarmInterval = 30f;        // 0이면 사용 안 함
+    [SerializeField] int swarmBaseCount = 100;
+    [SerializeField] int swarmPerWave = 30;
 
     [Header("보스전")]
     [SerializeField, Range(0f, 1f)] float spawnRateDuringBoss = 0.4f; // 0 = 보스 생존 중 스폰 중지
@@ -125,7 +125,7 @@ public class EnemySpawner : MonoBehaviour
 
         float a = angleDeg * Mathf.Deg2Rad;
         Vector3 pos = player.position + new Vector3(Mathf.Cos(a), 0f, Mathf.Sin(a)) * radius;
-        pos.y = spawnY;
+        pos.y = spawnY * Mathf.Max(0.05f, data.scale); // 작은 적은 발이 바닥에 닿도록 높이도 같이 줄임
 
         var obj = ObjectPool.Get(data.prefab, pos, Quaternion.identity);
         var gm = GameManager.Instance;

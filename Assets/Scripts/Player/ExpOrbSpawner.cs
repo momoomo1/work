@@ -6,6 +6,7 @@ public class ExpOrbSpawner : MonoBehaviour
     [SerializeField] GameObject orbPrefab;
     [SerializeField] float orbY = 0.5f;
     [SerializeField] float bossScatterRadius = 3f;
+    [SerializeField] int maxOrbs = 220;            // 동시에 떠 있을 수 있는 구슬 수
 
     void OnEnable()
     {
@@ -39,6 +40,12 @@ public class ExpOrbSpawner : MonoBehaviour
 
     void Drop(Vector3 pos, int value)
     {
+        // 구슬이 너무 많이 쌓이면 줍지 않아도 바로 경험치로 지급 (성능)
+        if (ExpOrb.ActiveCount >= maxOrbs)
+        {
+            PlayerExperience.Current?.AddExp(value);
+            return;
+        }
         pos.y = orbY;
         ObjectPool.Get(orbPrefab, pos, Quaternion.identity).GetComponent<ExpOrb>().Init(value);
     }

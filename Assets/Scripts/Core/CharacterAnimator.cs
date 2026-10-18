@@ -8,6 +8,7 @@ public class CharacterAnimator : MonoBehaviour
     [SerializeField] float baseRunSpeed = 3f;     // 이 속도에서 Run 재생 속도 1배
     [SerializeField] float attackRange = 0f;      // >0이면 플레이어가 이 거리 안일 때 Attack 트리거 (적/보스용)
     [SerializeField] float attackCooldown = 1f;
+    [SerializeField] float animLodRange = 14f;    // 플레이어와 이 거리보다 멀면 애니메이션을 끔 (0이면 항상 켬)
     [SerializeField] bool playDeath = false;      // 풀로 즉시 반환되는 적은 끔 (플레이어만 사용)
 
     static readonly int SpeedHash = Animator.StringToHash("Speed");
@@ -34,6 +35,7 @@ public class CharacterAnimator : MonoBehaviour
         smoothed = 0f;
         if (animator != null)
         {
+            animator.enabled = true; // 멀어서 꺼져 있던 상태에서 풀로 돌아온 경우
             animator.Rebind(); // 풀 재사용 시 상태 초기화
             animator.Update(0f);
         }
@@ -62,6 +64,20 @@ public class CharacterAnimator : MonoBehaviour
         if (animator == null) return;
         float dt = Time.deltaTime;
         if (dt <= 0f) return;
+
+        // 멀리 있는 적은 애니메이터를 꺼서 포즈를 고정 (적이 수백 마리일 때 성능)
+        if (!playDeath && animLodRange > 0f)
+        {
+            var pl = PlayerLocator.Player;
+            if (pl != null)
+            {
+                Vector3 off = pl.position - transform.position;
+                off.y = 0f;
+                bool far = off.sqrMagnitude > animLodRange * animLodRange;
+                if (animator.enabled == far) animator.enabled = !far;
+            }
+            if (!animator.enabled) { lastPos = transform.position; return; }
+        }
 
         Vector3 d = transform.position - lastPos;
         d.y = 0f;
