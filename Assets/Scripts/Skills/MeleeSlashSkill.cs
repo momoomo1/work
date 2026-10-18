@@ -95,7 +95,7 @@ public class MeleeSlashSkill : SkillBase
     void SpawnVfx(GameObject fx, Vector3 dir, float reach)
     {
         if (fx == null) return;
-        Vector3 pos = Owner.position;
+        Vector3 pos = Owner.position + dir.normalized * Data.vfxForwardOffset; // 플레이어에서 떨어진 곳에 띄움
         pos.y = Data.vfxHeight;
 
         autoYaw.TryGetValue(fx, out float auto);

@@ -19,6 +19,8 @@ public class SkillData : ScriptableObject
     public float vfxYawOffset;
     [Tooltip("이펙트가 놓이는 월드 높이 (플레이어 중심이 약 1.1)")]
     public float vfxHeight = 1.1f;
+    [Tooltip("이펙트를 플레이어에서 베는 방향으로 얼마나 떨어뜨려 띄울지 (클수록 멀리서 보임)")]
+    public float vfxForwardOffset = 1.8f;
 
     [Header("진화")]
     public SkillData evolvesFrom; // 비어있지 않으면 진화 스킬 (원본이 최대 레벨일 때 후보)
