@@ -14,6 +14,12 @@ public class SkillData : ScriptableObject
     public GameObject secondaryPrefab;
     public SkillLevelStat[] levels = new SkillLevelStat[1] { new SkillLevelStat() }; // levels[0] = 레벨 1
 
+    [Header("이펙트 보정 (근접 베기)")]
+    [Tooltip("이펙트가 옆/뒤로 틀어져 보이면 90, -90, 180으로 보정 (자동 보정 위에 더해짐)")]
+    public float vfxYawOffset;
+    [Tooltip("이펙트가 놓이는 월드 높이 (플레이어 중심이 약 1.1)")]
+    public float vfxHeight = 1.1f;
+
     [Header("진화")]
     public SkillData evolvesFrom; // 비어있지 않으면 진화 스킬 (원본이 최대 레벨일 때 후보)
 

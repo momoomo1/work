@@ -12,6 +12,7 @@ public class InfiniteMap : MonoBehaviour
     [SerializeField] float minCoverage = 90f;    // 자동 계산 시 최소로 덮을 한 변 길이(유닛)
     [SerializeField] float tileSizeOverride = 0f; // 0이면 타일 프리팹 크기에서 자동 측정
     [SerializeField] float groundY = 0f;
+    [SerializeField] float tileYOffset = 0.03f;  // 바닥 Plane(충돌용, 초록색 기본 바닥) 위로 살짝 띄움 → 타일 사이 빈틈은 이 초록 바닥이 채움
     [SerializeField] int propsPerTile = 6;       // 타일 한 칸당 최대 소품 수
     [SerializeField, Range(0f, 1f)] float propChance = 0.55f;
     [SerializeField] float propClearRadius = 6f; // 시작 지점 주변은 소품을 비움
@@ -135,8 +136,10 @@ public class InfiniteMap : MonoBehaviour
 
                 tile.cell = cell;
                 Vector3 cellCenter = new Vector3(cell.x * tileSize, groundY, cell.y * tileSize);
-                tile.root.position = new Vector3(cellCenter.x - tile.centerOffset.x, groundY, cellCenter.z - tile.centerOffset.y);
-                tile.anchor.position = cellCenter;
+                // 타일끼리 겹쳐도 깜빡이지 않게 칸마다 아주 조금씩 높이를 다르게 함
+                float y = groundY + tileYOffset + Mod(cell.x * 7 + cell.y * 3, 5) * 0.004f;
+                tile.root.position = new Vector3(cellCenter.x - tile.centerOffset.x, y, cellCenter.z - tile.centerOffset.y);
+                tile.anchor.position = new Vector3(cellCenter.x, groundY + tileYOffset, cellCenter.z);
                 Scatter(tile, cell);
             }
         }

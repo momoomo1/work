@@ -6,12 +6,14 @@ using UnityEngine.InputSystem;
 // 마우스 조준: 왼쪽 버튼을 누르고 있는 동안만 조준 방향을 제공한다.
 // 커서 방향 부채꼴(ConeAngle) 안에 적이 있으면 그 중 가장 밀집한 곳을 향하게 보정하고,
 // 부채꼴 안에 적이 없어도 사거리 안에 적이 있으면 가장 밀집한 곳을 향한다.
+// 비슷한 무리끼리는 커서 방향에 가까운 쪽을 고른다.
 // 사거리 안에 적이 전혀 없을 때만 커서 방향 그대로 쏜다.
 // 누르지 않으면 false를 반환하므로 호출하는 쪽에서 자동 타겟팅으로 대체하면 된다.
 public static class PlayerAim
 {
     public static float ConeAngle = 60f;     // 커서 방향 기준 좌우 각도 (이 안의 적을 우선)
     public static float ClusterRadius = 3f;  // 이 반경 안의 적끼리를 한 무리로 봄
+    public static float AngleWeight = 60f;   // 이 각도(도)만큼 벗어나면 이웃 1마리만큼 손해로 계산 (작을수록 커서 방향을 중시)
 
     static Camera cam;
     static readonly List<Transform> found = new List<Transform>();
@@ -65,7 +67,7 @@ public static class PlayerAim
             }
             var pool = subset.Count > 0 ? subset : positions;
 
-            if (TryFindCluster(pool, out Vector3 center))
+            if (TryFindCluster(pool, origin, aim, hasAim, out Vector3 center))
             {
                 Vector3 to = center - origin;
                 to.y = 0f;
@@ -82,14 +84,16 @@ public static class PlayerAim
         return true;
     }
 
-    // 주변 이웃이 가장 많은 적을 찾아 그 무리의 평균 위치를 반환
-    static bool TryFindCluster(List<Vector3> pool, out Vector3 center)
+    // 이웃이 많고 커서 방향에 가까운 적을 골라 그 무리의 평균 위치를 반환
+    // 점수 = 이웃 수 - (커서 방향과 벌어진 각도 / AngleWeight)
+    static bool TryFindCluster(List<Vector3> pool, Vector3 origin, Vector3 aim, bool hasAim, out Vector3 center)
     {
         center = Vector3.zero;
         if (pool.Count == 0) return false;
 
         float sqr = ClusterRadius * ClusterRadius;
-        int best = 0;
+        float bestScore = float.MinValue;
+        bool found = false;
         for (int i = 0; i < pool.Count; i++)
         {
             Vector3 sum = Vector3.zero;
@@ -98,8 +102,12 @@ public static class PlayerAim
             {
                 if ((pool[j] - pool[i]).sqrMagnitude <= sqr) { sum += pool[j]; n++; }
             }
-            if (n > best) { best = n; center = sum / n; }
+
+            Vector3 c = sum / n;
+            float angle = hasAim ? Vector3.Angle(aim, c - origin) : 0f;
+            float score = n - angle / Mathf.Max(1f, AngleWeight);
+            if (score > bestScore) { bestScore = score; center = c; found = true; }
         }
-        return best > 0;
+        return found;
     }
 }
