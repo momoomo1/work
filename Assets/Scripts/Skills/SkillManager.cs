@@ -5,6 +5,7 @@ using UnityEngine;
 public class SkillManager : MonoBehaviour
 {
     [SerializeField] List<SkillData> allSkills = new List<SkillData>(); // 선택지 후보 전체
+    [SerializeField] List<SkillData> startingSkills = new List<SkillData>(); // 게임 시작 때 자동으로 얻는 스킬 (예: 기본 공격)
 
     // 새 스킬 종류를 만들면 여기에 매핑만 추가
     static readonly Dictionary<SkillType, Type> skillClasses = new Dictionary<SkillType, Type>
@@ -14,6 +15,7 @@ public class SkillManager : MonoBehaviour
         { SkillType.Orbit,      typeof(OrbitSkill) },
         { SkillType.Zone,       typeof(ZoneSkill) },
         { SkillType.Passive,    typeof(PassiveSkill) },
+        { SkillType.Melee,      typeof(MeleeSlashSkill) },
     };
 
     // 같은 종류 안에서 특별한 동작이 필요한 스킬(진화 스킬 등)은 id로 클래스를 덮어씀
@@ -29,6 +31,12 @@ public class SkillManager : MonoBehaviour
 
     public IReadOnlyList<SkillData> AllSkills => allSkills;
     public event Action<SkillData, int> OnSkillChanged; // (스킬, 현재 레벨)
+
+    void Start()
+    {
+        foreach (var s in startingSkills)
+            if (s != null && !Has(s)) AddSkill(s);
+    }
 
     public bool Has(SkillData data) => owned.ContainsKey(data);
     public int GetLevel(SkillData data) => owned.TryGetValue(data, out var s) ? s.Level : 0;

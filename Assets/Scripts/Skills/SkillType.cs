@@ -4,5 +4,6 @@ public enum SkillType
     Explosion,
     Orbit,
     Zone,
-    Passive // 능력치 강화 (최대 체력 등)
+    Passive, // 능력치 강화
+    Melee    // 근접 베기 (기본 공격)
 }

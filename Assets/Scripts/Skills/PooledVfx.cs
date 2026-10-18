@@ -13,6 +13,13 @@ public class PooledVfx : MonoBehaviour, IPoolable, IVfx
     float timeLeft;
     bool playing;
 
+    // 코드로 래퍼를 만들 때 크기 기준과 지속 시간을 지정
+    public void Configure(float refDiameter, float life)
+    {
+        referenceDiameter = refDiameter;
+        lifetime = life;
+    }
+
     // 이펙트 에셋이 자체적으로 오브젝트를 파괴/이동시키는 스크립트는 풀링·투사체 로직과 충돌 → 제거
     //  - Cartoon FX의 CFXR_Effect (재생 후 Destroy/Disable)
     //  - Free Slash VFX 데모의 Projectile 등 (MaykerStudio.Demo 네임스페이스, 스스로 이동)

@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0de0000000000000000000000000022, type: 3}
+  m_Name: Skill_BasicAttack
+  m_EditorClassIdentifier: Assembly-CSharp::SkillData
+  id: basic_attack
+  displayName: "\uAE30\uBCF8 \uACF5\uACA9 \uAC15\uD654"
+  description: "\uADFC\uC811 \uBCA0\uAE30\uB85C \uC801\uC744 \uBCA4\uB2E4. \uB808\uBCA8\uC774 \uC624\uB97C\uC218\uB85D \uBCA0\uAE30 \uD69F\uC218\uC640 \uBC94\uC704\uAC00 \uB298\uC5B4\uB09C\uB2E4."
+  icon: {fileID: 0}
+  type: 5
+  prefab: {fileID: 5545173171955001552, guid: 7ac879c2caac1ca41b6c438e77d8b25d, type: 3}
+  castSfx: {fileID: 8300000, guid: 3217535f696f28f479a894ecec387bb7, type: 3}
+  secondaryPrefab: {fileID: 1116249604692860204, guid: 8a02c4042c68dd244abad8cf394dab42, type: 3}
+  levels:
+  - damage: 12
+    cooldown: 0.7
+    count: 1
+    area: 3
+    speed: 100
+    pierceCount: 0
+    duration: 0
+    tickInterval: 0
+    value: 0
+  - damage: 12
+    cooldown: 0.65
+    count: 2
+    area: 3
+    speed: 100
+    pierceCount: 0
+    duration: 0
+    tickInterval: 0
+    value: 0
+  - damage: 12
+    cooldown: 0.6
+    count: 3
+    area: 3
+    speed: 100
+    pierceCount: 0
+    duration: 0
+    tickInterval: 0
+    value: 0
+  - damage: 14
+    cooldown: 0.6
+    count: 3
+    area: 4
+    speed: 120
+    pierceCount: 0
+    duration: 0
+    tickInterval: 0
+    value: 0
+  - damage: 22
+    cooldown: 0.55
+    count: 3
+    area: 5
+    speed: 160
+    pierceCount: 0
+    duration: 0
+    tickInterval: 0
+    value: 0
+  evolvesFrom: {fileID: 0}
