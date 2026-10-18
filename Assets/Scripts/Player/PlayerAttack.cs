@@ -20,7 +20,7 @@ public class PlayerAttack : MonoBehaviour
 
         // 왼쪽 버튼을 누르고 있으면 마우스 방향으로 발사, 아니면 가장 가까운 적을 자동 조준
         Vector3 dir;
-        if (PlayerAim.TryGetAimDirection(transform.position, out dir))
+        if (PlayerAim.TryGetAimDirection(transform.position, attackRange, out dir))
         {
             transform.rotation = Quaternion.LookRotation(dir, Vector3.up); // 조준 방향을 바라봄
         }
