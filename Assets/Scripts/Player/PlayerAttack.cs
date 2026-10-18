@@ -18,13 +18,22 @@ public class PlayerAttack : MonoBehaviour
         timer -= Time.deltaTime;
         if (timer > 0f || projectilePrefab == null) return;
 
-        var target = TargetFinder.FindNearest(transform.position, attackRange);
-        if (target == null) return;
+        // 왼쪽 버튼을 누르고 있으면 마우스 방향으로 발사, 아니면 가장 가까운 적을 자동 조준
+        Vector3 dir;
+        if (PlayerAim.TryGetAimDirection(transform.position, out dir))
+        {
+            transform.rotation = Quaternion.LookRotation(dir, Vector3.up); // 조준 방향을 바라봄
+        }
+        else
+        {
+            var target = TargetFinder.FindNearest(transform.position, attackRange);
+            if (target == null) return;
 
-        Vector3 dir = target.position - transform.position;
-        dir.y = 0f;
-        if (dir.sqrMagnitude < 0.0001f) return;
-        dir.Normalize();
+            dir = target.position - transform.position;
+            dir.y = 0f;
+            if (dir.sqrMagnitude < 0.0001f) return;
+            dir.Normalize();
+        }
 
         timer = attackInterval;
         var obj = ObjectPool.Get(projectilePrefab, transform.position + dir * muzzleOffset, Quaternion.LookRotation(dir));

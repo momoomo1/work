@@ -1,6 +1,6 @@
 using UnityEngine;
 
-// 수라참/진공참: 가장 가까운 적 방향으로 투사체를 부채꼴로 발사
+// 수라참/헬파이어: 마우스 클릭 방향(없으면 가장 가까운 적 방향)으로 투사체를 부채꼴로 발사
 public class ProjectileSkill : SkillBase
 {
     [SerializeField] float spreadAngle = 12f; // 투사체 사이 각도
@@ -11,14 +11,19 @@ public class ProjectileSkill : SkillBase
         var stat = Stat;
         Vector3 origin = Owner.position;
 
-        // 탐색 반경 = 투사체 사거리(속도 × 수명)
-        var target = TargetFinder.FindNearest(origin, stat.speed * stat.duration);
-        if (target == null) return;
+        // 왼쪽 버튼을 누르고 있으면 마우스 방향, 아니면 가장 가까운 적 방향
+        Vector3 dir;
+        if (!PlayerAim.TryGetAimDirection(origin, out dir))
+        {
+            // 탐색 반경 = 투사체 사거리(속도 × 수명)
+            var target = TargetFinder.FindNearest(origin, stat.speed * stat.duration);
+            if (target == null) return;
 
-        Vector3 dir = target.position - origin;
-        dir.y = 0f;
-        if (dir.sqrMagnitude < 0.0001f) return;
-        dir.Normalize();
+            dir = target.position - origin;
+            dir.y = 0f;
+            if (dir.sqrMagnitude < 0.0001f) return;
+            dir.Normalize();
+        }
 
         PlayCastSound();
         int count = Mathf.Max(1, stat.count);
