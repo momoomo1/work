@@ -20,6 +20,25 @@ public static class PlayerAim
     static readonly List<Vector3> positions = new List<Vector3>();
     static readonly List<Vector3> subset = new List<Vector3>();
 
+    // 클릭 여부와 상관없이 커서가 가리키는 지면 방향 (대쉬 방향 등에 사용)
+    public static bool TryGetCursorDirection(Vector3 origin, out Vector3 direction)
+    {
+        direction = Vector3.zero;
+        var mouse = Mouse.current;
+        if (mouse == null) return false;
+        if (cam == null) cam = Camera.main;
+        if (cam == null) return false;
+
+        Ray ray = cam.ScreenPointToRay(mouse.position.ReadValue());
+        var plane = new Plane(Vector3.up, new Vector3(0f, origin.y, 0f));
+        if (!plane.Raycast(ray, out float dist)) return false;
+
+        Vector3 d = ray.GetPoint(dist) - origin;
+        d.y = 0f;
+        if (d.sqrMagnitude < 0.01f) return false;
+        direction = d.normalized;
+        return true;
+    }
     public static bool TryGetAimDirection(Vector3 origin, float range, out Vector3 direction)
     {
         direction = Vector3.zero;

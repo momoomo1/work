@@ -12,6 +12,9 @@ public class PlayerController : MonoBehaviour
     CharacterController cc;
     float verticalVelocity;
 
+    public Vector3 MoveDirection { get; private set; } // 마지막 이동 입력 방향 (수평, 입력 없으면 0)
+    public bool InputLocked { get; set; }               // true면 이동 입력 무시 (대쉬 중)
+
     void Awake()
     {
         cc = GetComponent<CharacterController>();
@@ -20,7 +23,7 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        Vector2 input = ReadInput();
+        Vector2 input = InputLocked ? Vector2.zero : ReadInput();
 
         // 카메라 기준 방향 (수평면에 투영)
         Vector3 fwd = Vector3.forward, right = Vector3.right;
@@ -31,6 +34,7 @@ public class PlayerController : MonoBehaviour
         }
         Vector3 dir = fwd * input.y + right * input.x;
         if (dir.sqrMagnitude > 1f) dir.Normalize();
+        if (!InputLocked) MoveDirection = dir;
 
         if (cc.isGrounded && verticalVelocity < 0f) verticalVelocity = -2f;
         verticalVelocity += gravity * Time.deltaTime;
@@ -39,7 +43,7 @@ public class PlayerController : MonoBehaviour
         move.y = verticalVelocity;
         cc.Move(move * Time.deltaTime);
 
-        if (dir.sqrMagnitude > 0.001f)
+        if (!InputLocked && dir.sqrMagnitude > 0.001f)
         {
             Quaternion target = Quaternion.LookRotation(dir, Vector3.up);
             transform.rotation = Quaternion.Slerp(transform.rotation, target, rotateSpeed * Time.deltaTime);
