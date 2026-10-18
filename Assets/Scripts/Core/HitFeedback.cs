@@ -27,6 +27,7 @@ public class HitFeedback : MonoBehaviour
     [SerializeField] float knockbackSpeed = 4f;       // 일반 적만 해당
     [SerializeField] float playerHitShake = 0.2f;     // 플레이어 피격 시 화면 흔들림 세기
     [SerializeField] float bossDeathShake = 0.5f;
+    [SerializeField] float playerHitInvuln = 0.35f;  // 플레이어가 맞은 뒤 무적 시간 (몰려올 때 피해 폭증 방지)
 
     static readonly int BaseColorId = Shader.PropertyToID("_BaseColor");
     static readonly int ColorId = Shader.PropertyToID("_Color");
@@ -127,6 +128,8 @@ public class HitFeedback : MonoBehaviour
             float scale = 1f + Mathf.Min(1f, damage / 40f); // 큰 데미지일수록 크게
             DamageNumber.Spawn(pos, damage, color, scale);
         }
+
+        if (isPlayer && current > 0f && playerHitInvuln > 0f) health.GrantInvulnerability(playerHitInvuln);
 
         if (current <= 0f) return; // 사망 연출은 HandleDeath에서
 

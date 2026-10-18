@@ -24,6 +24,8 @@ public class CharacterAnimator : MonoBehaviour
     {
         if (animator == null) animator = GetComponentInChildren<Animator>();
         health = GetComponent<Health>();
+        // 화면 밖의 적은 애니메이션을 아예 계산하지 않음 (적이 많을 때 성능)
+        if (animator != null && !playDeath) animator.cullingMode = AnimatorCullingMode.CullCompletely;
     }
 
     void OnEnable()

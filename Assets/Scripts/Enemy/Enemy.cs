@@ -18,6 +18,34 @@ public class Enemy : MonoBehaviour, IPoolable
     static Transform player;
     static IDamageable playerDamageable;
 
+    // ---- 공간 격자 (프레임당 한 번만 다시 만듦) ----
+    const float CellSize = 1.5f; // separationRadius 이상이어야 함
+    static int gridFrame = -1;
+    static readonly Dictionary<long, List<Enemy>> grid = new Dictionary<long, List<Enemy>>();
+    static readonly Stack<List<Enemy>> listPool = new Stack<List<Enemy>>();
+
+    static long Key(int x, int z) => ((long)x << 32) ^ (uint)z;
+
+    static void BuildGrid()
+    {
+        if (gridFrame == Time.frameCount) return;
+        gridFrame = Time.frameCount;
+
+        foreach (var l in grid.Values) { l.Clear(); listPool.Push(l); }
+        grid.Clear();
+        for (int i = 0; i < active.Count; i++)
+        {
+            var e = active[i];
+            Vector3 p = e.transform.position;
+            long key = Key(Mathf.FloorToInt(p.x / CellSize), Mathf.FloorToInt(p.z / CellSize));
+            if (!grid.TryGetValue(key, out var list))
+            {
+                list = listPool.Count > 0 ? listPool.Pop() : new List<Enemy>(8);
+                grid[key] = list;
+            }
+            list.Add(e);
+        }
+    }
     [NonSerialized] EnemyData data;
     Health health;
     float nextAttackTime;
@@ -35,6 +63,8 @@ public class Enemy : MonoBehaviour, IPoolable
     static void ResetStatics()
     {
         active.Clear();
+        grid.Clear();
+        gridFrame = -1;
         player = null;
         playerDamageable = null;
         OnAnyDied = null;
@@ -44,6 +74,11 @@ public class Enemy : MonoBehaviour, IPoolable
     {
         health = GetComponent<Health>();
         health.OnDeath += HandleDeath;
+
+        // 움직이는 콜라이더는 리지드바디(키네마틱)가 있어야 수백 마리여도 물리 비용이 작다
+        if (!TryGetComponent<Rigidbody>(out var rb)) rb = gameObject.AddComponent<Rigidbody>();
+        rb.isKinematic = true;
+        rb.useGravity = false;
     }
 
     void OnDestroy()
@@ -114,20 +149,29 @@ public class Enemy : MonoBehaviour, IPoolable
         float speed = data.moveSpeed * baseSpeedMult * (Time.time < slowUntil ? speedMultiplier : 1f);
         Vector3 velocity = dist > contactRange * 0.8f ? dir * speed : Vector3.zero;
 
-        // 겹침 방지: 가까운 적에게서 멀어지는 방향으로 밀기
+        // 겹침 방지: 가까운 적에게서 멀어지는 방향으로 밀기 (격자로 주변 칸만 검사 → 적이 수백 마리여도 가볍다)
         Vector3 push = Vector3.zero;
         float sqrRadius = separationRadius * separationRadius;
-        for (int i = 0; i < active.Count; i++)
+        BuildGrid();
+        int cx = Mathf.FloorToInt(pos.x / CellSize), cz = Mathf.FloorToInt(pos.z / CellSize);
+        for (int dx = -1; dx <= 1; dx++)
         {
-            var other = active[i];
-            if (other == this) continue;
-            Vector3 away = pos - other.transform.position;
-            away.y = 0f;
-            float sqr = away.sqrMagnitude;
-            if (sqr >= sqrRadius) continue;
-            if (sqr < 0.0001f) { away = UnityEngine.Random.insideUnitSphere; away.y = 0f; sqr = 0.01f; }
-            float d = Mathf.Sqrt(sqr);
-            push += away / d * (1f - d / separationRadius);
+            for (int dz = -1; dz <= 1; dz++)
+            {
+                if (!grid.TryGetValue(Key(cx + dx, cz + dz), out var cell)) continue;
+                for (int i = 0; i < cell.Count; i++)
+                {
+                    var other = cell[i];
+                    if (other == this) continue;
+                    Vector3 away = pos - other.transform.position;
+                    away.y = 0f;
+                    float sqr = away.sqrMagnitude;
+                    if (sqr >= sqrRadius) continue;
+                    if (sqr < 0.0001f) { away = UnityEngine.Random.insideUnitSphere; away.y = 0f; sqr = 0.01f; }
+                    float d = Mathf.Sqrt(sqr);
+                    push += away / d * (1f - d / separationRadius);
+                }
+            }
         }
         velocity += push * (separationStrength * speed);
 

@@ -3450,13 +3450,13 @@ MonoBehaviour:
   player: {fileID: 910000001}
   spawnRadius: 18
   spawnY: 1.1
-  maxAlive: 60
-  maxAlivePerWave: 8
-  maxAliveCap: 160
-  startInterval: 1.5
-  minInterval: 0.2
-  intervalDecayPerSecond: 0.01
-  spawnRateDuringBoss: 0
+  maxAlive: 150
+  maxAlivePerWave: 20
+  maxAliveCap: 250
+  startInterval: 1
+  minInterval: 0.35
+  intervalDecayPerSecond: 0.004
+  spawnRateDuringBoss: 0.4
 --- !u!4 &1653511948
 Transform:
   m_ObjectHideFlags: 0

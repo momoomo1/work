@@ -13,6 +13,7 @@ public class Health : MonoBehaviour, IDamageable
     public float CurrentHealth => currentHealth;
     public bool IsDead => currentHealth <= 0f;
     public bool Invulnerable { get; set; } // true인 동안 피해를 받지 않음 (대쉬 등)
+    float invulnUntil;
 
     // 풀에서 재사용할 때도 호출
     void OnEnable() => ResetHealth();
@@ -32,11 +33,14 @@ public class Health : MonoBehaviour, IDamageable
 
     public void TakeDamage(float amount)
     {
-        if (IsDead || Invulnerable || amount <= 0f) return;
+        if (IsDead || Invulnerable || Time.time < invulnUntil || amount <= 0f) return;
         currentHealth = Mathf.Max(0f, currentHealth - amount);
         OnChanged?.Invoke(currentHealth, maxHealth);
         if (currentHealth <= 0f) OnDeath?.Invoke();
     }
+
+    // 맞은 직후 잠깐 피해를 안 받게 함 (적이 여럿 달라붙어도 순간 피해가 폭증하지 않게)
+    public void GrantInvulnerability(float seconds) => invulnUntil = Mathf.Max(invulnUntil, Time.time + seconds);
 
     public void Heal(float amount)
     {

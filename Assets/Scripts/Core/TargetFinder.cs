@@ -4,7 +4,7 @@ using UnityEngine;
 // "Enemy" 레이어 기준 탐색 유틸. 내부 버퍼를 재사용하므로 호출 사이에 결과를 보관하지 말 것.
 public static class TargetFinder
 {
-    const int MaxHits = 128;
+    const int MaxHits = 256;
     static readonly Collider[] buffer = new Collider[MaxHits];
     static int enemyMask = -1;
 
