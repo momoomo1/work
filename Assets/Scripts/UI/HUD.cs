@@ -26,6 +26,7 @@ public class HUD : MonoBehaviour
     void Start()
     {
         bossGroup.SetActive(false);
+        killText.textWrappingMode = TextWrappingModes.NoWrap; // "웨이브 n · 처치 m"이 길어져도 한 줄 유지
 
         gm = GameManager.Instance;
         gm.OnEnemyKilled += HandleKill;
@@ -87,7 +88,7 @@ public class HUD : MonoBehaviour
         levelText.text = $"Lv {exp.Level}";
     }
 
-    void HandleKill(EnemyData _) => killText.text = $"처치 {gm.KillCount}";
+    void HandleKill(EnemyData _) => killText.text = $"웨이브 {gm.Wave} · 처치 {gm.KillCount}";
 
     void HandleBossSpawned(Boss boss)
     {
@@ -105,5 +106,6 @@ public class HUD : MonoBehaviour
         if (bossHealth != null) bossHealth.OnChanged -= UpdateBoss;
         bossHealth = null;
         bossGroup.SetActive(false);
+        HandleKill(null); // 웨이브 번호 갱신
     }
 }

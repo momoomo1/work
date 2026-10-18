@@ -24,6 +24,8 @@ public class Enemy : MonoBehaviour, IPoolable
     float fixedY;
     [SerializeField] float knockDecay = 25f; // 넉백 속도가 줄어드는 정도 (클수록 짧게 밀림)
     Vector3 knockVelocity;
+    float damageMult = 1f;     // 웨이브 강화 배율
+    float baseSpeedMult = 1f;
     float speedMultiplier = 1f;
     float slowUntil;
 
@@ -51,10 +53,12 @@ public class Enemy : MonoBehaviour, IPoolable
     }
 
     // 스포너가 풀에서 꺼낸 직후 호출
-    public void Init(EnemyData enemyData)
+    public void Init(EnemyData enemyData, float healthMultiplier = 1f, float damageMultiplier = 1f, float speedMultiplier = 1f)
     {
         data = enemyData;
-        health.SetMaxHealth(data.maxHealth);
+        damageMult = damageMultiplier;
+        baseSpeedMult = speedMultiplier;
+        health.SetMaxHealth(data.maxHealth * healthMultiplier);
         nextAttackTime = Time.time;
         fixedY = transform.position.y;
     }
@@ -107,7 +111,7 @@ public class Enemy : MonoBehaviour, IPoolable
         Vector3 dir = dist > 0.001f ? toPlayer / dist : Vector3.zero;
 
         // 직선 추적 (접촉 거리 안이면 멈춤)
-        float speed = data.moveSpeed * (Time.time < slowUntil ? speedMultiplier : 1f);
+        float speed = data.moveSpeed * baseSpeedMult * (Time.time < slowUntil ? speedMultiplier : 1f);
         Vector3 velocity = dist > contactRange * 0.8f ? dir * speed : Vector3.zero;
 
         // 겹침 방지: 가까운 적에게서 멀어지는 방향으로 밀기
@@ -138,7 +142,7 @@ public class Enemy : MonoBehaviour, IPoolable
         if (dist <= contactRange && Time.time >= nextAttackTime)
         {
             nextAttackTime = Time.time + data.attackInterval;
-            playerDamageable?.TakeDamage(data.contactDamage);
+            playerDamageable?.TakeDamage(data.contactDamage * damageMult);
         }
     }
 

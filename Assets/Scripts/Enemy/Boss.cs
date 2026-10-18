@@ -20,6 +20,7 @@ public class Boss : MonoBehaviour, IPoolable
     float fixedY;
     Vector3 chargeDir;
     bool chargeHit;
+    float damageMult = 1f;
 
     public BossData Data => data;
 
@@ -37,10 +38,11 @@ public class Boss : MonoBehaviour, IPoolable
         if (health != null) health.OnDeath -= HandleDeath;
     }
 
-    public void Init(BossData bossData)
+    public void Init(BossData bossData, float healthMultiplier = 1f, float damageMultiplier = 1f)
     {
         data = bossData;
-        health.SetMaxHealth(data.maxHealth);
+        damageMult = damageMultiplier;
+        health.SetMaxHealth(data.maxHealth * healthMultiplier);
         fixedY = transform.position.y;
         EnterChase();
     }
@@ -79,7 +81,7 @@ public class Boss : MonoBehaviour, IPoolable
         if (dist <= data.contactRange && Time.time >= nextContactTime)
         {
             nextContactTime = Time.time + data.contactInterval;
-            PlayerLocator.Damageable?.TakeDamage(data.contactDamage);
+            PlayerLocator.Damageable?.TakeDamage(data.contactDamage * damageMult);
         }
 
         if (Time.time >= nextPatternTime) StartCharge(player);
@@ -119,7 +121,7 @@ public class Boss : MonoBehaviour, IPoolable
         if (!chargeHit && Flat(player.position - transform.position).sqrMagnitude <= data.contactRange * data.contactRange)
         {
             chargeHit = true;
-            PlayerLocator.Damageable?.TakeDamage(data.chargeDamage);
+            PlayerLocator.Damageable?.TakeDamage(data.chargeDamage * damageMult);
         }
 
         stateTimer -= Time.deltaTime;

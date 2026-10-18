@@ -1,7 +1,8 @@
 using System.Collections;
+using TMPro;
 using UnityEngine;
 
-// 보스 처치 시 "STAGE CLEAR" 텍스트를 잠시 표시 (게임은 계속 진행)
+// 보스 처치 시 "WAVE n CLEAR!" 텍스트를 잠시 표시 (게임은 계속 진행)
 public class StageClearUI : MonoBehaviour
 {
     [SerializeField] GameObject textObject;
@@ -23,6 +24,10 @@ public class StageClearUI : MonoBehaviour
 
     void Show()
     {
+        // 무한 웨이브: 몇 번째 웨이브를 클리어했는지 표시
+        var label = textObject.GetComponent<TMP_Text>();
+        if (label != null) label.text = $"WAVE {gm.BossesDefeated} CLEAR!";
+
         StopAllCoroutines();
         StartCoroutine(ShowRoutine());
     }

@@ -7,6 +7,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float spawnRadius = 18f;
     [SerializeField] float spawnY = 1.1f;
     [SerializeField] int maxAlive = 60;
+    [SerializeField] int maxAlivePerWave = 8;   // 웨이브마다 늘어나는 동시 적 수
+    [SerializeField] int maxAliveCap = 160;     // 상한 (성능)
 
     [Header("난이도 곡선")]
     [SerializeField] float startInterval = 1.5f;       // 시작 스폰 간격(초)
@@ -45,7 +47,8 @@ public class EnemySpawner : MonoBehaviour
         while (timer >= interval)
         {
             timer -= interval;
-            if (Enemy.ActiveCount >= maxAlive) { timer = 0f; break; }
+            int cap = Mathf.Min(maxAliveCap, maxAlive + maxAlivePerWave * (GameManager.Instance.Wave - 1)); // 웨이브가 오를수록 동시 적 수 증가
+            if (Enemy.ActiveCount >= cap) { timer = 0f; break; }
             Spawn();
         }
     }
@@ -60,6 +63,8 @@ public class EnemySpawner : MonoBehaviour
         pos.y = spawnY;
 
         var obj = ObjectPool.Get(data.prefab, pos, Quaternion.identity);
-        obj.GetComponent<Enemy>().Init(data);
+        var gm = GameManager.Instance;
+        // 웨이브가 오를수록 일반 적도 강해짐
+        obj.GetComponent<Enemy>().Init(data, gm.EnemyHealthMultiplier, gm.EnemyDamageMultiplier, gm.EnemySpeedMultiplier);
     }
 }
