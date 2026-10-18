@@ -13,6 +13,12 @@ public class HitFeedback : MonoBehaviour
     [SerializeField] Sfx hitSfx = Sfx.EnemyHit;
     [SerializeField] Sfx deathSfx = Sfx.EnemyDeath;
 
+    [Header("몸 색 (텍스처가 없을 때 단색으로 채움)")]
+    [SerializeField] bool tintBody = true;
+    [SerializeField] Color playerColor = new Color(0.30f, 0.50f, 0.85f);  // 강철 청색
+    [SerializeField] Color enemyColor = new Color(0.82f, 0.78f, 0.62f);   // 뼈 색
+    [SerializeField] Color bossColor = new Color(0.55f, 0.15f, 0.60f);    // 짙은 보라
+
     [Header("타격감")]
     [SerializeField] bool showDamageNumber = true;
     [SerializeField] float numberHeight = 1.8f;       // 숫자가 뜨는 월드 높이 (보스는 자동으로 더 높게)
@@ -49,8 +55,47 @@ public class HitFeedback : MonoBehaviour
         flashRenderers = list.ToArray();
         block = new MaterialPropertyBlock();
 
+        if (tintBody) ApplyBodyColor(isPlayer ? playerColor : isBoss ? bossColor : enemyColor);
+
         health.OnChanged += HandleChanged;
         health.OnDeath += HandleDeath;
+    }
+
+    // 캐릭터 몸(SkinnedMeshRenderer)의 머티리얼을 복사해서 텍스처를 빼고 단색으로 채움 (무기 등 일반 메시는 그대로)
+    // 같은 (원본 머티리얼, 색) 조합은 하나만 만들어 공유
+    static readonly Dictionary<string, Material> tintCache = new Dictionary<string, Material>();
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    static void ResetTintCache() => tintCache.Clear();
+
+    void ApplyBodyColor(Color color)
+    {
+        foreach (var smr in GetComponentsInChildren<SkinnedMeshRenderer>(true))
+        {
+            var src = smr.sharedMaterials;
+            var dst = new Material[src.Length];
+            for (int i = 0; i < src.Length; i++)
+            {
+                if (src[i] == null) { dst[i] = null; continue; }
+                // 재질 칸마다 살짝 어둡게 해서 (몸/옷/장비 등) 구분이 되게 함
+                Color c = color * (1f - 0.15f * Mathf.Min(i, 3));
+                c.a = 1f;
+                string key = src[i].GetInstanceID() + "_" + ColorUtility.ToHtmlStringRGB(c);
+                if (!tintCache.TryGetValue(key, out var m) || m == null)
+                {
+                    m = new Material(src[i]) { name = src[i].name + "_Tint" };
+                    if (m.HasProperty("_BaseMap")) m.SetTexture("_BaseMap", null);
+                    if (m.HasProperty("_MainTex")) m.SetTexture("_MainTex", null);
+                    if (m.HasProperty("_BaseColor")) m.SetColor("_BaseColor", c);
+                    if (m.HasProperty("_Color")) m.SetColor("_Color", c);
+                    if (m.HasProperty("_Smoothness")) m.SetFloat("_Smoothness", 0.2f);
+                    if (m.HasProperty("_Metallic")) m.SetFloat("_Metallic", 0f);
+                    tintCache[key] = m;
+                }
+                dst[i] = m;
+            }
+            smr.sharedMaterials = dst;
+        }
     }
 
     void OnDestroy()
