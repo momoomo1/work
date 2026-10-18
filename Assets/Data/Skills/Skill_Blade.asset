@@ -17,7 +17,7 @@ MonoBehaviour:
   description: "\uD50C\uB808\uC774\uC5B4 \uC8FC\uBCC0\uC744 \uB3C4\uB294 \uACE0\uB9AC\uAC00 \uB2FF\uB294 \uC801\uC744 \uBCA4\uB2E4. \uB808\uBCA8\uC774 \uC624\uB97C\uC218\uB85D \uACE0\uB9AC\uAC00 \uD558\uB098\uC529 \uB298\uC5B4\uB09C\uB2E4."
   icon: {fileID: 0}
   type: 2
-  prefab: {fileID: 7100000000000001, guid: 6a1f0c2e8b3d4f7a9c5e1b2d3f4a5b71, type: 3}
+  prefab: {fileID: 6710139492206580332, guid: 95b8d3d65b5d7f1409c4ed1723887826, type: 3}
   castSfx: {fileID: 0}
   secondaryPrefab: {fileID: 0}
   levels:
@@ -30,7 +30,7 @@ MonoBehaviour:
     duration: 0
     tickInterval: 0.3
     value: 0
-    prefab: {fileID: 7100000000000001, guid: 6a1f0c2e8b3d4f7a9c5e1b2d3f4a5b71, type: 3}
+    prefab: {fileID: 6710139492206580332, guid: 95b8d3d65b5d7f1409c4ed1723887826, type: 3}
   - damage: 13
     cooldown: 1
     count: 2
@@ -40,7 +40,7 @@ MonoBehaviour:
     duration: 0
     tickInterval: 0.3
     value: 0
-    prefab: {fileID: 7100000000000011, guid: 6a1f0c2e8b3d4f7a9c5e1b2d3f4a5b72, type: 3}
+    prefab: {fileID: 5318118474938795680, guid: 69d8f05fda8421849a84b27b8c0d773d, type: 3}
   - damage: 14
     cooldown: 1
     count: 3
@@ -50,7 +50,7 @@ MonoBehaviour:
     duration: 0
     tickInterval: 0.3
     value: 0
-    prefab: {fileID: 7100000000000011, guid: 6a1f0c2e8b3d4f7a9c5e1b2d3f4a5b72, type: 3}
+    prefab: {fileID: 5318118474938795680, guid: 69d8f05fda8421849a84b27b8c0d773d, type: 3}
   - damage: 16
     cooldown: 1
     count: 4
@@ -60,7 +60,7 @@ MonoBehaviour:
     duration: 0
     tickInterval: 0.3
     value: 0
-    prefab: {fileID: 7100000000000021, guid: 6a1f0c2e8b3d4f7a9c5e1b2d3f4a5b73, type: 3}
+    prefab: {fileID: 2360655870356088562, guid: 57a776ff377f3c44e8403e2067a4d41f, type: 3}
   - damage: 18
     cooldown: 1
     count: 5
@@ -70,5 +70,5 @@ MonoBehaviour:
     duration: 0
     tickInterval: 0.3
     value: 0
-    prefab: {fileID: 7100000000000021, guid: 6a1f0c2e8b3d4f7a9c5e1b2d3f4a5b73, type: 3}
+    prefab: {fileID: 2360655870356088562, guid: 57a776ff377f3c44e8403e2067a4d41f, type: 3}
   evolvesFrom: {fileID: 0}
