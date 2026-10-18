@@ -13,10 +13,11 @@ public class OrbitBlade : MonoBehaviour, IPoolable
     float damage;
     float hitInterval = 0.3f;
 
-    public void Setup(float damage, float hitInterval)
+    public void Setup(float damage, float hitInterval, float hitRadius = -1f)
     {
         this.damage = damage;
         this.hitInterval = hitInterval;
+        if (hitRadius > 0f) this.hitRadius = hitRadius;
     }
 
     public void OnSpawn()
