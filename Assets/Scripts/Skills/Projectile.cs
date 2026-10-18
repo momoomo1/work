@@ -8,6 +8,7 @@ public class Projectile : MonoBehaviour, IPoolable
     [SerializeField] int pierceCount = 0;     // 0이면 첫 적중 후 반환, N이면 N마리 더 관통
     [SerializeField] float lifetime = 2f;
     [SerializeField] float hitRadius = 0.3f;
+    [SerializeField] string[] hideChildNames = { "Puddle", "Decal", "Slash Distortion" }; // 끌 부속 이펙트 이름 (Free Slash의 바닥 얼룩, 데칼, 왜곡 링)
 
     readonly HashSet<int> hitIds = new HashSet<int>();
     readonly Collider[] hits = new Collider[48];
@@ -35,6 +36,18 @@ public class Projectile : MonoBehaviour, IPoolable
         transform.rotation = Quaternion.LookRotation(direction, Vector3.up);
     }
 
+    // 이펙트 에셋 안에 들어 있는 바닥 얼룩/원형 데칼 같은 부속 이펙트를 끔 (이름이 일치하는 자식 전부)
+    void HideUnwantedChildren()
+    {
+        if (hideChildNames == null || hideChildNames.Length == 0) return;
+        foreach (var t in GetComponentsInChildren<Transform>(true))
+        {
+            if (t == transform) continue;
+            foreach (var n in hideChildNames)
+                if (t.name == n) { t.gameObject.SetActive(false); break; }
+        }
+    }
+
     // 지나가는 적을 투사체 쪽으로 끌어당김 (진공참). Launch 이후 호출.
     public void SetPull(float radius, float strength)
     {
@@ -46,13 +59,18 @@ public class Projectile : MonoBehaviour, IPoolable
     {
         pullRadius = 0f;
         pullStrength = 0f;
-        if (!sanitized) { PooledVfx.StripAutoClear(gameObject); sanitized = true; } // 이펙트 에셋의 자동 파괴 방지
+        if (!sanitized)
+        {
+            PooledVfx.StripAutoClear(gameObject); // 이펙트 에셋의 자동 파괴 방지
+            HideUnwantedChildren();
+            sanitized = true;
+        }
         if (graphEffects == null) graphEffects = VisualEffectUtil.GetAll(gameObject);
         VisualEffectUtil.Restart(graphEffects); // VFX Graph 이펙트 재생
         if (particles == null) particles = GetComponentsInChildren<ParticleSystem>(true);
         foreach (var ps in particles)
         {
-            if (ps == null) continue;
+            if (ps == null || !ps.gameObject.activeInHierarchy) continue; // 꺼 둔 부속 이펙트는 재생하지 않음
             ps.Clear(true);
             ps.Play(true); // playOnAwake가 꺼진 이펙트도 재생되게
         }
