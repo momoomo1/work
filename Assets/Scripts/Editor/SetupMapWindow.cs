@@ -15,6 +15,19 @@ public class SetupMapWindow : EditorWindow
     [MenuItem("Tools/Setup/Build Dungeon Map")]
     static void Open() => GetWindow<SetupMapWindow>("Dungeon Map");
 
+    // Particle Pack 환경 타일로 바로 생성 (바닥 FloorMiddle + 벽 SideWall)
+    [MenuItem("Tools/Setup/Build Dungeon Map (Particle Pack Preset)")]
+    static void BuildPreset()
+    {
+        const string env = "Assets/UnityTechnologies/ParticlePack/Shared/Environment/Prefabs/";
+        var w = CreateInstance<SetupMapWindow>();
+        w.floorPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(env + "FloorMiddle.prefab");
+        w.wallPrefab = AssetDatabase.LoadAssetAtPath<GameObject>(env + "SideWall.prefab");
+        if (w.floorPrefab == null) Debug.LogWarning("FloorMiddle 프리팹을 찾지 못했습니다.");
+        w.Build();
+        DestroyImmediate(w);
+    }
+
     void OnGUI()
     {
         EditorGUILayout.HelpBox("바닥(필수)과 벽(선택) 프리팹을 넣고 Build를 누르세요. 경계 콜라이더는 벽 프리팹이 없어도 항상 만들어집니다.", MessageType.Info);

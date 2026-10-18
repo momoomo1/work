@@ -21,8 +21,41 @@ public class SetupVfxWindow : EditorWindow
     [SerializeField] GameObject playerHit;
     [SerializeField] float hitRefDiameter = 2f; // 히트/사망 이펙트 원본 크기(지름) 추정치
 
+    const string Cfx = "Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/";
+
     [MenuItem("Tools/Setup/VFX Wiring")]
     static void Open() => GetWindow<SetupVfxWindow>("VFX Wiring");
+
+    // 창을 열지 않고 Cartoon FX 추천 조합을 바로 적용
+    [MenuItem("Tools/Setup/Apply Cartoon FX Preset")]
+    static void ApplyPreset()
+    {
+        var w = CreateInstance<SetupVfxWindow>();
+        w.LoadPreset();
+        w.Apply();
+        DestroyImmediate(w);
+    }
+
+    void LoadPreset()
+    {
+        hellfire = Load("Explosions/CFXR3 Fire Explosion B.prefab");
+        frost = Load("Ice/CFXR3 Hit Ice B (Air).prefab");
+        frostRefDiameter = 3f;
+        sura = Load("Light/CFXR3 LightGlow A (Loop).prefab");
+        vacuum = Load("Magic Misc/CFXR4 Bouncing Glows Bubble (Blue Purple).prefab");
+        bossShot = Load("Fire/CFXR3 Hit Fire B (Air).prefab");
+        enemyHit = Load("Impacts/CFXR Hit A (Red).prefab");
+        enemyDeath = Load("Eerie/CFXR2 WW Enemy Explosion.prefab");
+        bossDeath = Load("Explosions/CFXR2 WW Explosion.prefab");
+        playerHit = Load("Impacts/CFXR Hit D 3D (Yellow).prefab");
+    }
+
+    static GameObject Load(string relative)
+    {
+        var go = AssetDatabase.LoadAssetAtPath<GameObject>(Cfx + relative);
+        if (go == null) Debug.LogWarning($"프리셋 이펙트를 찾지 못했습니다: {Cfx + relative}");
+        return go;
+    }
 
     void OnGUI()
     {
@@ -44,6 +77,7 @@ public class SetupVfxWindow : EditorWindow
         playerHit = Field("플레이어 피격", playerHit);
         hitRefDiameter = EditorGUILayout.FloatField("히트/사망 원본 지름", hitRefDiameter);
 
+        if (GUILayout.Button("추천 프리셋 불러오기 (Cartoon FX)")) LoadPreset();
         if (GUILayout.Button("Apply", GUILayout.Height(32))) Apply();
     }
 
