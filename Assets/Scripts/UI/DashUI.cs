@@ -1,27 +1,27 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-// 플레이어 발밑에 따라다니는 대쉬 쿨타임 표시 (월드 공간 UI, 씬 편집 없이 런타임에 생성).
-// 칸 하나가 대쉬 1회: 꽉 찬 칸은 밝은 하늘색, 충전 중인 칸은 아래에서부터 차오르고, 빈 칸은 어두운 회색.
+// 플레이어 발밑에 따라다니는 대쉬 쿨타임 표시.
+// 화면 공간(Overlay) UI라서 바닥 풀/소품에 가려지지 않는다. 씬 편집 없이 런타임에 생성된다.
+// 칸 하나가 대쉬 1회: 꽉 찬 칸은 밝은 하늘색, 충전 중인 칸은 왼쪽부터 차오르고, 빈 칸은 어두운 회색.
 public class DashUI : MonoBehaviour
 {
-    const float PipWidth = 60f;
-    const float PipHeight = 16f;
-    const float PipGap = 10f;
-    const float WorldScale = 0.014f;   // UI 픽셀 → 월드 유닛
+    const float PipWidth = 56f;     // 기준 해상도(1920x1080) 픽셀
+    const float PipHeight = 14f;
+    const float PipGap = 8f;
+    const float BelowFeet = 26f;    // 발 위치에서 화면 아래로 내리는 픽셀
 
-    static readonly Color BackColor = new Color(0f, 0f, 0f, 0.65f);
+    static readonly Color BackColor = new Color(0f, 0f, 0f, 0.7f);
     static readonly Color ReadyColor = new Color(0.4f, 0.92f, 1f, 1f);
     static readonly Color ChargingColor = new Color(0.45f, 0.62f, 0.72f, 0.95f);
 
-    [Header("위치")]
-    float footDrop = 0.8f;       // 플레이어 중심에서 아래로 (발 근처)
-    float towardCamera = 1.0f;   // 화면상 아래쪽으로 밀어내는 거리
-
     PlayerDash dash;
     Camera cam;
+    RectTransform canvasRect;
+    RectTransform holder;
     RectTransform[] fills;
     RectTransform[] pips;
+    Image[] fillImages;
     float[] pulse;
     int lastCharges;
 
@@ -38,18 +38,27 @@ public class DashUI : MonoBehaviour
         float totalWidth = n * PipWidth + (n - 1) * PipGap;
 
         var canvas = gameObject.AddComponent<Canvas>();
-        canvas.renderMode = RenderMode.WorldSpace;
-        canvas.sortingOrder = 10;
-        var rt = (RectTransform)transform;
-        rt.sizeDelta = new Vector2(totalWidth, PipHeight);
-        rt.localScale = Vector3.one * WorldScale;
+        canvas.renderMode = RenderMode.ScreenSpaceOverlay;
+        canvas.sortingOrder = 30; // HUD(80), 레벨업 창(100)보다 뒤
+        var scaler = gameObject.AddComponent<CanvasScaler>();
+        scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
+        scaler.referenceResolution = new Vector2(1920f, 1080f);
+        scaler.matchWidthOrHeight = 0.5f;
+        canvasRect = (RectTransform)transform;
+
+        holder = new GameObject("Holder", typeof(RectTransform)).GetComponent<RectTransform>();
+        holder.SetParent(transform, false);
+        holder.anchorMin = holder.anchorMax = new Vector2(0.5f, 0.5f);
+        holder.pivot = new Vector2(0.5f, 1f); // 위쪽 가운데 기준 (발 바로 아래에 붙음)
+        holder.sizeDelta = new Vector2(totalWidth, PipHeight);
 
         fills = new RectTransform[n];
         pips = new RectTransform[n];
+        fillImages = new Image[n];
         pulse = new float[n];
         for (int i = 0; i < n; i++)
         {
-            var pip = NewImage("Pip" + i, transform, BackColor);
+            var pip = NewImage("Pip" + i, holder, BackColor);
             pip.anchorMin = pip.anchorMax = new Vector2(0f, 0.5f);
             pip.pivot = new Vector2(0.5f, 0.5f);
             pip.sizeDelta = new Vector2(PipWidth, PipHeight);
@@ -58,10 +67,11 @@ public class DashUI : MonoBehaviour
 
             var fill = NewImage("Fill", pip, ReadyColor);
             fill.anchorMin = Vector2.zero;
-            fill.anchorMax = new Vector2(0f, 1f);   // 오른쪽 끝(anchorMax.x)으로 채움 정도를 조절
+            fill.anchorMax = new Vector2(0f, 1f);   // anchorMax.x로 채움 정도를 조절
             fill.offsetMin = new Vector2(2f, 2f);
             fill.offsetMax = new Vector2(-2f, -2f);
             fills[i] = fill;
+            fillImages[i] = fill.GetComponent<Image>();
         }
         lastCharges = dash.Charges;
     }
@@ -83,10 +93,12 @@ public class DashUI : MonoBehaviour
         if (cam == null) cam = Camera.main;
         if (cam == null) return;
 
-        // 플레이어 발밑(화면상 아래쪽)에 두고 카메라를 바라보게 함
-        Vector3 camForward = Vector3.ProjectOnPlane(cam.transform.forward, Vector3.up).normalized;
-        transform.position = dash.transform.position + Vector3.down * footDrop - camForward * towardCamera;
-        transform.rotation = cam.transform.rotation;
+        // 플레이어 발 위치를 화면 좌표로 바꿔서 그 바로 아래에 둠
+        Vector3 feet = dash.transform.position + Vector3.down * 1.0f;
+        Vector3 screen = cam.WorldToScreenPoint(feet);
+        screen.y -= BelowFeet * (Screen.height / 1080f); // 해상도 비율에 맞춰 내림
+        if (screen.z > 0f && RectTransformUtility.ScreenPointToLocalPointInRectangle(canvasRect, screen, null, out Vector2 local))
+            holder.anchoredPosition = local;
 
         // 칸 채우기
         int charges = dash.Charges;
@@ -101,9 +113,8 @@ public class DashUI : MonoBehaviour
             else if (i == charges) { amount = dash.RechargeProgress; color = ChargingColor; }   // 지금 차오르는 칸
             else { amount = 0f; color = ChargingColor; }
 
-            var fill = fills[i];
-            fill.anchorMax = new Vector2(Mathf.Clamp01(amount), 1f);
-            fill.GetComponent<Image>().color = color;
+            fills[i].anchorMax = new Vector2(Mathf.Clamp01(amount), 1f);
+            fillImages[i].color = color;
 
             if (pulse[i] > 0f)
             {

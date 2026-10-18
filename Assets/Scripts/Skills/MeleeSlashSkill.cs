@@ -11,6 +11,8 @@ public class MeleeSlashSkill : SkillBase
     [SerializeField] float fanAngle = 30f;       // 베기가 여러 번일 때 서로 벌어지는 각도
     [SerializeField] float hitDelay = 0.1f;      // 연속 베기 사이 간격
     [SerializeField] float closeRange = 0.8f;    // 이 거리 안의 적은 각도와 상관없이 맞음
+    [SerializeField] float autoEngageRange = 8f; // 자동 공격 때 이 거리 안의 가장 가까운 적을 향해 휘두름
+    [SerializeField] bool swingWhenIdle = true;  // 적이 없어도 바라보는 방향으로 계속 휘두름 (끄면 적이 있을 때만)
     [SerializeField] float vfxRefDiameter = 5f;  // 슬래시 이펙트의 원본 지름 추정치 (클수록 이펙트가 작게 나옴)
     [SerializeField] float vfxLifetime = 1.2f;
 
@@ -34,16 +36,22 @@ public class MeleeSlashSkill : SkillBase
         var stat = Stat;
         Vector3 origin = Owner.position;
 
-        // 마우스 클릭 중이면 클릭 방향(+ 무리 보정), 아니면 사거리 안의 가장 가까운 적 방향
+        // 마우스 클릭 중이면 클릭 방향(+ 무리 보정), 아니면 자동 공격:
+        // 가까운 적(autoEngageRange 안)이 있으면 그쪽, 없으면 바라보는 방향으로 계속 휘두름
         Vector3 dir;
         if (!PlayerAim.TryGetAimDirection(origin, stat.area, out dir))
         {
-            var target = TargetFinder.FindNearest(origin, stat.area);
-            if (target == null) return;
+            var target = TargetFinder.FindNearest(origin, Mathf.Max(stat.area, autoEngageRange));
+            if (target != null)
+            {
+                dir = target.position - origin;
+                dir.y = 0f;
+            }
+            else if (swingWhenIdle) dir = Owner.forward;
+            else return;
 
-            dir = target.position - origin;
             dir.y = 0f;
-            if (dir.sqrMagnitude < 0.0001f) return;
+            if (dir.sqrMagnitude < 0.0001f) dir = Vector3.forward;
             dir.Normalize();
         }
 
