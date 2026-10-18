@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Skill_Hellfire
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   id: hellfire
-  displayName: "\uD5EC\uD30C\uC774\uC5B4"
+  displayName: "\uBA54\uD14C\uC624"
   description: "\uC801\uC774 \uAC00\uC7A5 \uBC00\uC9D1\uD55C \uACF3\uC5D0 \uACBD\uACE0
     \uD6C4 \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0A8\uB2E4."
   icon: {fileID: 0}

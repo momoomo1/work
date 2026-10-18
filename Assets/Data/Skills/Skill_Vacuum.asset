@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Skill_Vacuum
   m_EditorClassIdentifier: Assembly-CSharp::SkillData
   id: vacuum
-  displayName: "\uC9C4\uACF5\uCC38"
-  description: "\uC218\uB77C\uCC38\uC758 \uAC15\uD654\uD615. \uB354 \uD06C\uACE0
-    \uB9CE\uC740 \uC801\uC744 \uAD00\uD1B5\uD55C\uB2E4."
+  displayName: "\uD5EC\uD30C\uC774\uC5B4"
+  description: "\uC218\uB77C\uCC38\uC758 \uAC15\uD654\uD615. \uAC70\uB300\uD55C \uBD88\uB369\uC774\uAC00
+    \uC801\uC744 \uB04C\uC5B4\uB2F9\uAE30\uBA70 \uAD00\uD1B5\uD55C\uB2E4."
   icon: {fileID: 0}
   type: 0
   prefab: {fileID: 5341647638327698553, guid: 3a7748d4463a22944a511a54bebecddc, type: 3}
