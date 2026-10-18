@@ -36,7 +36,8 @@ public class SetupVfxWindow : EditorWindow
     [SerializeField] GameObject enemyDeath;
     [SerializeField] GameObject bossDeath;
     [SerializeField] GameObject playerHit;
-    [SerializeField] float hitRefDiameter = 2f; // 히트/사망 이펙트 원본 크기(지름) 추정치
+    [SerializeField] float hitRefDiameter = 2f; // 히트 이펙트 원본 크기(지름) 추정치
+    [SerializeField] float deathRefDiameter = 2.5f; // 사망 이펙트 원본 크기 추정치 (값이 클수록 작게 나옴)
 
     const string Cfx = "Assets/JMO Assets/Cartoon FX Remaster/CFXR Prefabs/";
 
@@ -69,8 +70,7 @@ public class SetupVfxWindow : EditorWindow
         // 메테오: 폭발은 너무 커 보여서 UNI VFX를 겹치지 않고 작은 폭발 하나만 사용
         // 서리 구름: 얼음 마법진(메인) + 시안 폭발 파동(생성 시 한 번)
         w.frostExtra = LoadAny(uni + "Outburst Cyan.prefab");
-        // 회전 칼날: 카타나 + 트레일 + 은색 오브 광채
-        w.bladeExtra = LoadAny(uni + "Orb Silver.prefab");
+        // 회전 칼날: 카타나 + 트레일만 사용 (겹치는 이펙트 없음)
         // 보스 투사체: 보라 오브
         var orb = LoadAny(uni + "Orb Violet.prefab");
         if (orb != null) { w.bossShot = orb; w.bossShotScale = 0.6f; }
@@ -91,9 +91,11 @@ public class SetupVfxWindow : EditorWindow
         // 기본 공격: 작은 빛 덩어리
         basicShot = Load("Light/CFXR3 LightGlow A (Loop).prefab");
         basicShotScale = 0.5f;
-        // 회전 칼날: 카타나 모델 + 트레일 + 빛 (카타나가 없으면 Easy Weapons 검, 그것도 없으면 큐브)
-        bladeFx = basicShot;
-        bladeFxScale = 0.6f;
+        // 회전 칼날: 카타나 모델 + 가는 트레일만 (별도 빛 이펙트는 위치가 어긋나 보여서 제거)
+        // (카타나가 없으면 Easy Weapons 검, 그것도 없으면 큐브)
+        bladeFx = null;
+        bladeExtra = null;
+        bladeModelScale = 2.4f;
         bladeModel = LoadAny("Assets/Free Slash VFX/Model/Katana/Low-Poly Katana.prefab");
         if (bladeModel == null)
             bladeModel = LoadAny("Assets/Kendall H/Easy Weapons/Prefabs/Regular_Enchanted/sword.RegColor.WithEnch.0.6.prefab");
@@ -106,8 +108,9 @@ public class SetupVfxWindow : EditorWindow
         bossShot = Load("Fire/CFXR3 Hit Fire B (Air).prefab");
         enemyHit = LoadAny("Assets/Free Slash VFX/Prefabs/Impact.prefab");
         if (enemyHit == null) enemyHit = Load("Impacts/CFXR Hit A (Red).prefab");
-        // 사망: 폭발 대신 부드러운 연기 퍼프
-        enemyDeath = Load("Misc/CFXR Magic Poof.prefab");
+        // 사망: 흙먼지가 퍼지는 자연스러운 효과 (보라색 퍼프는 어색해서 교체)
+        enemyDeath = LoadAny("Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire & Explosion Effects/Prefabs/DustExplosion.prefab");
+        if (enemyDeath == null) enemyDeath = Load("Misc/CFXR3 Hit Misc F Smoke.prefab");
         bossDeath = enemyDeath;
         playerHit = Load("Impacts/CFXR Hit D 3D (Yellow).prefab");
     }
@@ -190,8 +193,8 @@ public class SetupVfxWindow : EditorWindow
 
         // 피격 / 사망 (풀 래퍼)
         var eHit = enemyHit != null ? MakePooled("Fx_EnemyHit", enemyHit, hitRefDiameter, 1.5f) : null;
-        var eDeath = enemyDeath != null ? MakePooled("Fx_EnemyDeath", enemyDeath, hitRefDiameter, 2f) : null;
-        var bDeath = bossDeath != null ? MakePooled("Fx_BossDeath", bossDeath, hitRefDiameter, 3f) : eDeath;
+        var eDeath = enemyDeath != null ? MakePooled("Fx_EnemyDeath", enemyDeath, deathRefDiameter, 1.5f) : null;
+        var bDeath = bossDeath != null ? MakePooled("Fx_BossDeath", bossDeath, deathRefDiameter, 2f) : eDeath;
         var pHit = playerHit != null ? MakePooled("Fx_PlayerHit", playerHit, hitRefDiameter, 1.5f) : eHit;
 
         WirePrefab("Assets/Prefabs/Enemy_Basic.prefab", eHit, eDeath, 1.5f, 1f, Sfx.EnemyHit, Sfx.EnemyDeath);
@@ -311,8 +314,8 @@ public class SetupVfxWindow : EditorWindow
         }
 
         var trail = root.AddComponent<TrailRenderer>();
-        trail.time = 0.3f;
-        trail.startWidth = 0.4f;
+        trail.time = 0.2f;
+        trail.startWidth = 0.25f;
         trail.endWidth = 0f;
         trail.startColor = trailColor;
         trail.endColor = new Color(trailColor.r, trailColor.g, trailColor.b, 0f);

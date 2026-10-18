@@ -6,6 +6,7 @@ public class SetupMapWindow : EditorWindow
 {
     [SerializeField] GameObject floorPrefab;
     [SerializeField] GameObject wallPrefab;
+    [SerializeField] GameObject wallAltPrefab;  // 일부 벽 칸을 이 프리팹으로 교체 (예: 촛불 벽). 비우면 사용 안 함
     [SerializeField] float arenaSize = 60f;     // 한 변 길이(유닛)
     [SerializeField] float tileSizeOverride = 0f; // 0이면 바닥 프리팹의 크기에서 자동 계산
     [SerializeField] float wallOffset = 0f;     // 벽을 아레나 경계선에서 바깥으로 밀어낼 거리
@@ -40,6 +41,55 @@ public class SetupMapWindow : EditorWindow
         hideGroundPlane = EditorGUILayout.Toggle("기존 Ground 렌더러 숨김", hideGroundPlane);
 
         if (GUILayout.Button("Build")) Build();
+    }
+
+    // DungeonFreeVersion(New Dungeon Pack 무료판)으로 던전 아레나: 바닥 + 사방 벽(촛불 벽 섞음) + 안쪽 소품(통, 상자, 바위)
+    [MenuItem("Tools/Setup/Build Dungeon Arena (DungeonFree Preset)")]
+    internal static void BuildDungeonPreset()
+    {
+        const string root = "Assets/DungeonFreeVersion/Prefabs/";
+        GameObject P(string n) => AssetDatabase.LoadAssetAtPath<GameObject>($"{root}{n}.prefab");
+
+        var w = CreateInstance<SetupMapWindow>();
+        w.floorPrefab = P("_Plane");
+        w.wallPrefab = P("_Wall");
+        w.wallAltPrefab = P("_WallCandles");
+        if (w.floorPrefab == null || w.wallPrefab == null)
+        {
+            Debug.LogWarning("DungeonFreeVersion의 _Plane/_Wall 프리팹을 찾지 못했습니다.");
+            DestroyImmediate(w);
+            return;
+        }
+
+        // 이전에 만든 다른 맵 소품 제거
+        var oldProps = GameObject.Find("FactoryProps");
+        if (oldProps != null) Undo.DestroyObjectImmediate(oldProps);
+        var oldDungeonProps = GameObject.Find("DungeonProps");
+        if (oldDungeonProps != null) Undo.DestroyObjectImmediate(oldDungeonProps);
+
+        w.Build();
+
+        // 안쪽 소품: 시야를 꾸미는 용도라 콜라이더는 제거(플레이어가 걸리지 않게)
+        var names = new[] { "_Barrel", "_Crates", "_Box", "_Boxes", "_BoxOpen", "_FloorRock" };
+        var parent = new GameObject("DungeonProps").transform;
+        Undo.RegisterCreatedObjectUndo(parent.gameObject, "Dungeon Props");
+        var rng = new System.Random(12345); // 매번 같은 배치
+        float half = w.arenaSize * 0.5f;
+        int placed = 0, tries = 0;
+        while (placed < 28 && tries++ < 400)
+        {
+            float x = (float)(rng.NextDouble() * 2 - 1) * (half - 4f);
+            float z = (float)(rng.NextDouble() * 2 - 1) * (half - 4f);
+            if (x * x + z * z < 7f * 7f) continue; // 시작 지점 주변은 비움
+            var prefab = P(names[rng.Next(names.Length)]);
+            if (prefab == null) continue;
+            var obj = (GameObject)PrefabUtility.InstantiatePrefab(prefab, parent);
+            obj.transform.SetPositionAndRotation(new Vector3(x, w.floorY, z), Quaternion.Euler(0f, rng.Next(4) * 90f + (float)rng.NextDouble() * 20f, 0f));
+            foreach (var c in obj.GetComponentsInChildren<Collider>(true)) Undo.DestroyObjectImmediate(c);
+            placed++;
+        }
+        DestroyImmediate(w);
+        Debug.Log($"던전 아레나 생성 완료 (소품 {placed}개). 벽 방향/높이가 어색하면 DungeonMap/Walls의 회전과 위치를 조정하세요. 씬을 저장(Ctrl+S)하세요.");
     }
 
     // Factory_LP 바닥 타일로 아레나를 깔고, 경계 바깥에 공장 소품(탱크, 창고, 정제탑, 나무)을 둘러 배경으로 삼는다.
@@ -132,10 +182,11 @@ public class SetupMapWindow : EditorWindow
         for (int i = 0; i < count; i++)
         {
             float p = start + i * wallTile;
-            Place(wallPrefab, walls, new Vector3(p, floorY, edge), Quaternion.Euler(0f, 180f, 0f));   // 북쪽 벽: 남쪽(안쪽)을 봄
-            Place(wallPrefab, walls, new Vector3(p, floorY, -edge), Quaternion.Euler(0f, 0f, 0f));    // 남쪽 벽
-            Place(wallPrefab, walls, new Vector3(edge, floorY, p), Quaternion.Euler(0f, -90f, 0f));   // 동쪽 벽
-            Place(wallPrefab, walls, new Vector3(-edge, floorY, p), Quaternion.Euler(0f, 90f, 0f));   // 서쪽 벽
+            var prefab = (wallAltPrefab != null && i % 4 == 2) ? wallAltPrefab : wallPrefab;
+            Place(prefab, walls, new Vector3(p, floorY, edge), Quaternion.Euler(0f, 180f, 0f));   // 북쪽 벽: 남쪽(안쪽)을 봄
+            Place(prefab, walls, new Vector3(p, floorY, -edge), Quaternion.Euler(0f, 0f, 0f));    // 남쪽 벽
+            Place(prefab, walls, new Vector3(edge, floorY, p), Quaternion.Euler(0f, -90f, 0f));   // 동쪽 벽
+            Place(prefab, walls, new Vector3(-edge, floorY, p), Quaternion.Euler(0f, 90f, 0f));   // 서쪽 벽
         }
     }
 
