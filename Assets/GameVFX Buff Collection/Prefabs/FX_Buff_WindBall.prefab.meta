@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 2b1930b12b54e8c4c8ceb5f787f438a0
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 301174
+  packageName: Game VFX - Buff Collection(URP)
+  packageVersion: 1.02
+  assetPath: Assets/GameVFX Buff Collection/Prefabs/FX_Buff_WindBall.prefab
+  uploadId: 845616

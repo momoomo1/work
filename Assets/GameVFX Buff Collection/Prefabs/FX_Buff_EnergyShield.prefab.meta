@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: db6a144f0d7438946a6db1783d489e27
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 301174
+  packageName: Game VFX - Buff Collection(URP)
+  packageVersion: 1.02
+  assetPath: Assets/GameVFX Buff Collection/Prefabs/FX_Buff_EnergyShield.prefab
+  uploadId: 845616

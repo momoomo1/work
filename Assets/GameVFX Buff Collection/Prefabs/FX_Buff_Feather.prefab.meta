@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 5faab599029559449b12b25f85c0c9ff
+PrefabImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 301174
+  packageName: Game VFX - Buff Collection(URP)
+  packageVersion: 1.02
+  assetPath: Assets/GameVFX Buff Collection/Prefabs/FX_Buff_Feather.prefab
+  uploadId: 845616

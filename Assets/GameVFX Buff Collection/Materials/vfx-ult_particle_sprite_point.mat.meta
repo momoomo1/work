@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 0bcd1d89ae631b34296172d39f5bb7ff
+timeCreated: 1439067399
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 301174
+  packageName: Game VFX - Buff Collection(URP)
+  packageVersion: 1.02
+  assetPath: Assets/GameVFX Buff Collection/Materials/vfx-ult_particle_sprite_point.mat
+  uploadId: 845616

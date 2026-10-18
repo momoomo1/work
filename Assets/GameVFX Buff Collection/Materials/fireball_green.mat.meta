@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 5ce771fbd58b8fc4e8825df1e4a12c60
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 301174
+  packageName: Game VFX - Buff Collection(URP)
+  packageVersion: 1.02
+  assetPath: Assets/GameVFX Buff Collection/Materials/fireball_green.mat
+  uploadId: 845616

@@ -18,7 +18,8 @@ MonoBehaviour:
     \uB2FF\uB294 \uC801\uC744 \uBCA4\uB2E4."
   icon: {fileID: 0}
   type: 2
-  prefab: {fileID: 8674170815718760203, guid: e11f171b3a8affb45a85c0a39d9db391, type: 3}
+  prefab: {fileID: 8980629177268571688, guid: db32daf6ed60438468f2d73075e3d319, type: 3}
+  castSfx: {fileID: 0}
   secondaryPrefab: {fileID: 0}
   levels:
   - damage: 8

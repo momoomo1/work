@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: ca88f58feffa52b4a9d17ee18d779ada
+timeCreated: 1477989993
+licenseType: Store
+NativeFormatImporter:
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 301174
+  packageName: Game VFX - Buff Collection(URP)
+  packageVersion: 1.02
+  assetPath: Assets/GameVFX Buff Collection/Materials/Hexagon_01.mat
+  uploadId: 845616

@@ -3734,7 +3734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0de0000000000000000000000000017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerAttack
-  projectilePrefab: {fileID: 7174948159645569316, guid: 7b2838377ca2ae64fbaf36f65bc89feb, type: 3}
+  projectilePrefab: {fileID: 9088005460209451564, guid: c22173984a9f3e94da9a5c0c04c93209, type: 3}
   attackInterval: 0.6
   attackRange: 12
   damage: 10

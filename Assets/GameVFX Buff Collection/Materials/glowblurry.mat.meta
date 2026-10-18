@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 0485e13abf1f7b549b730d8965c12454
+timeCreated: 1531145584
+licenseType: Store
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 301174
+  packageName: Game VFX - Buff Collection(URP)
+  packageVersion: 1.02
+  assetPath: Assets/GameVFX Buff Collection/Materials/glowblurry.mat
+  uploadId: 845616
