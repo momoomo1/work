@@ -8,6 +8,8 @@ public class OrbitBlade : MonoBehaviour, IPoolable
 
     readonly Dictionary<int, float> nextHitTime = new Dictionary<int, float>();
     readonly Collider[] hits = new Collider[16];
+    TrailRenderer trail;
+    bool initialized;
     float damage;
     float hitInterval = 0.3f;
 
@@ -17,7 +19,17 @@ public class OrbitBlade : MonoBehaviour, IPoolable
         this.hitInterval = hitInterval;
     }
 
-    public void OnSpawn() => nextHitTime.Clear();
+    public void OnSpawn()
+    {
+        nextHitTime.Clear();
+        if (!initialized)
+        {
+            PooledVfx.StripAutoClear(gameObject); // 이펙트 에셋의 자동 파괴 방지
+            trail = GetComponentInChildren<TrailRenderer>(true);
+            initialized = true;
+        }
+        if (trail != null) trail.Clear(); // 풀 재사용 시 이전 위치에서 이어지는 꼬리 방지
+    }
     public void OnDespawn() { }
 
     void Update()

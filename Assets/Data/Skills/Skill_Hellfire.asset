@@ -18,7 +18,7 @@ MonoBehaviour:
     \uD6C4 \uD3ED\uBC1C\uC744 \uC77C\uC73C\uD0A8\uB2E4."
   icon: {fileID: 0}
   type: 1
-  prefab: {fileID: 6182881859134618037, guid: a532d620d38c87c449ed40c6c34147ca, type: 3}
+  prefab: {fileID: 5475927052290748198, guid: df70ae6fdcd0ecd40821738f66bd0bf1, type: 3}
   castSfx: {fileID: 8300000, guid: 605bccfe66dd8b54cbd12c5f4e610c44, type: 3}
   secondaryPrefab: {fileID: 4838201783146574938, guid: 499f1d4ac06c31245ad5ad76715bed48, type: 3}
   levels:

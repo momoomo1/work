@@ -32,8 +32,8 @@ public static class SetupSkills
 
         var vacuum = LoadOrCreate("Assets/Data/Skills/Skill_Vacuum.asset");
         vacuum.id = "vacuum";
-        vacuum.displayName = "진공참";
-        vacuum.description = "수라참의 강화형. 더 크고 많은 적을 관통한다.";
+        vacuum.displayName = "헬파이어";
+        vacuum.description = "수라참의 강화형. 거대한 불덩이가 적을 끌어당기며 관통한다.";
         vacuum.type = SkillType.Projectile;
         vacuum.evolvesFrom = sura;
         vacuum.levels = new SkillLevelStat[3];
@@ -48,7 +48,7 @@ public static class SetupSkills
 
         var hell = LoadOrCreate("Assets/Data/Skills/Skill_Hellfire.asset");
         hell.id = "hellfire";
-        hell.displayName = "헬파이어";
+        hell.displayName = "메테오";
         hell.description = "적이 가장 밀집한 곳에 경고 후 폭발을 일으킨다.";
         hell.type = SkillType.Explosion;
         hell.evolvesFrom = null;

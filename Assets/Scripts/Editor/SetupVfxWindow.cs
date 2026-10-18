@@ -9,6 +9,8 @@ public class SetupVfxWindow : EditorWindow
     [SerializeField] float hellfireRefDiameter = 6f;
     [SerializeField] GameObject frost;
     [SerializeField] float frostRefDiameter = 6f;
+    [SerializeField] GameObject bladeFx;
+    [SerializeField] float bladeFxScale = 0.6f;
     [SerializeField] GameObject basicShot;
     [SerializeField] float basicShotScale = 0.5f;
     [SerializeField] GameObject sura;
@@ -45,8 +47,10 @@ public class SetupVfxWindow : EditorWindow
         frostRefDiameter = 3f;
         basicShot = Load("Light/CFXR3 LightGlow A (Loop).prefab");
         basicShotScale = 0.5f;
+        bladeFx = basicShot;
+        bladeFxScale = 0.6f;
         sura = Load("Sword Trails/Plain/CFXR4 Sword Trail PLAIN (360 Thin Spiral).prefab");
-        suraScale = 0.7f;
+        suraScale = 1f;
         vacuum = AssetDatabase.LoadAssetAtPath<GameObject>(
             "Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire & Explosion Effects/Prefabs/FireBall.prefab");
         if (vacuum == null) Debug.LogWarning("Particle Pack의 FireBall을 찾지 못했습니다.");
@@ -72,6 +76,8 @@ public class SetupVfxWindow : EditorWindow
         hellfireRefDiameter = EditorGUILayout.FloatField("  원본 지름", hellfireRefDiameter);
         frost = Field("서리 구름 (얼음 장판)", frost);
         frostRefDiameter = EditorGUILayout.FloatField("  원본 지름", frostRefDiameter);
+        bladeFx = Field("회전 칼날 (빛 이펙트, 큐브+트레일에 추가)", bladeFx);
+        bladeFxScale = EditorGUILayout.FloatField("  스케일", bladeFxScale);
         basicShot = Field("기본 공격 투사체", basicShot);
         basicShotScale = EditorGUILayout.FloatField("  스케일", basicShotScale);
         sura = Field("수라참 투사체 (트레일/슬래시)", sura);
@@ -98,6 +104,7 @@ public class SetupVfxWindow : EditorWindow
         // 스킬 비주얼
         if (hellfire != null) SetSkill("Hellfire", MakePooled("Fx_Hellfire", hellfire, hellfireRefDiameter, 2f));
         if (frost != null) SetSkill("Frost", MakeFrost());
+        if (bladeFx != null) SetSkill("Blade", MakeBlade());
         if (basicShot != null)
         {
             var basic = MakeProjectile("Fx_Basic", basicShot, basicShotScale);
@@ -111,7 +118,7 @@ public class SetupVfxWindow : EditorWindow
             }
             else Debug.LogWarning("Player의 PlayerAttack을 찾지 못해 기본 공격 투사체는 연결하지 못했습니다.");
         }
-        if (sura != null) SetSkill("Sura", MakeProjectile("Fx_Sura", sura, suraScale));
+        if (sura != null) SetSkill("Sura", MakeProjectile("Fx_Sura", sura, suraScale, true));
         if (vacuum != null) SetSkill("Vacuum", MakeProjectile("Fx_Vacuum", vacuum, vacuumScale));
 
         if (bossShot != null)
@@ -164,11 +171,70 @@ public class SetupVfxWindow : EditorWindow
         return Save(root, name);
     }
 
-    static GameObject MakeProjectile(string name, GameObject fx, float scale)
+    // 회전 칼날: 은색 납작 큐브 + 밝은 트레일 + 빛 이펙트 (루트에 OrbitBlade)
+    GameObject MakeBlade()
+    {
+        var bladeMat = AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/Blade.mat");
+        var trailMat = AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/Blade_Trail.mat");
+        if (trailMat == null)
+        {
+            trailMat = new Material(Shader.Find("Universal Render Pipeline/Particles/Unlit"));
+            AssetDatabase.CreateAsset(trailMat, "Assets/Materials/Blade_Trail.mat");
+        }
+        var trailColor = new Color(0.75f, 0.9f, 1f, 1f);
+        trailMat.SetColor("_BaseColor", trailColor);
+        trailMat.color = trailColor;
+        EditorUtility.SetDirty(trailMat);
+
+        var root = new GameObject("Fx_Blade");
+        root.AddComponent<OrbitBlade>();
+
+        var core = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        core.name = "Core";
+        Object.DestroyImmediate(core.GetComponent<BoxCollider>());
+        core.transform.SetParent(root.transform, false);
+        core.transform.localScale = new Vector3(0.4f, 0.1f, 1.4f);
+        if (bladeMat != null) core.GetComponent<MeshRenderer>().sharedMaterial = bladeMat;
+
+        var trail = root.AddComponent<TrailRenderer>();
+        trail.time = 0.35f;
+        trail.startWidth = 0.7f;
+        trail.endWidth = 0f;
+        trail.startColor = trailColor;
+        trail.endColor = new Color(trailColor.r, trailColor.g, trailColor.b, 0f);
+        trail.sharedMaterial = trailMat;
+
+        Attach(root, bladeFx, bladeFxScale);
+        return Save(root, "Fx_Blade");
+    }
+
+    // addCore: 이펙트가 잘 안 보일 때를 대비해 밝은 큐브 + 트레일(기존 임시 비주얼)을 함께 둔다
+    static GameObject MakeProjectile(string name, GameObject fx, float scale, bool addCore = false)
     {
         var root = new GameObject(name);
         root.AddComponent<Projectile>();
         Attach(root, fx, scale);
+
+        if (addCore)
+        {
+            var cubeMat = AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/Sura_Cube.mat");
+            var trailMat = AssetDatabase.LoadAssetAtPath<Material>("Assets/Materials/Sura_Trail.mat");
+
+            var core = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            core.name = "Core";
+            Object.DestroyImmediate(core.GetComponent<BoxCollider>());
+            core.transform.SetParent(root.transform, false);
+            core.transform.localScale = new Vector3(0.3f, 0.3f, 1.6f);
+            if (cubeMat != null) core.GetComponent<MeshRenderer>().sharedMaterial = cubeMat;
+
+            var trail = root.AddComponent<TrailRenderer>();
+            trail.time = 0.3f;
+            trail.startWidth = 0.6f;
+            trail.endWidth = 0f;
+            trail.startColor = new Color(0.4f, 0.9f, 1f, 1f);
+            trail.endColor = new Color(0.4f, 0.9f, 1f, 0f);
+            if (trailMat != null) trail.sharedMaterial = trailMat;
+        }
         return Save(root, name);
     }
 

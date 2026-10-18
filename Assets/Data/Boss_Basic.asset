@@ -27,7 +27,7 @@ MonoBehaviour:
   chargeDuration: 0.8
   chargeDamage: 30
   telegraphWidth: 3
-  projectilePrefab: {fileID: 2176397452346732613, guid: 3bb0830028609bf448823b5f53385154, type: 3}
+  projectilePrefab: {fileID: 1550714504398505681, guid: 494eace3495916c4bbc91ac9b2405f5a, type: 3}
   projectileCount: 12
   radialWindup: 0.6
   projectileSpeed: 8
