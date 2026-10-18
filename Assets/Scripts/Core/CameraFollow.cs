@@ -9,6 +9,25 @@ public class CameraFollow : MonoBehaviour
     [SerializeField] float heightOffset = 1f; // 타겟 기준 시선 높이
     [SerializeField] float followSmooth = 10f;
 
+    static CameraFollow instance;
+    float shakeMagnitude;
+    float shakeDuration;
+    float shakeTimeLeft;
+
+    void OnEnable() => instance = this;
+    void OnDisable() { if (instance == this) instance = null; }
+
+    // 화면 흔들림: magnitude(세기, 유닛), duration(초). 더 센 흔들림이 우선.
+    public static void Shake(float magnitude, float duration)
+    {
+        if (instance == null || magnitude <= 0f) return;
+        float current = instance.shakeTimeLeft > 0f ? instance.shakeMagnitude * (instance.shakeTimeLeft / instance.shakeDuration) : 0f;
+        if (magnitude < current) return;
+        instance.shakeMagnitude = magnitude;
+        instance.shakeDuration = Mathf.Max(0.01f, duration);
+        instance.shakeTimeLeft = duration;
+    }
+
     void LateUpdate()
     {
         if (target == null) return;
@@ -17,5 +36,12 @@ public class CameraFollow : MonoBehaviour
         Vector3 desired = focus - rot * Vector3.forward * distance;
         transform.position = Vector3.Lerp(transform.position, desired, 1f - Mathf.Exp(-followSmooth * Time.deltaTime));
         transform.rotation = rot;
+
+        if (shakeTimeLeft > 0f)
+        {
+            shakeTimeLeft -= Time.deltaTime;
+            float k = Mathf.Clamp01(shakeTimeLeft / shakeDuration);
+            transform.position += Random.insideUnitSphere * (shakeMagnitude * k); // 시간이 갈수록 약해짐
+        }
     }
 }

@@ -22,6 +22,8 @@ public class Enemy : MonoBehaviour, IPoolable
     Health health;
     float nextAttackTime;
     float fixedY;
+    [SerializeField] float knockDecay = 25f; // 넉백 속도가 줄어드는 정도 (클수록 짧게 밀림)
+    Vector3 knockVelocity;
     float speedMultiplier = 1f;
     float slowUntil;
 
@@ -67,6 +69,14 @@ public class Enemy : MonoBehaviour, IPoolable
         }
     }
 
+    // 피격 시 짧게 밀려남 (속도가 점점 줄어듦)
+    public void Knockback(Vector3 direction, float speed)
+    {
+        direction.y = 0f;
+        if (direction.sqrMagnitude < 0.0001f) return;
+        knockVelocity = direction.normalized * speed;
+    }
+
     // 외부 힘으로 위치를 밀거나 당김 (수평만)
     public void ApplyDisplacement(Vector3 delta)
     {
@@ -79,6 +89,7 @@ public class Enemy : MonoBehaviour, IPoolable
         data = null; // Init 전까지 동작 안 함
         slowUntil = 0f;
         speedMultiplier = 1f;
+        knockVelocity = Vector3.zero;
         active.Add(this);
     }
 
@@ -116,7 +127,8 @@ public class Enemy : MonoBehaviour, IPoolable
         }
         velocity += push * (separationStrength * speed);
 
-        pos += velocity * Time.deltaTime;
+        pos += (velocity + knockVelocity) * Time.deltaTime;
+        knockVelocity = Vector3.MoveTowards(knockVelocity, Vector3.zero, knockDecay * Time.deltaTime);
         pos.y = fixedY;
         transform.position = pos;
 
