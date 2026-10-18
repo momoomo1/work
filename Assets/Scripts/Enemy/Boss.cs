@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-// 보스: 추적 → (돌진 / 방사형 투사체) 번갈아 실행. Health/IDamageable은 일반 적과 동일하게 사용.
+// 보스: 추적 → 돌진 예고 → 돌진을 반복. Health/IDamageable은 일반 적과 동일하게 사용.
 [RequireComponent(typeof(Health))]
 public class Boss : MonoBehaviour, IPoolable
 {
@@ -9,7 +9,7 @@ public class Boss : MonoBehaviour, IPoolable
 
     public static event Action<Boss> OnBossDied;
 
-    enum State { Chase, ChargeWarn, Charging, Radial }
+    enum State { Chase, ChargeWarn, Charging }
 
     BossData data;
     Health health;
@@ -18,7 +18,6 @@ public class Boss : MonoBehaviour, IPoolable
     float nextPatternTime;
     float nextContactTime;
     float fixedY;
-    int patternIndex;
     Vector3 chargeDir;
     bool chargeHit;
 
@@ -43,7 +42,6 @@ public class Boss : MonoBehaviour, IPoolable
         data = bossData;
         health.SetMaxHealth(data.maxHealth);
         fixedY = transform.position.y;
-        patternIndex = 0;
         EnterChase();
     }
 
@@ -66,7 +64,6 @@ public class Boss : MonoBehaviour, IPoolable
             case State.Chase: UpdateChase(player); break;
             case State.ChargeWarn: UpdateChargeWarn(); break;
             case State.Charging: UpdateCharging(player); break;
-            case State.Radial: UpdateRadial(player); break;
         }
     }
 
@@ -85,15 +82,10 @@ public class Boss : MonoBehaviour, IPoolable
             PlayerLocator.Damageable?.TakeDamage(data.contactDamage);
         }
 
-        if (Time.time >= nextPatternTime)
-        {
-            if (patternIndex % 2 == 0) StartCharge(player);
-            else StartRadial();
-            patternIndex++;
-        }
+        if (Time.time >= nextPatternTime) StartCharge(player);
     }
 
-    // 패턴 A: 방향 고정 후 예고 → 돌진
+    // 방향 고정 후 예고 → 돌진
     void StartCharge(Transform player)
     {
         Vector3 to = Flat(player.position - transform.position);
@@ -132,33 +124,6 @@ public class Boss : MonoBehaviour, IPoolable
 
         stateTimer -= Time.deltaTime;
         if (stateTimer <= 0f) EnterChase();
-    }
-
-    // 패턴 B: 잠깐 멈췄다가 방사형으로 발사
-    void StartRadial()
-    {
-        state = State.Radial;
-        stateTimer = data.radialWindup;
-    }
-
-    void UpdateRadial(Transform player)
-    {
-        stateTimer -= Time.deltaTime;
-        if (stateTimer > 0f) return;
-
-        if (data.projectilePrefab != null)
-        {
-            int count = Mathf.Max(1, data.projectileCount);
-            Vector3 origin = transform.position;
-            origin.y = player.position.y;
-            for (int i = 0; i < count; i++)
-            {
-                Vector3 dir = Quaternion.AngleAxis(360f / count * i, Vector3.up) * Vector3.forward;
-                var obj = ObjectPool.Get(data.projectilePrefab, origin + dir * 1.5f, Quaternion.LookRotation(dir));
-                obj.GetComponent<EnemyProjectile>().Launch(dir, data.projectileSpeed, data.projectileDamage, data.projectileLifetime);
-            }
-        }
-        EnterChase();
     }
 
     void EnterChase()

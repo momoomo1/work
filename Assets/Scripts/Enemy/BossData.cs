@@ -15,23 +15,13 @@ public class BossData : ScriptableObject
     public float contactDamage = 15f;
     public float contactInterval = 1f;
 
-    [Header("패턴 공통")]
-    public float patternInterval = 4f;    // 추적 후 다음 패턴까지 간격 (A, B 번갈아)
-
-    [Header("패턴 A: 돌진")]
+    [Header("패턴: 돌진")]
+    public float patternInterval = 4f;    // 추적한 뒤 다음 돌진까지 간격
     public float chargeWarnTime = 1f;
     public float chargeSpeed = 18f;
     public float chargeDuration = 0.8f;
     public float chargeDamage = 30f;
     public float telegraphWidth = 3f;
-
-    [Header("패턴 B: 방사형 투사체")]
-    public GameObject projectilePrefab;
-    public int projectileCount = 12;
-    public float radialWindup = 0.6f;
-    public float projectileSpeed = 8f;
-    public float projectileDamage = 10f;
-    public float projectileLifetime = 4f;
 
     [Header("처치 보상")]
     public int expReward = 100;           // 총 경험치 (구슬 개수로 나눠 드롭)
