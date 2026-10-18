@@ -9,6 +9,8 @@ public class SetupVfxWindow : EditorWindow
     [SerializeField] float hellfireRefDiameter = 6f;
     [SerializeField] GameObject frost;
     [SerializeField] float frostRefDiameter = 6f;
+    [SerializeField] GameObject basicShot;
+    [SerializeField] float basicShotScale = 0.5f;
     [SerializeField] GameObject sura;
     [SerializeField] float suraScale = 1f;
     [SerializeField] GameObject vacuum;
@@ -41,8 +43,14 @@ public class SetupVfxWindow : EditorWindow
         hellfire = Load("Explosions/CFXR3 Fire Explosion B.prefab");
         frost = Load("Ice/CFXR3 Hit Ice B (Air).prefab");
         frostRefDiameter = 3f;
-        sura = Load("Light/CFXR3 LightGlow A (Loop).prefab");
-        vacuum = Load("Magic Misc/CFXR4 Bouncing Glows Bubble (Blue Purple).prefab");
+        basicShot = Load("Light/CFXR3 LightGlow A (Loop).prefab");
+        basicShotScale = 0.5f;
+        sura = Load("Sword Trails/Plain/CFXR4 Sword Trail PLAIN (360 Thin Spiral).prefab");
+        suraScale = 0.7f;
+        vacuum = AssetDatabase.LoadAssetAtPath<GameObject>(
+            "Assets/UnityTechnologies/ParticlePack/EffectExamples/Fire & Explosion Effects/Prefabs/FireBall.prefab");
+        if (vacuum == null) Debug.LogWarning("Particle Pack의 FireBall을 찾지 못했습니다.");
+        vacuumScale = 2f;
         bossShot = Load("Fire/CFXR3 Hit Fire B (Air).prefab");
         enemyHit = Load("Impacts/CFXR Hit A (Red).prefab");
         enemyDeath = Load("Eerie/CFXR2 WW Enemy Explosion.prefab");
@@ -64,6 +72,8 @@ public class SetupVfxWindow : EditorWindow
         hellfireRefDiameter = EditorGUILayout.FloatField("  원본 지름", hellfireRefDiameter);
         frost = Field("서리 구름 (얼음 장판)", frost);
         frostRefDiameter = EditorGUILayout.FloatField("  원본 지름", frostRefDiameter);
+        basicShot = Field("기본 공격 투사체", basicShot);
+        basicShotScale = EditorGUILayout.FloatField("  스케일", basicShotScale);
         sura = Field("수라참 투사체 (트레일/슬래시)", sura);
         suraScale = EditorGUILayout.FloatField("  스케일", suraScale);
         vacuum = Field("진공참 투사체", vacuum);
@@ -88,6 +98,19 @@ public class SetupVfxWindow : EditorWindow
         // 스킬 비주얼
         if (hellfire != null) SetSkill("Hellfire", MakePooled("Fx_Hellfire", hellfire, hellfireRefDiameter, 2f));
         if (frost != null) SetSkill("Frost", MakeFrost());
+        if (basicShot != null)
+        {
+            var basic = MakeProjectile("Fx_Basic", basicShot, basicShotScale);
+            var p = GameObject.FindGameObjectWithTag("Player");
+            var atk = p != null ? p.GetComponent<PlayerAttack>() : null;
+            if (atk != null)
+            {
+                var aso = new SerializedObject(atk);
+                aso.FindProperty("projectilePrefab").objectReferenceValue = basic;
+                aso.ApplyModifiedProperties();
+            }
+            else Debug.LogWarning("Player의 PlayerAttack을 찾지 못해 기본 공격 투사체는 연결하지 못했습니다.");
+        }
         if (sura != null) SetSkill("Sura", MakeProjectile("Fx_Sura", sura, suraScale));
         if (vacuum != null) SetSkill("Vacuum", MakeProjectile("Fx_Vacuum", vacuum, vacuumScale));
 
