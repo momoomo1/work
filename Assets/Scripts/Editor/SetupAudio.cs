@@ -9,21 +9,25 @@ public static class SetupAudio
 {
     static readonly Dictionary<Sfx, string[]> Keys = new Dictionary<Sfx, string[]>
     {
-        { Sfx.LevelUp,    new[] { "levelup", "level_up", "level up", "powerup", "power_up", "upgrade", "win" } },
-        { Sfx.BossSpawn,  new[] { "boss", "roar", "growl", "alarm", "warning" } },
-        { Sfx.PlayerHit,  new[] { "player_hit", "hurt", "pain", "damage", "grunt" } },
-        { Sfx.EnemyHit,   new[] { "hit", "impact", "punch", "slap", "hurt" } },
-        { Sfx.EnemyDeath, new[] { "death", "die", "kill", "squish", "monster" } },
-        { Sfx.GameOver,   new[] { "gameover", "game_over", "game over", "lose", "fail", "defeat" } },
-        { Sfx.StageClear, new[] { "victory", "clear", "fanfare", "win", "success" } },
+        // 앞쪽은 Kenney(Impact/Interface/RPG Audio) 파일명, 뒤쪽은 일반 키워드
+        { Sfx.LevelUp,    new[] { "confirmation_002", "levelup", "level_up", "level up", "powerup", "upgrade", "confirmation" } },
+        { Sfx.BossSpawn,  new[] { "impactbell_heavy_000", "boss", "roar", "growl", "alarm", "impactbell" } },
+        { Sfx.PlayerHit,  new[] { "impactsoft_heavy", "player_hit", "hurt", "pain", "damage" } },
+        { Sfx.EnemyHit,   new[] { "impactpunch_medium", "impactpunch_heavy", "hit", "punch" } },
+        { Sfx.EnemyDeath, new[] { "impactplank_medium", "impactwood_heavy", "death", "die", "kill" } },
+        { Sfx.GameOver,   new[] { "error_004", "gameover", "game_over", "game over", "lose", "fail", "error" } },
+        { Sfx.StageClear, new[] { "confirmation_004", "victory", "clear", "fanfare", "confirmation" } },
     };
+
+    // 소리가 하나로 고정돼야 자연스러운 항목은 1개, 여러 개 랜덤이 좋은 항목은 3개
+    static int MaxClips(Sfx id) => id == Sfx.EnemyHit || id == Sfx.EnemyDeath || id == Sfx.PlayerHit ? 3 : 1;
 
     static readonly Dictionary<string, string[]> SkillKeys = new Dictionary<string, string[]>
     {
-        { "sura",      new[] { "shoot", "laser", "magic", "slash", "swish" } },
-        { "vacuum",    new[] { "whoosh", "swoosh", "wind", "slash" } },
-        { "hellfire",  new[] { "explosion", "explode", "boom", "fire" } },
-        { "frost",     new[] { "ice", "frost", "freeze", "cold", "glass" } },
+        { "sura",      new[] { "knifeslice", "drawknife", "shoot", "laser", "magic", "slash" } },
+        { "vacuum",    new[] { "drawknife", "knifeslice", "whoosh", "swoosh", "wind" } },
+        { "hellfire",  new[] { "impactmetal_heavy", "impactplate_heavy", "explosion", "explode", "boom" } },
+        { "frost",     new[] { "impactglass_medium", "impactglass_heavy", "ice", "frost", "freeze" } },
     };
 
     [MenuItem("Tools/Setup/Create AudioManager")]
@@ -59,7 +63,7 @@ public static class SetupAudio
         var report = new System.Text.StringBuilder();
         for (int i = 0; i < ids.Count; i++)
         {
-            var found = Find(clips, Keys[ids[i]], 3, c => c.length <= 8f);
+            var found = Find(clips, Keys[ids[i]], MaxClips(ids[i]), c => c.length <= 8f);
             var e = list.GetArrayElementAtIndex(i);
             e.FindPropertyRelative("id").enumValueIndex = (int)ids[i];
             e.FindPropertyRelative("volume").floatValue = 1f;
