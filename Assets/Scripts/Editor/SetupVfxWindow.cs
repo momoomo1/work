@@ -9,6 +9,9 @@ public class SetupVfxWindow : EditorWindow
     [SerializeField] float hellfireRefDiameter = 6f;
     [SerializeField] GameObject frost;
     [SerializeField] float frostRefDiameter = 6f;
+    [SerializeField] GameObject bladeModel;                 // 검 모델 (있으면 큐브 대신 사용)
+    [SerializeField] float bladeModelScale = 1f;
+    [SerializeField] Vector3 bladeModelEuler = new Vector3(90f, 0f, 0f); // 모델의 칼날 방향을 진행(접선) 방향(+Z)으로 눕힘
     [SerializeField] GameObject bladeFx;
     [SerializeField] float bladeFxScale = 0.6f;
     [SerializeField] GameObject basicShot;
@@ -49,6 +52,8 @@ public class SetupVfxWindow : EditorWindow
         basicShotScale = 0.5f;
         bladeFx = basicShot;
         bladeFxScale = 0.6f;
+        bladeModel = AssetDatabase.LoadAssetAtPath<GameObject>(
+            "Assets/Kendall H/Easy Weapons/Prefabs/Regular_Enchanted/sword.RegColor.WithEnch.0.6.prefab"); // 없으면 큐브 사용
         sura = Load("Sword Trails/Plain/CFXR4 Sword Trail PLAIN (360 Thin Spiral).prefab");
         suraScale = 1f;
         vacuum = AssetDatabase.LoadAssetAtPath<GameObject>(
@@ -76,7 +81,10 @@ public class SetupVfxWindow : EditorWindow
         hellfireRefDiameter = EditorGUILayout.FloatField("  원본 지름", hellfireRefDiameter);
         frost = Field("서리 구름 (얼음 장판)", frost);
         frostRefDiameter = EditorGUILayout.FloatField("  원본 지름", frostRefDiameter);
-        bladeFx = Field("회전 칼날 (빛 이펙트, 큐브+트레일에 추가)", bladeFx);
+        bladeModel = Field("회전 칼날 모델 (검 프리팹, 비우면 큐브)", bladeModel);
+        bladeModelScale = EditorGUILayout.FloatField("  모델 스케일", bladeModelScale);
+        bladeModelEuler = EditorGUILayout.Vector3Field("  모델 회전", bladeModelEuler);
+        bladeFx = Field("회전 칼날 (빛 이펙트, 트레일에 추가)", bladeFx);
         bladeFxScale = EditorGUILayout.FloatField("  스케일", bladeFxScale);
         basicShot = Field("기본 공격 투사체", basicShot);
         basicShotScale = EditorGUILayout.FloatField("  스케일", basicShotScale);
@@ -104,7 +112,7 @@ public class SetupVfxWindow : EditorWindow
         // 스킬 비주얼
         if (hellfire != null) SetSkill("Hellfire", MakePooled("Fx_Hellfire", hellfire, hellfireRefDiameter, 2f));
         if (frost != null) SetSkill("Frost", MakeFrost());
-        if (bladeFx != null) SetSkill("Blade", MakeBlade());
+        if (bladeFx != null || bladeModel != null) SetSkill("Blade", MakeBlade());
         if (basicShot != null)
         {
             var basic = MakeProjectile("Fx_Basic", basicShot, basicShotScale);
@@ -189,12 +197,33 @@ public class SetupVfxWindow : EditorWindow
         var root = new GameObject("Fx_Blade");
         root.AddComponent<OrbitBlade>();
 
-        var core = GameObject.CreatePrimitive(PrimitiveType.Cube);
-        core.name = "Core";
-        Object.DestroyImmediate(core.GetComponent<BoxCollider>());
-        core.transform.SetParent(root.transform, false);
-        core.transform.localScale = new Vector3(0.4f, 0.1f, 1.4f);
-        if (bladeMat != null) core.GetComponent<MeshRenderer>().sharedMaterial = bladeMat;
+        if (bladeModel != null)
+        {
+            var model = (GameObject)PrefabUtility.InstantiatePrefab(bladeModel, root.transform);
+            model.name = "Model";
+            model.transform.localPosition = Vector3.zero;
+            model.transform.localRotation = Quaternion.Euler(bladeModelEuler);
+            model.transform.localScale = Vector3.one * bladeModelScale;
+            foreach (var c in model.GetComponentsInChildren<Collider>(true)) Object.DestroyImmediate(c);
+
+            // 에셋의 무기 컨트롤러는 인챈트(빛) 메시를 시작할 때 숨기므로 항상 보이게 설정
+            var ctrl = model.GetComponentInChildren<EasyWeapon.weaponControllerAA>(true);
+            if (ctrl != null)
+            {
+                var cso = new SerializedObject(ctrl);
+                cso.FindProperty("enchantAlwaysVisable").boolValue = true;
+                cso.ApplyModifiedPropertiesWithoutUndo();
+            }
+        }
+        else
+        {
+            var core = GameObject.CreatePrimitive(PrimitiveType.Cube);
+            core.name = "Core";
+            Object.DestroyImmediate(core.GetComponent<BoxCollider>());
+            core.transform.SetParent(root.transform, false);
+            core.transform.localScale = new Vector3(0.4f, 0.1f, 1.4f);
+            if (bladeMat != null) core.GetComponent<MeshRenderer>().sharedMaterial = bladeMat;
+        }
 
         var trail = root.AddComponent<TrailRenderer>();
         trail.time = 0.35f;
@@ -204,7 +233,7 @@ public class SetupVfxWindow : EditorWindow
         trail.endColor = new Color(trailColor.r, trailColor.g, trailColor.b, 0f);
         trail.sharedMaterial = trailMat;
 
-        Attach(root, bladeFx, bladeFxScale);
+        if (bladeFx != null) Attach(root, bladeFx, bladeFxScale);
         return Save(root, "Fx_Blade");
     }
 
