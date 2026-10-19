@@ -30,6 +30,7 @@ MonoBehaviour:
     duration: 0
     tickInterval: 0
     value: 0
+    prefab: {fileID: 0}
   - damage: 12
     cooldown: 0.65
     count: 2
@@ -39,6 +40,7 @@ MonoBehaviour:
     duration: 0
     tickInterval: 0
     value: 0
+    prefab: {fileID: 0}
   - damage: 12
     cooldown: 0.6
     count: 3
@@ -48,22 +50,25 @@ MonoBehaviour:
     duration: 0
     tickInterval: 0
     value: 0
-  - damage: 14
-    cooldown: 0.6
-    count: 3
-    area: 2.8
-    speed: 110
-    pierceCount: 0
-    duration: 0
-    tickInterval: 0
-    value: 0
+    prefab: {fileID: 0}
   - damage: 22
-    cooldown: 0.55
+    cooldown: 1.2
     count: 3
-    area: 3.2
-    speed: 130
+    area: 2
+    speed: 360
     pierceCount: 0
     duration: 0
     tickInterval: 0
     value: 0
+    prefab: {fileID: 1116249604692860204, guid: 8a02c4042c68dd244abad8cf394dab42, type: 3}
+  - damage: 38
+    cooldown: 1.5
+    count: 3
+    area: 2.6
+    speed: 360
+    pierceCount: 0
+    duration: 0
+    tickInterval: 0
+    value: 0
+    prefab: {fileID: 1116249604692860204, guid: 8a02c4042c68dd244abad8cf394dab42, type: 3}
   evolvesFrom: {fileID: 0}
