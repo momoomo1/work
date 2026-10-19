@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0de0000000000000000000000000041, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PooledVfx
-  referenceDiameter: 4
+  referenceDiameter: 1.5
   lifetime: 2
   forceOneShot: 1
 --- !u!1001 &715191635182296023
