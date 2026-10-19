@@ -27,7 +27,7 @@ MonoBehaviour:
     count: 1
     area: 0.4
     speed: 16
-    pierceCount: 2
+    pierceCount: 99
     duration: 1.2
     tickInterval: 0
   - damage: 16
@@ -35,7 +35,7 @@ MonoBehaviour:
     count: 1
     area: 0.4
     speed: 16
-    pierceCount: 3
+    pierceCount: 99
     duration: 1.2
     tickInterval: 0
   - damage: 20
@@ -43,7 +43,7 @@ MonoBehaviour:
     count: 2
     area: 0.4
     speed: 16
-    pierceCount: 3
+    pierceCount: 99
     duration: 1.2
     tickInterval: 0
   - damage: 25
@@ -51,7 +51,7 @@ MonoBehaviour:
     count: 2
     area: 0.4
     speed: 16
-    pierceCount: 4
+    pierceCount: 99
     duration: 1.2
     tickInterval: 0
   - damage: 32
@@ -59,7 +59,7 @@ MonoBehaviour:
     count: 3
     area: 0.4
     speed: 16
-    pierceCount: 5
+    pierceCount: 99
     duration: 1.2
     tickInterval: 0
   evolvesFrom: {fileID: 0}

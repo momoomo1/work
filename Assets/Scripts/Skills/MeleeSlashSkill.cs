@@ -10,7 +10,8 @@ public class MeleeSlashSkill : SkillBase
 {
     [SerializeField] float fanAngle = 30f;       // 베기가 여러 번일 때 서로 벌어지는 각도
     [SerializeField] float hitDelay = 0.1f;      // 연속 베기 사이 간격
-    [SerializeField] float closeRange = 0.8f;    // 이 거리 안의 적은 각도와 상관없이 맞음
+    [SerializeField] float closeRange = 1.6f;    // 플레이어와 이 거리 안의 적은 방향과 상관없이 맞음
+    [SerializeField, Range(0.3f, 1.2f)] float circleScale = 0.85f; // 이펙트 중심 원의 반경 = 사거리 × 이 값
     [SerializeField] float autoEngageRange = 8f; // 자동 공격 때 이 거리 안의 가장 가까운 적을 향해 휘두름
     [SerializeField] bool swingWhenIdle = true;  // 적이 없어도 바라보는 방향으로 계속 휘두름 (끄면 적이 있을 때만)
     [SerializeField] float vfxRefDiameter = 5f;  // 슬래시 이펙트의 원본 지름 추정치 (클수록 이펙트가 작게 나옴)
@@ -76,19 +77,30 @@ public class MeleeSlashSkill : SkillBase
         }
     }
 
+    // 피해 범위 = (1) 이펙트가 뜨는 곳을 중심으로 한 원 + (2) 플레이어 기준 부채꼴 + (3) 플레이어 바로 주변
+    // → 이펙트가 앞에 떠 있어도 플레이어 안쪽(발밑~이펙트 사이)의 적까지 모두 맞음
     void DealDamage(Vector3 dir, SkillLevelStat stat)
     {
         Vector3 origin = Owner.position; // 연속 베기 중 이동했어도 현재 위치 기준
+        Vector3 effectCenter = origin + dir * Data.vfxForwardOffset;
+        float circleRadius = stat.area * circleScale;
         float half = stat.speed * 0.5f;
         float closeSqr = closeRange * closeRange;
+        float circleSqr = circleRadius * circleRadius;
 
-        TargetFinder.FindAll(origin, stat.area, hits);
+        TargetFinder.FindAll(origin, stat.area + Data.vfxForwardOffset, hits);
         for (int i = 0; i < hits.Count; i++)
         {
-            Vector3 to = hits[i].position - origin;
+            Vector3 p = hits[i].position;
+            Vector3 to = p - origin;
             to.y = 0f;
-            bool inSector = to.sqrMagnitude <= closeSqr || Vector3.Angle(dir, to) <= half;
-            if (inSector && hits[i].TryGetComponent<IDamageable>(out var target)) target.TakeDamage(stat.damage);
+            Vector3 fromEffect = p - effectCenter;
+            fromEffect.y = 0f;
+
+            bool hit = to.sqrMagnitude <= closeSqr                       // 플레이어 바로 주변
+                    || fromEffect.sqrMagnitude <= circleSqr              // 이펙트 범위
+                    || (to.sqrMagnitude <= stat.area * stat.area && Vector3.Angle(dir, to) <= half); // 플레이어 기준 부채꼴
+            if (hit && hits[i].TryGetComponent<IDamageable>(out var target)) target.TakeDamage(stat.damage);
         }
     }
 
