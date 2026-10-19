@@ -1,0 +1,1724 @@
+﻿# 안 쓰는 에셋 후보 (파일 1665개, 약 746MB). SampleScene·설정·게임 스크립트에서 참조되지 않는 파일들
+
+## Kendall H\Easy Weapons  (245개, 465MB)
+  Assets\Kendall H\Easy Weapons\EasyWeapons_Documentation - Google Docs.pdf
+  Assets\Kendall H\Easy Weapons\Materials\Metal_VertexColorMat.mat
+  Assets\Kendall H\Easy Weapons\Materials\StringMat 1.mat
+  Assets\Kendall H\Easy Weapons\Prefabs\bowString 1.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\BattleAxe.RegColor.WithEnch.0.0.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\BattleAxe.RegColor.WithEnch.0.01_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\BattleAxe.RegColor.WithEnch.0.02_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\BattleAxe.RegColor.WithEnch.1.0.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\BattleAxe.RegColor.WithEnch.1.01_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\BattleAxe.RegColor.WithEnch.1.02_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\BattleAxe.RegColor.WithEnch.2.0.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\BattleAxe.RegColor.WithEnch.2.01_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\BattleAxe.RegColor.WithEnch.2.02_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\BattleAxe.RegColor.WithEnch.3.0.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\BattleAxe.RegColor.WithEnch.3.01_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\BattleAxe.RegColor.WithEnch.3.02_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\BattleAxe.RegColor.WithEnch.4.0.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\BattleAxe.RegColor.WithEnch.4.01_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\BattleAxe.RegColor.WithEnch.4.02_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\staff.RegColor.WithEnch.0.7.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\staff.RegColor.WithEnch.0.71_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\staff.RegColor.WithEnch.0.72_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\staff.RegColor.WithEnch.1.7.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\staff.RegColor.WithEnch.1.71_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\staff.RegColor.WithEnch.1.72_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\staff.RegColor.WithEnch.2.7.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\staff.RegColor.WithEnch.2.71_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\staff.RegColor.WithEnch.2.72_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\staff.RegColor.WithEnch.3.7.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\staff.RegColor.WithEnch.3.71_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\staff.RegColor.WithEnch.3.72_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\staff.RegColor.WithEnch.4.7.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\staff.RegColor.WithEnch.4.71_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\staff.RegColor.WithEnch.4.72_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\sword.RegColor.WithEnch.0.6.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\sword.RegColor.WithEnch.0.61_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\sword.RegColor.WithEnch.0.62_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\sword.RegColor.WithEnch.1.6.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\sword.RegColor.WithEnch.1.61_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\sword.RegColor.WithEnch.1.62_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\sword.RegColor.WithEnch.2.6.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\sword.RegColor.WithEnch.2.61_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\sword.RegColor.WithEnch.2.62_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\sword.RegColor.WithEnch.3.6.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\sword.RegColor.WithEnch.3.61_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\sword.RegColor.WithEnch.3.62_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\sword.RegColor.WithEnch.4.6.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\sword.RegColor.WithEnch.4.61_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\sword.RegColor.WithEnch.4.62_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\warHammer.RegColor.WithEnch.0.4.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\warHammer.RegColor.WithEnch.0.41_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\warHammer.RegColor.WithEnch.0.42_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\warHammer.RegColor.WithEnch.1.4.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\warHammer.RegColor.WithEnch.1.41_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\warHammer.RegColor.WithEnch.1.42_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\warHammer.RegColor.WithEnch.2.4.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\warHammer.RegColor.WithEnch.2.41_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\warHammer.RegColor.WithEnch.2.42_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\warHammer.RegColor.WithEnch.3.4.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\warHammer.RegColor.WithEnch.3.41_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\warHammer.RegColor.WithEnch.3.42_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\warHammer.RegColor.WithEnch.4.4.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\warHammer.RegColor.WithEnch.4.41_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_Enchanted\warHammer.RegColor.WithEnch.4.42_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\arrow.RegColor.noEnch.0.8.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\arrow.RegColor.noEnch.0.81_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\arrow.RegColor.noEnch.1.8.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\arrow.RegColor.noEnch.1.81_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\arrow.RegColor.noEnch.2.8.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\arrow.RegColor.noEnch.2.81_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\arrow.RegColor.noEnch.3.8.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\arrow.RegColor.noEnch.3.81_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\arrow.RegColor.noEnch.4.8.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\arrow.RegColor.noEnch.4.81_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\Bow.RegColor.noEnch.0.1.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\Bow.RegColor.noEnch.0.11_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\Bow.RegColor.noEnch.1.1.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\Bow.RegColor.noEnch.1.11_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\Bow.RegColor.noEnch.2.1.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\Bow.RegColor.noEnch.2.11_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\Bow.RegColor.noEnch.3.1.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\Bow.RegColor.noEnch.3.11_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\Bow.RegColor.noEnch.4.1.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\Bow.RegColor.noEnch.4.11_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\crossBow.RegColor.noEnch.0.2.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\crossBow.RegColor.noEnch.0.21_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\crossBow.RegColor.noEnch.0.22_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\crossBow.RegColor.noEnch.1.2.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\crossBow.RegColor.noEnch.1.21_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\crossBow.RegColor.noEnch.1.22_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\crossBow.RegColor.noEnch.2.2.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\crossBow.RegColor.noEnch.2.21_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\crossBow.RegColor.noEnch.2.22_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\crossBow.RegColor.noEnch.3.2.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\crossBow.RegColor.noEnch.3.21_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\crossBow.RegColor.noEnch.3.22_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\crossBow.RegColor.noEnch.4.2.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\crossBow.RegColor.noEnch.4.21_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\crossBow.RegColor.noEnch.4.22_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\gun.RegColor.noEnch.0.3.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\gun.RegColor.noEnch.0.31_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\gun.RegColor.noEnch.1.3.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\gun.RegColor.noEnch.1.31_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\gun.RegColor.noEnch.2.3.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\gun.RegColor.noEnch.2.31_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\gun.RegColor.noEnch.3.3.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\gun.RegColor.noEnch.3.31_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\gun.RegColor.noEnch.4.3.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\gun.RegColor.noEnch.4.31_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\sheild.RegColor.noEnch.0.5.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\sheild.RegColor.noEnch.0.51_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\sheild.RegColor.noEnch.1.5.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\sheild.RegColor.noEnch.1.51_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\sheild.RegColor.noEnch.2.5.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\sheild.RegColor.noEnch.2.51_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\sheild.RegColor.noEnch.3.5.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\sheild.RegColor.noEnch.3.51_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\sheild.RegColor.noEnch.4.5.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\Regular_unEnchanted\sheild.RegColor.noEnch.4.51_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\BattleAxe.RGBA.WithEnch.0.0.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\BattleAxe.RGBA.WithEnch.0.01_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\BattleAxe.RGBA.WithEnch.0.02_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\BattleAxe.RGBA.WithEnch.1.0.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\BattleAxe.RGBA.WithEnch.1.01_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\BattleAxe.RGBA.WithEnch.1.02_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\BattleAxe.RGBA.WithEnch.2.0.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\BattleAxe.RGBA.WithEnch.2.01_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\BattleAxe.RGBA.WithEnch.2.02_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\BattleAxe.RGBA.WithEnch.3.0.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\BattleAxe.RGBA.WithEnch.3.01_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\BattleAxe.RGBA.WithEnch.3.02_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\BattleAxe.RGBA.WithEnch.4.0.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\BattleAxe.RGBA.WithEnch.4.01_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\BattleAxe.RGBA.WithEnch.4.02_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\staff.RGBA.WithEnch.0.7.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\staff.RGBA.WithEnch.0.71_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\staff.RGBA.WithEnch.0.72_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\staff.RGBA.WithEnch.1.7.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\staff.RGBA.WithEnch.1.71_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\staff.RGBA.WithEnch.1.72_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\staff.RGBA.WithEnch.2.7.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\staff.RGBA.WithEnch.2.71_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\staff.RGBA.WithEnch.2.72_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\staff.RGBA.WithEnch.3.7.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\staff.RGBA.WithEnch.3.71_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\staff.RGBA.WithEnch.3.72_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\staff.RGBA.WithEnch.4.7.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\staff.RGBA.WithEnch.4.71_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\staff.RGBA.WithEnch.4.72_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\sword.RGBA.WithEnch.0.6.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\sword.RGBA.WithEnch.0.61_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\sword.RGBA.WithEnch.0.62_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\sword.RGBA.WithEnch.1.6.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\sword.RGBA.WithEnch.1.61_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\sword.RGBA.WithEnch.1.62_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\sword.RGBA.WithEnch.2.6.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\sword.RGBA.WithEnch.2.61_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\sword.RGBA.WithEnch.2.62_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\sword.RGBA.WithEnch.3.6.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\sword.RGBA.WithEnch.3.61_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\sword.RGBA.WithEnch.3.62_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\sword.RGBA.WithEnch.4.6.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\sword.RGBA.WithEnch.4.61_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\sword.RGBA.WithEnch.4.62_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\warHammer.RGBA.WithEnch.0.4.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\warHammer.RGBA.WithEnch.0.41_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\warHammer.RGBA.WithEnch.0.42_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\warHammer.RGBA.WithEnch.1.4.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\warHammer.RGBA.WithEnch.1.41_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\warHammer.RGBA.WithEnch.1.42_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\warHammer.RGBA.WithEnch.2.4.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\warHammer.RGBA.WithEnch.2.41_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\warHammer.RGBA.WithEnch.2.42_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\warHammer.RGBA.WithEnch.3.4.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\warHammer.RGBA.WithEnch.3.41_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\warHammer.RGBA.WithEnch.3.42_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\warHammer.RGBA.WithEnch.4.4.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\warHammer.RGBA.WithEnch.4.41_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_Enchanted 1\warHammer.RGBA.WithEnch.4.42_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\arrow.RGBA.NoEnch.0.8.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\arrow.RGBA.NoEnch.0.81_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\arrow.RGBA.NoEnch.1.8.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\arrow.RGBA.NoEnch.1.81_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\arrow.RGBA.NoEnch.2.8.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\arrow.RGBA.NoEnch.2.81_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\arrow.RGBA.NoEnch.3.8.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\arrow.RGBA.NoEnch.3.81_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\arrow.RGBA.NoEnch.4.8.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\arrow.RGBA.NoEnch.4.81_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\Bow.RGBA.NoEnch.0.1.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\Bow.RGBA.NoEnch.0.11_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\Bow.RGBA.NoEnch.1.1.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\Bow.RGBA.NoEnch.1.11_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\Bow.RGBA.NoEnch.2.1.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\Bow.RGBA.NoEnch.2.11_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\Bow.RGBA.NoEnch.3.1.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\Bow.RGBA.NoEnch.3.11_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\Bow.RGBA.NoEnch.4.1.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\Bow.RGBA.NoEnch.4.11_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\crossBow.RGBA.NoEnch.0.2.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\crossBow.RGBA.NoEnch.0.21_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\crossBow.RGBA.NoEnch.0.22_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\crossBow.RGBA.NoEnch.1.2.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\crossBow.RGBA.NoEnch.1.21_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\crossBow.RGBA.NoEnch.1.22_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\crossBow.RGBA.NoEnch.2.2.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\crossBow.RGBA.NoEnch.2.21_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\crossBow.RGBA.NoEnch.2.22_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\crossBow.RGBA.NoEnch.3.2.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\crossBow.RGBA.NoEnch.3.21_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\crossBow.RGBA.NoEnch.3.22_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\crossBow.RGBA.NoEnch.4.2.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\crossBow.RGBA.NoEnch.4.21_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\crossBow.RGBA.NoEnch.4.22_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\gun.RGBA.NoEnch.0.3.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\gun.RGBA.NoEnch.0.31_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\gun.RGBA.NoEnch.1.3.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\gun.RGBA.NoEnch.1.31_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\gun.RGBA.NoEnch.2.3.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\gun.RGBA.NoEnch.2.31_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\gun.RGBA.NoEnch.3.3.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\gun.RGBA.NoEnch.3.31_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\gun.RGBA.NoEnch.4.3.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\gun.RGBA.NoEnch.4.31_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\sheild.RGBA.NoEnch.0.5.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\sheild.RGBA.NoEnch.0.51_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\sheild.RGBA.NoEnch.1.5.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\sheild.RGBA.NoEnch.1.51_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\sheild.RGBA.NoEnch.2.5.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\sheild.RGBA.NoEnch.2.51_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\sheild.RGBA.NoEnch.3.5.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\sheild.RGBA.NoEnch.3.51_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\sheild.RGBA.NoEnch.4.5.prefab
+  Assets\Kendall H\Easy Weapons\Prefabs\RGBA_unEnchanted 1\sheild.RGBA.NoEnch.4.51_Mesh.asset
+  Assets\Kendall H\Easy Weapons\Scenes\SampleScene 1.unity
+  Assets\Kendall H\Easy Weapons\Scripts\RecoloringTool.cs
+  Assets\Kendall H\Easy Weapons\Scripts\controllers\bowWeaponControllerAA.cs
+  Assets\Kendall H\Easy Weapons\Scripts\controllers\gunWeaponControllerAAA.cs
+  Assets\Kendall H\Easy Weapons\Scripts\controllers\shieldController.cs
+  Assets\Kendall H\Easy Weapons\Scripts\controllers\weaponControllerAA.cs
+  Assets\Kendall H\Easy Weapons\Scripts\editor\RecoloringController.cs
+  Assets\Kendall H\Easy Weapons\Shaders\VertexColoredMetal.shadergraph
+  Assets\Kendall H\Easy Weapons\Textures\roughness 1.png
+  Assets\Kendall H\Easy Weapons\Textures\roughnessHighScale 1.png
+  Assets\Kendall H\Easy Weapons\Textures\roughnessLowScale 1.png
+## UnityTechnologies\ParticlePack  (411개, 188.9MB)
+  Assets\UnityTechnologies\ParticlePack\Readme.asset
+  Assets\UnityTechnologies\ParticlePack\UnityTechnologies.ParticlePack.asmdef
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\DebrisParticle.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\Dust.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\Embers.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\EnergyExplosion.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\EnergyShockwave.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\Explosion.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\ExplosionDistortion.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\fireball.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\FireExplosion.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\Flame02.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\Flame03.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\Flame04.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\LargeFlame01.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\LargeFlame02.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\Lightning.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\LightningTrail.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\MediumFlame01.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\MediumFlame02.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\MediumFlame03.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\PlasmaExplosion.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\PlasmaFire.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\SandParticle.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\SmokeDark.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Materials\TinyFlame.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Prefabs\BigExplosion.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Prefabs\DustExplosion.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Prefabs\EnergyExplosion.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Prefabs\FireBall.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Prefabs\FlameStream.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Prefabs\FlameThrower.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Prefabs\LargeFlames.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Prefabs\MediumFlames.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Prefabs\ParticlesLight.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Prefabs\SmallExplosion.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Prefabs\TinyExplosion.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Prefabs\TinyFlames.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Prefabs\WildFire.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\Debris.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\EnergyEffect.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\Explosion.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\ExplosionEmission.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\Fireball.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\FireBallEmission.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\FireExplosion.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\Flame02.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\Flame03.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\Flame04.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\LargeFlame01.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\LargeFlame02.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\Lightning.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\LightningTrail.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\MediumFlame01.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\MediumFlame01Emission.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\MediumFlame03.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\MedumFlame02.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\ramp01.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\Ramp02.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\Ramp03.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\RoundSoftParticle.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\shockwave.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\SmokePuff01.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\SmokePuff02.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\SmokePuffNormal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\SphereNormal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\TinyFlame.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Fire & Explosion Effects\Textures\TinyStones.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects\Materials\GoopPoolParticle.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects\Materials\GoopSplashParticle.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects\Materials\GoopSplatParticle.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects\Materials\GoopStreamParticle.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects\Prefabs\GoopSpray.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects\Prefabs\GoopSprayEffect.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects\Prefabs\GoopStreamEffect.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects\Textures\GoopDropAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects\Textures\GoopDropNormals.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects\Textures\GoopPoolAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects\Textures\GoopPoolNormals.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects\Textures\GoopSprayAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects\Textures\GoopSprayNormals.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects\Textures\GoopStreamAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Goop Effects\Textures\SplatAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Materials\ImpactSplashParticle.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Materials\SparkParticle.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Materials\StormCloudParticle.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Materials\WaterDropParticle.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Materials\WaterfallMain Spray.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Materials\WaterfallMain.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Materials\WaterFallRipple.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Materials\WaterfallSplash.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Materials\WaterFallTop.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Materials\WaterRipplesParticle.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Prefabs\ElectricalSparksEffect.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Prefabs\LightnigStormCloud.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Prefabs\PlasmaExplosionEffect.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Prefabs\RainEffect.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Prefabs\SparksEffect.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Prefabs\WaterFall.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Textures\FlameRoundGreyParticleSheet.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Textures\ImpactSplashParticle.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Textures\WaterDropParticle.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Textures\WaterfallDropTexture.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Textures\WaterMistSoftParticle.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Textures\WaterRippleEdgeParticle.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Legacy Particles\Textures\WaterRipplesParticle.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Materials\EarthCrack.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Materials\Embers.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Materials\Fireball.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Materials\Ice.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Materials\IceBall.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Materials\IceMist.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Materials\IceTrail.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Materials\RockDust.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Materials\RockSpike.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Models\IceLance.FBX
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Models\IceShard.FBX
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Models\RockDebris.FBX
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Models\RockSpike.FBX
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Prefabs\EarthShatter.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Prefabs\IceLance.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Shaders\Ice Ball.shadergraph
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Shaders\Ice Shapes.shadergraph
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Shaders\Ice.shader
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Textures\DustPuffSmall.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Textures\EarthCrackAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Textures\EarthCrackEmissive.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Textures\EarthCrackNormal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Textures\Fireball.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Textures\FireBallEmission.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Textures\IceCurvature.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Textures\IceGrey.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Textures\IceNormals.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Textures\Ramp01.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Textures\Ramp02.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Textures\Ramp03.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Textures\RockNormal.tga
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Textures\RocksAlbedo.tga
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Textures\RocksAlbedoEmissive.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Textures\RocksSpecGloss.tga
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Magic Effects\Textures\SmokePuff.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Animations\@EllenIdle.fbx
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Animations\Ellen.controller
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Materials\candle.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Materials\CandleFlame.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Materials\Dissolve.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Materials\DissolveChunks.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Materials\DissolveLineHorizontal.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Materials\DustMote.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Materials\ElectricalSparks.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Materials\Embers.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Materials\FireFly.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Materials\FireFlyTrail.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Materials\HeatWobble.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Materials\Respawn.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Materials\SandSwirls.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Materials\SmokePuff.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Materials\Sparks.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Materials\SpawnTrail.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Models\Candle.fbx
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Models\Ellen.fbx
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Models\FireFly.fbx
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Models\Flakes.fbx
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Prefabs\Candles.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Prefabs\Dissolve.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Prefabs\DissolveSolidHorizontal.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Prefabs\DustMotesEffect.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Prefabs\ElectricalSparks.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Prefabs\EllenDissolve.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Prefabs\EllenRespawn.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Prefabs\FireFlies.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Prefabs\HeatDistortion.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Prefabs\ParticlesLight.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Prefabs\Readme_Dissolve_Respawn_.txt
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Prefabs\Respawn.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Prefabs\SandSwirlsEffect.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Prefabs\SparksEffect.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Scripts\SpawnEffect.cs
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Shaders\Dissolve.shadergraph
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Shaders\DissolveLine.shadergraph
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Shaders\FireFly.shader
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Shaders\HeatDisstortionWobble.shadergraph
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Shaders\Respawn.shader
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Shaders\Respawn.shadergraph
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Textures\CandleFlame.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Textures\Clouds01.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Textures\Clouds02.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Textures\DissolveChunks.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Textures\DustMote.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Textures\DustPuffSmall.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Textures\FireFlyAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Textures\FireFlyEmission.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Textures\FireFlyWings.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Textures\HexagonPattern_Albedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Textures\HexagonPattern_Normal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Textures\HexagonPattern_Opt.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Textures\noise.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Textures\Ramp01.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Textures\SmokePuff.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Textures\SmokeySteam.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Textures\SparkParticle.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Misc Effects\Textures\Stripes.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Materials\Dust.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Materials\Embers.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Materials\Flame01.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Materials\GroundFog.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Materials\RockDebris.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Materials\SandParticle.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Materials\Smoke02.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Materials\SmokeLight.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Materials\SmokeySteam01.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Materials\SmokeySteam02.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Materials\SmokeySteam03.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Materials\Twinkle.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Materials\wispySmoke.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Models\RockDebris.FBX
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Prefabs\DustStorm.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Prefabs\GroundFog.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Prefabs\HeatDistortion.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Prefabs\PoisonGas.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Prefabs\PressurisedSteam.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Prefabs\RisingSteam.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Prefabs\RocketTrail.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Prefabs\SmokeEffect.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Prefabs\Steam.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Textures\Flame01.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Textures\SmokeLoop01.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Textures\SmokeLoop02.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Textures\SmokePuff.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Textures\SmokePuffNormal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Textures\smokeysteam.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Textures\TinyStones.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Textures\Twinkle.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Textures\wispySmoke.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Smoke & Steam Effects\Textures\WispySmokeNormal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Materials\Splash.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Materials\SplashDrop.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Materials\Water.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Materials\WaterDropBig.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Materials\WaterDropSmall.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Materials\WaterFog.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Materials\WaterRipple.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Models\DropSplash.fbx
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Prefabs\BigSplash.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Prefabs\Shower.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Prefabs\WaterLeak.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Textures\RippleAlbedo.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Textures\RippleNormal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Textures\SphereAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Textures\SplashAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Textures\SplashDropAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Textures\SplashDropNormal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Textures\SplashNormal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Textures\SplatAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Textures\SplatNormal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Water Effects\Textures\WaterNormal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\BulletDecalMetal.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\BulletDecalSand.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\BulletDecalStone.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\BulletDecalWood.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\BulletFleshDecal.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\DustPuffParticle.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\FleshSurface.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\GoopMist.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\GoopSplat2.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\GoopStreak.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\MetalSparks.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\MetalSurface.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\MuzzleFlash.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\RockDebris.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\SandSurface.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\StoneSurface.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\TinyStonesParticle.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\WaterStreamParticle.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\WoodSplintersParticle.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Materials\WoodSurface.mat
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Prefabs\FleshImpacts.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Prefabs\MetalImpacts.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Prefabs\MuzzleFlash.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Prefabs\SandImpacts.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Prefabs\StoneImpacts.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Prefabs\WoodImpacts.prefab
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\BulletHoleMetalThroughAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\BulletHoleMetalThroughNormal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\BulletHoleRockAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\BulletHoleRockHeight.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\BulletHoleRockNormal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\DustPuffSmallParticleSheet.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\FleshBulletHoleAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\FleshBulletHoleHeight.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\FleshBulletHoleNormal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\FleshNormals.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\GoopSprayAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\GoopSprayNormal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\GoopStreakAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\GoopStreakNormal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\MuzzleFlashFront.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\SandDecalAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\SandDecalNormal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\SparkParticle.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\StoneAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\StoneNormal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\StreamNormal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\TinyStones.png
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\TinyStonesNormals.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\WoodAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\WoodBulletHoleAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\WoodBulletHoleDepth.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\WoodBulletHoleNormal.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\WoodNormals.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\WoodOcclusion.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\woodSplintersAlbedo.tif
+  Assets\UnityTechnologies\ParticlePack\EffectExamples\Weapon Effects\Textures\woodSplintersNormal.tif
+  Assets\UnityTechnologies\ParticlePack\Scenes\Main Scene with Legacy Particles.unity
+  Assets\UnityTechnologies\ParticlePack\Scenes\Main Scene with Legacy Particles\LightingData.asset
+  Assets\UnityTechnologies\ParticlePack\Scenes\Main Scene with Legacy Particles\Lightmap-0_comp_dir.png
+  Assets\UnityTechnologies\ParticlePack\Scenes\Main Scene with Legacy Particles\Lightmap-0_comp_light.exr
+  Assets\UnityTechnologies\ParticlePack\Scenes\Main Scene with Legacy Particles\Lightmap-1_comp_dir.png
+  Assets\UnityTechnologies\ParticlePack\Scenes\Main Scene with Legacy Particles\Lightmap-1_comp_light.exr
+  Assets\UnityTechnologies\ParticlePack\Scenes\Main Scene with Legacy Particles\Lightmap-2_comp_dir.png
+  Assets\UnityTechnologies\ParticlePack\Scenes\Main Scene with Legacy Particles\Lightmap-2_comp_light.exr
+  Assets\UnityTechnologies\ParticlePack\Scenes\Main Scene with Legacy Particles\ReflectionProbe-0.exr
+  Assets\UnityTechnologies\ParticlePack\Scenes\Main Scene with Legacy Particles\ReflectionProbe-1.exr
+  Assets\UnityTechnologies\ParticlePack\Scenes\Main Scene with Legacy Particles\ReflectionProbe-10.exr
+  Assets\UnityTechnologies\ParticlePack\Scenes\Main Scene with Legacy Particles\ReflectionProbe-2.exr
+  Assets\UnityTechnologies\ParticlePack\Scenes\Main Scene with Legacy Particles\ReflectionProbe-3.exr
+  Assets\UnityTechnologies\ParticlePack\Scenes\Main Scene with Legacy Particles\ReflectionProbe-4.exr
+  Assets\UnityTechnologies\ParticlePack\Scenes\Main Scene with Legacy Particles\ReflectionProbe-5.exr
+  Assets\UnityTechnologies\ParticlePack\Scenes\Main Scene with Legacy Particles\ReflectionProbe-6.exr
+  Assets\UnityTechnologies\ParticlePack\Scenes\Main Scene with Legacy Particles\ReflectionProbe-7.exr
+  Assets\UnityTechnologies\ParticlePack\Scenes\Main Scene with Legacy Particles\ReflectionProbe-8.exr
+  Assets\UnityTechnologies\ParticlePack\Scenes\Main Scene with Legacy Particles\ReflectionProbe-9.exr
+  Assets\UnityTechnologies\ParticlePack\Scenes\Profiles\DefaultProfile(URP).asset
+  Assets\UnityTechnologies\ParticlePack\Settings\Beautiful_PipelineAsset.asset
+  Assets\UnityTechnologies\ParticlePack\Settings\Beautiful_PipelineAsset_DeferredRenderer.asset
+  Assets\UnityTechnologies\ParticlePack\Settings\DefaultVolumeProfile.asset
+  Assets\UnityTechnologies\ParticlePack\Settings\Fastest_PipelineAsset.asset
+  Assets\UnityTechnologies\ParticlePack\Settings\Fastest_PipelineAsset_DeferredRenderer.asset
+  Assets\UnityTechnologies\ParticlePack\Settings\Fast_PipelineAsset.asset
+  Assets\UnityTechnologies\ParticlePack\Settings\Fast_PipelineAsset_DeferredRenderer.asset
+  Assets\UnityTechnologies\ParticlePack\Settings\Good_PipelineAsset.asset
+  Assets\UnityTechnologies\ParticlePack\Settings\Good_PipelineAsset_DeferredRenderer.asset
+  Assets\UnityTechnologies\ParticlePack\Settings\Main Camera Profile(URP).asset
+  Assets\UnityTechnologies\ParticlePack\Settings\Simple_PipelineAsset.asset
+  Assets\UnityTechnologies\ParticlePack\Settings\Simple_PipelineAsset_DeferredRenderer.asset
+  Assets\UnityTechnologies\ParticlePack\Settings\UniversalRenderPipelineGlobalSettings.asset
+  Assets\UnityTechnologies\ParticlePack\Settings\URP.asset
+  Assets\UnityTechnologies\ParticlePack\Settings\URP_Renderer.asset
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Materials\ConcreteFloor.mat
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Materials\ConcreteWall.mat
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Materials\Light.mat
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Materials\LinesWhite.mat
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Materials\MetalRailing.mat
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Materials\MetalTrim.mat
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Materials\ShadowCaster.mat
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Materials\Skybox.mat
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Materials\UnityLogo.mat
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Models\AreaLine.fbx
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Models\CornerWall.fbx
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Models\EndWall.fbx
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Models\FloorLong.fbx
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Models\FloorMiddle.fbx
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Models\FloorShort.fbx
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Models\FloorTiny.fbx
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Models\LongOverhangWall.fbx
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Models\Railing.fbx
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Models\SideWall.fbx
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Models\SmallLight.fbx
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Models\Stairs.fbx
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Models\Step.fbx
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Prefabs\CornerWall.prefab
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Prefabs\EndWall.prefab
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Prefabs\FloorLong.prefab
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Prefabs\FloorMiddle.prefab
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Prefabs\FloorShort.prefab
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Prefabs\FloorTiny.prefab
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Prefabs\LongOverhangWall.prefab
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Prefabs\Railing.prefab
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Prefabs\SideWall.prefab
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Prefabs\SmallLight.prefab
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Prefabs\Stairs.prefab
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Prefabs\Step.prefab
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Textures\ConcreteFloor_Albedo.tif
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Textures\ConcreteFloor_AmbientOcclusion.tif
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Textures\ConcreteFloor_MetallicSmooth.tif
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Textures\ConcreteFloor_Normal.tif
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Textures\ConcreteWall_Albedo.tif
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Textures\ConcreteWall_AmbientOcclusion.tif
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Textures\ConcreteWall_MetallicSmooth.tif
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Textures\ConcreteWall_normal.tif
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Textures\MetalTrim_Albedo.tif
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Textures\MetalTrim_MetallicSmooth.tif
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Textures\MetalTrim_Normal.tif
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Textures\PaintLines_Albedo.tif
+  Assets\UnityTechnologies\ParticlePack\Shared\Environment\Textures\PaintLines_normal.tif
+  Assets\UnityTechnologies\ParticlePack\Shared\Prefabs\Player.prefab
+  Assets\UnityTechnologies\ParticlePack\Shared\Prefabs\WorldSpaceLabel.prefab
+  Assets\UnityTechnologies\ParticlePack\Shared\Ramps\RampBaker.asset
+  Assets\UnityTechnologies\ParticlePack\Shared\Ramps\Editor\RampAssetEditor.cs
+  Assets\UnityTechnologies\ParticlePack\Shared\Ramps\Editor\UnityTechnologies.ParticlePack.Editor.asmdef
+  Assets\UnityTechnologies\ParticlePack\Shared\Ramps\Runtime\RampAsset.cs
+  Assets\UnityTechnologies\ParticlePack\Shared\Scripts\AdjustTimeScale.cs
+  Assets\UnityTechnologies\ParticlePack\Shared\Scripts\ProximityActivate.cs
+  Assets\UnityTechnologies\ParticlePack\Shared\Scripts\SimpleCameraController.cs
+  Assets\UnityTechnologies\ParticlePack\Shared\Scripts\SimpleCharacterMotor.cs
+  Assets\UnityTechnologies\ParticlePack\Shared\Sprites\Info.png
+  Assets\UnityTechnologies\ParticlePack\Shared\Sprites\TitleBorder.png
+  Assets\UnityTechnologies\ParticlePack\Shared\Sprites\UnityLogo.png
+  Assets\UnityTechnologies\ParticlePack\TutorialInfo\Icons\Help_Icon.png
+  Assets\UnityTechnologies\ParticlePack\TutorialInfo\Icons\ReadmeLogo.png
+  Assets\UnityTechnologies\ParticlePack\TutorialInfo\Scripts\Editor\UnityTechnologies.ParticlePack.Editor.asmref
+## JMO Assets\Cartoon FX Remaster  (92개, 22MB)
+  Assets\JMO Assets\Cartoon FX Remaster\CFXRF Demo.unity
+  Assets\JMO Assets\Cartoon FX Remaster\Readme Cartoon FX Remaster FREE.html
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Eerie\CFXR2 Skull Head Alt.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Eerie\CFXR2 Souls Escape.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Eerie\CFXR2 WW Enemy Explosion.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Electric\CFXR Electrified 3.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Electric\CFXR2 Sparks Rain.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Electric\CFXR3 Hit Electric C (Air).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Explosions\CFXR Explosion 1.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Explosions\CFXR Explosion Smoke 2 Solo (HDR).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Explosions\CFXR4 Firework 1 Cyan-Purple (HDR).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Explosions\CFXR4 Firework HDR Shoot Single (Random Color).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Fire\CFXR Fire Breath.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Fire\CFXR Fire.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Fire\CFXR2 Firewall A.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Fire\CFXR3 Hit Fire B (Air).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Fire\CFXR4 Sun.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Ice\CFXR3 Hit Ice B (Air).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Impacts\CFXR Hit A (Red).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Impacts\CFXR Impact Glowing HDR (Blue).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Impacts\CFXR2 Ground Hit.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Light\CFXR3 Hit Light B (Air).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Liquids\CFXR Water Ripples.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Liquids\CFXR Water Splash (Smaller).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Liquids\CFXR2 Blood (Directional).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Liquids\CFXR2 Blood Shape Splash.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Liquids\CFXR4 Bubbles Breath Underwater Loop.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Magic Misc\CFXR3 Magic Aura A (Runic).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Magic Misc\CFXR4 Bouncing Glows Bubble (Blue Purple).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Magic Misc\CFXR4 Falling Stars.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Misc\CFXR Flash.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Misc\CFXR Magic Poof.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Misc\CFXR Smoke Source 3D.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Misc\CFXR2 Broken Heart.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Misc\CFXR2 Cartoon Fight (Loop).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Misc\CFXR2 Poison Cloud.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Misc\CFXR2 Shiny Item (Loop).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Misc\CFXR3 Ambient Glows.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Misc\CFXR3 Hit Misc A.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Misc\CFXR3 Hit Misc F Smoke.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Nature\CFXR3 Hit Leaves A (Lit).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Nature\CFXR3 Shield Leaves A (Lit).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Nature\CFXR4 Rain Falling.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Nature\CFXR4 Rain Splashes.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Nature\CFXR4 Wind Trails.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Sword Trails\Fire\CFXR4 Sword Hit FIRE (Cross).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Sword Trails\Fire\CFXR4 Sword Trail FIRE (360 Thin Spiral).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Sword Trails\Ice\CFXR4 Sword Hit ICE (Cross).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Sword Trails\Ice\CFXR4 Sword Trail ICE (360 Thin Spiral).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Sword Trails\Plain\CFXR4 Sword Hit PLAIN (Cross).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Sword Trails\Plain\CFXR4 Sword Trail PLAIN (360 Thin Spiral).prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\CFXR _BOING_.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\CFXR _BOOM_.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\CFXR _POW_.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\CFXR _SLASH_.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\CFXR2 _CURSED_.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\CFXR2 _WHAM_ 3.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\CFXR3 _WOW_.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\CFXR4 _FROZEN_.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\CFXR4 _POISONED_.prefab
+  Assets\JMO Assets\Cartoon FX Remaster\CFXR Prefabs\Texts\_Make your own text effect.txt
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\CFXR Demo Bloom Post Process.asset
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\CFXR Demo Ground URP.mat
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\CFXR Demo Ground.mat
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\CFXR Demo Ground.png
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\CFXR Demo Tonemapping Post Process.asset
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\CFXR Demo.asmdef
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\CFXR_Demo.cs
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\CFXR_Demo_Rotate.cs
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\CFXR_Demo_Translate.cs
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\Kino Bloom\Bloom.cs
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\Kino Bloom\Kino Bloom License.txt
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\Kino Bloom\KinoBloom.Runtime.asmdef
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\Kino Bloom\Editor\BloomEditor.cs
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\Kino Bloom\Editor\BloomGraphDrawer.cs
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\Kino Bloom\Editor\KinoBloom.Editor.asmdef
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\Kino Bloom\Shader\Bloom.shader
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\UI\CFXR Demo Btn Arrow R.png
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\UI\CFXR Demo Btn Arrow.png
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\UI\CFXR Demo Btn Bloom H.png
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\UI\CFXR Demo Btn Bloom.png
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\UI\CFXR Demo Btn Camera H.png
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\UI\CFXR Demo Btn Camera.png
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\UI\CFXR Demo Btn CameraShake H.png
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\UI\CFXR Demo Btn CameraShake.png
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\UI\CFXR Demo Btn Ground H.png
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\UI\CFXR Demo Btn Ground.png
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\UI\CFXR Demo Btn Lights H.png
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\UI\CFXR Demo Btn Lights.png
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\UI\CFXR Demo Btn SlowMo H.png
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\UI\CFXR Demo Btn SlowMo.png
+  Assets\JMO Assets\Cartoon FX Remaster\Demo Assets\UI\CFXRF Demo Logo.png
+## Eric VFX Studio\Resource  (20개, 13.4MB)
+  Assets\Eric VFX Studio\Resource\Materials\Explosion 01 Cyan.mat
+  Assets\Eric VFX Studio\Resource\Materials\Explosion 01 Green.mat
+  Assets\Eric VFX Studio\Resource\Materials\Explosion 01.mat
+  Assets\Eric VFX Studio\Resource\Materials\Explosion 02 Cyan.mat
+  Assets\Eric VFX Studio\Resource\Materials\Explosion 02 Green.mat
+  Assets\Eric VFX Studio\Resource\Materials\Explosion 02 Purple.mat
+  Assets\Eric VFX Studio\Resource\Materials\Explosion 02.mat
+  Assets\Eric VFX Studio\Resource\Materials\Magic Circle 01.mat
+  Assets\Eric VFX Studio\Resource\Materials\Magic Hit 01.mat
+  Assets\Eric VFX Studio\Resource\Materials\Magic Slash 01.mat
+  Assets\Eric VFX Studio\Resource\Textures\VFX_SpriteSheet_18x18_224749.png
+  Assets\Eric VFX Studio\Resource\Textures\VFX_SpriteSheet_8x8_145256.png
+  Assets\Eric VFX Studio\Resource\Textures\VFX_SpriteSheet_8x8_161149.png
+  Assets\Eric VFX Studio\Resource\Textures\VFX_SpriteSheet_9x9_210818.png
+  Assets\Eric VFX Studio\Resource\Textures\VFX_SpriteSheet_9x9_212412.png
+  Assets\Eric VFX Studio\Resource\Textures\Recolor\VFX_SpriteSheet_8x8_145256_Cyan.png
+  Assets\Eric VFX Studio\Resource\Textures\Recolor\VFX_SpriteSheet_8x8_145256_Green.png
+  Assets\Eric VFX Studio\Resource\Textures\Recolor\VFX_SpriteSheet_8x8_161149_Cyan.png
+  Assets\Eric VFX Studio\Resource\Textures\Recolor\VFX_SpriteSheet_8x8_161149_Green.png
+  Assets\Eric VFX Studio\Resource\Textures\Recolor\VFX_SpriteSheet_8x8_161149_Purple.png
+## Free Slash VFX\Demo  (27개, 11MB)
+  Assets\Free Slash VFX\Demo\Animation\Controller.controller
+  Assets\Free Slash VFX\Demo\Animation\Sword Attack 1.anim
+  Assets\Free Slash VFX\Demo\Animation\Sword Attack 2.anim
+  Assets\Free Slash VFX\Demo\Animation\Sword Combo 3.anim
+  Assets\Free Slash VFX\Demo\Animation\Sword Combo 4.anim
+  Assets\Free Slash VFX\Demo\Config\Post Process Profile 1.asset
+  Assets\Free Slash VFX\Demo\Config\URP-Renderer.asset
+  Assets\Free Slash VFX\Demo\Config\URP.asset
+  Assets\Free Slash VFX\Demo\Material\Ground Mat.mat
+  Assets\Free Slash VFX\Demo\Material\Manny Mat.mat
+  Assets\Free Slash VFX\Demo\Material\Manny_Diffuse.png
+  Assets\Free Slash VFX\Demo\Material\Sky.mat
+  Assets\Free Slash VFX\Demo\Model\Ground Plane.fbx
+  Assets\Free Slash VFX\Demo\Model\Ground Plane.prefab
+  Assets\Free Slash VFX\Demo\Model\Manny.fbx
+  Assets\Free Slash VFX\Demo\Model\Manny.prefab
+  Assets\Free Slash VFX\Demo\Model\Sphere.prefab
+  Assets\Free Slash VFX\Demo\Scenes\New Lighting Settings.lighting
+  Assets\Free Slash VFX\Demo\Scenes\SampleScene.unity
+  Assets\Free Slash VFX\Demo\Scenes\SampleScene\LightingData.asset
+  Assets\Free Slash VFX\Demo\Scenes\SampleScene\ReflectionProbe-0.exr
+  Assets\Free Slash VFX\Demo\Scripts\AttackerController.cs
+  Assets\Free Slash VFX\Demo\Scripts\CameraOrbit.cs
+  Assets\Free Slash VFX\Demo\Scripts\ElementsShowCase.cs
+  Assets\Free Slash VFX\Demo\Scripts\FPSCounter.cs
+  Assets\Free Slash VFX\Demo\Scripts\ParticleAnimationEvent.cs
+  Assets\Free Slash VFX\Demo\Scripts\PlayerInput.cs
+## GameVFX Buff Collection\Prefabs  (18개, 6.3MB)
+  Assets\GameVFX Buff Collection\Prefabs\FX_Buff_Air.prefab
+  Assets\GameVFX Buff Collection\Prefabs\FX_Buff_ColorLine.prefab
+  Assets\GameVFX Buff Collection\Prefabs\FX_Buff_EnergyShield.prefab
+  Assets\GameVFX Buff Collection\Prefabs\FX_Buff_Feather.prefab
+  Assets\GameVFX Buff Collection\Prefabs\FX_Buff_GoldStar.prefab
+  Assets\GameVFX Buff Collection\Prefabs\FX_Buff_GreenStar.prefab
+  Assets\GameVFX Buff Collection\Prefabs\FX_Buff_HexagonShield.prefab
+  Assets\GameVFX Buff Collection\Prefabs\FX_Buff_Lightningball.prefab
+  Assets\GameVFX Buff Collection\Prefabs\FX_Buff_MagicAir.prefab
+  Assets\GameVFX Buff Collection\Prefabs\FX_Buff_WindBall.prefab
+  Assets\GameVFX Buff Collection\Prefabs\Mesh Prefabs\Cloud_Plane001.prefab
+  Assets\GameVFX Buff Collection\Prefabs\Mesh Prefabs\daodantou.prefab
+  Assets\GameVFX Buff Collection\Prefabs\Mesh Prefabs\motion-dummy_male Variant.prefab
+  Assets\GameVFX Buff Collection\Prefabs\Mesh Prefabs\motion-dummy_male.prefab
+  Assets\GameVFX Buff Collection\Prefabs\Mesh Prefabs\Plane_Line_01.prefab
+  Assets\GameVFX Buff Collection\Prefabs\Mesh Prefabs\pzplane.prefab
+  Assets\GameVFX Buff Collection\Prefabs\Mesh Prefabs\sphere_18pl.prefab
+  Assets\GameVFX Buff Collection\Prefabs\Mesh Prefabs\sphere_24pl.prefab
+## Factory_LP  (2개, 5MB)
+  Assets\Factory_LP\Factory.unity
+  Assets\Factory_LP\UniversalRenderPipelineGlobalSettings.asset
+## Free Slash VFX\Prefabs  (7개, 3.8MB)
+  Assets\Free Slash VFX\Prefabs\Multiple Impact.prefab
+  Assets\Free Slash VFX\Prefabs\Slash Earth VFX.prefab
+  Assets\Free Slash VFX\Prefabs\Slash Eletric VFX.prefab
+  Assets\Free Slash VFX\Prefabs\Slash Fire VFX.prefab
+  Assets\Free Slash VFX\Prefabs\Slash Water VFX.prefab
+  Assets\Free Slash VFX\Prefabs\Projectiles\Slash Projectile VFX Earth.prefab
+  Assets\Free Slash VFX\Prefabs\Projectiles\Slash Projectile VFX Eletric.prefab
+## Game VFX - MagicCircle\Prefabs  (3개, 3MB)
+  Assets\Game VFX - MagicCircle\Prefabs\FX_MagicCircle_Icearrow2.prefab
+  Assets\Game VFX - MagicCircle\Prefabs\FX_MagicCircle_Icearrow3.prefab
+  Assets\Game VFX - MagicCircle\Prefabs\FX_MagicCircle_Icearrow4.prefab
+## DungeonFreeVersion\Textures  (10개, 2.9MB)
+  Assets\DungeonFreeVersion\Textures\_Barrel.png
+  Assets\DungeonFreeVersion\Textures\_Beam.png
+  Assets\DungeonFreeVersion\Textures\_Box.png
+  Assets\DungeonFreeVersion\Textures\_FireCandle.png
+  Assets\DungeonFreeVersion\Textures\_Floor.png
+  Assets\DungeonFreeVersion\Textures\_Ladder.png
+  Assets\DungeonFreeVersion\Textures\_Plane.png
+  Assets\DungeonFreeVersion\Textures\_RopeCandle.png
+  Assets\DungeonFreeVersion\Textures\_Wall.png
+  Assets\DungeonFreeVersion\Textures\_WallCandles.png
+## RPGPP_LT\Models  (76개, 2.7MB)
+  Assets\RPGPP_LT\Models\Exterior\rpgpp_lt_awning_standing_01a.fbx
+  Assets\RPGPP_LT\Models\Exterior\rpgpp_lt_awning_standing_01b.fbx
+  Assets\RPGPP_LT\Models\Exterior\rpgpp_lt_fence_wood_01a.fbx
+  Assets\RPGPP_LT\Models\Exterior\rpgpp_lt_fence_wood_01b.fbx
+  Assets\RPGPP_LT\Models\Exterior\rpgpp_lt_fence_wood_01_corner_a.fbx
+  Assets\RPGPP_LT\Models\Exterior\rpgpp_lt_fence_wood_02a.fbx
+  Assets\RPGPP_LT\Models\Exterior\rpgpp_lt_fence_wood_02b.fbx
+  Assets\RPGPP_LT\Models\Exterior\rpgpp_lt_fence_wood_02c.fbx
+  Assets\RPGPP_LT\Models\Exterior\rpgpp_lt_shed_wood_01.fbx
+  Assets\RPGPP_LT\Models\Exterior\rpgpp_lt_shed_wood_02.fbx
+  Assets\RPGPP_LT\Models\Nature\rpgpp_lt_cloud_01.fbx
+  Assets\RPGPP_LT\Models\Nature\rpgpp_lt_cloud_02.fbx
+  Assets\RPGPP_LT\Models\Nature\rpgpp_lt_flower_02.fbx
+  Assets\RPGPP_LT\Models\Nature\rpgpp_lt_flower_03.fbx
+  Assets\RPGPP_LT\Models\Nature\rpgpp_lt_grass_small_01b.fbx
+  Assets\RPGPP_LT\Models\Nature\rpgpp_lt_hill_small_01.fbx
+  Assets\RPGPP_LT\Models\Nature\rpgpp_lt_hill_small_02.fbx
+  Assets\RPGPP_LT\Models\Nature\rpgpp_lt_mountain_01.fbx
+  Assets\RPGPP_LT\Models\Nature\rpgpp_lt_plant_02.fbx
+  Assets\RPGPP_LT\Models\Nature\rpgpp_lt_rocks_tiny_01.fbx
+  Assets\RPGPP_LT\Models\Nature\rpgpp_lt_rock_small_02.fbx
+  Assets\RPGPP_LT\Models\Nature\rpgpp_lt_sky_01.fbx
+  Assets\RPGPP_LT\Models\Nature\rpgpp_lt_terrain_path_01a.fbx
+  Assets\RPGPP_LT\Models\Nature\rpgpp_lt_terrain_path_01b.fbx
+  Assets\RPGPP_LT\Models\Nature\rpgpp_lt_terrain_sand_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_banner_01a.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_banner_01b.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_barrel_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_barrel_02.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_basket_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_basket_02.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_bathtub_wood_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_bench_wood_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_bench_wood_02.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_bench_wood_03.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_bird_house_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_bowl_metal_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_box_wood_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_broom_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_bucket_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_chair_01a.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_chair_01b.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_crate_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_crate_02.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_crate_03.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_hanger_clothes_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_hanger_wood_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_hanger_wood_02.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_jug_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_ladder_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_log_wood_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_log_wood_02a.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_log_wood_02b.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_package_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_rake_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_sack_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_sack_02.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_sack_02_set.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_sack_open_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_shield_wall_01a.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_shield_wall_01b.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_stones_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_table_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_trough_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_vase_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_vase_02.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_vase_03.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_wagon_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_well_01.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_wood_path_01a.fbx
+  Assets\RPGPP_LT\Models\Props\rpgpp_lt_wood_path_01b.fbx
+  Assets\RPGPP_LT\Models\Structures\rpgpp_lt_building_01.fbx
+  Assets\RPGPP_LT\Models\Structures\rpgpp_lt_building_02.fbx
+  Assets\RPGPP_LT\Models\Structures\rpgpp_lt_building_03.fbx
+  Assets\RPGPP_LT\Models\Structures\rpgpp_lt_building_04.fbx
+  Assets\RPGPP_LT\Models\Structures\rpgpp_lt_building_05.fbx
+## GameVFX Buff Collection\Textures  (41개, 2.7MB)
+  Assets\GameVFX Buff Collection\Textures\alpha_point.png
+  Assets\GameVFX Buff Collection\Textures\Background_paticle02.png
+  Assets\GameVFX Buff Collection\Textures\Electric_Splat_Hit_02.png
+  Assets\GameVFX Buff Collection\Textures\Electro03.png
+  Assets\GameVFX Buff Collection\Textures\eye_lwy_3.png
+  Assets\GameVFX Buff Collection\Textures\flare02_white.png
+  Assets\GameVFX Buff Collection\Textures\Flare21.png
+  Assets\GameVFX Buff Collection\Textures\Furnace_Buff.png
+  Assets\GameVFX Buff Collection\Textures\glowblurry.png
+  Assets\GameVFX Buff Collection\Textures\glow_00001.png
+  Assets\GameVFX Buff Collection\Textures\glow_ball2_grey.png
+  Assets\GameVFX Buff Collection\Textures\glow_blue_01.png
+  Assets\GameVFX Buff Collection\Textures\glow_yellow_01.png
+  Assets\GameVFX Buff Collection\Textures\grad01_13.png
+  Assets\GameVFX Buff Collection\Textures\gradsmooth1_purple_3.png
+  Assets\GameVFX Buff Collection\Textures\grad_yellow_.psd
+  Assets\GameVFX Buff Collection\Textures\Hexagon_01.png
+  Assets\GameVFX Buff Collection\Textures\lightning02_01_blue.png
+  Assets\GameVFX Buff Collection\Textures\M_Glow_01A.tga
+  Assets\GameVFX Buff Collection\Textures\NoiseCaustic04.png
+  Assets\GameVFX Buff Collection\Textures\Noise_02.png
+  Assets\GameVFX Buff Collection\Textures\noise_03.png
+  Assets\GameVFX Buff Collection\Textures\particle_sprite_shard2.png
+  Assets\GameVFX Buff Collection\Textures\piaodaiAlpha_00003_W.png
+  Assets\GameVFX Buff Collection\Textures\poison_smoke_pink.png
+  Assets\GameVFX Buff Collection\Textures\Ring02.png
+  Assets\GameVFX Buff Collection\Textures\ring02_00.png
+  Assets\GameVFX Buff Collection\Textures\ring_02.png
+  Assets\GameVFX Buff Collection\Textures\sf_noise_clouds_01.png
+  Assets\GameVFX Buff Collection\Textures\sl-g01g_1R.png
+  Assets\GameVFX Buff Collection\Textures\sl-g01g_2.png
+  Assets\GameVFX Buff Collection\Textures\smoke_pink2.png
+  Assets\GameVFX Buff Collection\Textures\sprite_lensflare.png
+  Assets\GameVFX Buff Collection\Textures\star4.png
+  Assets\GameVFX Buff Collection\Textures\StylizedTrail03.png
+  Assets\GameVFX Buff Collection\Textures\trail_pink.png
+  Assets\GameVFX Buff Collection\Textures\Twinkle_b.png
+  Assets\GameVFX Buff Collection\Textures\twink_01.png
+  Assets\GameVFX Buff Collection\Textures\vfx_particle_point.png
+  Assets\GameVFX Buff Collection\Textures\wenli02.png
+  Assets\GameVFX Buff Collection\Textures\yuan_01.png
+## Factory_LP\Meshes  (57개, 2.6MB)
+  Assets\Factory_LP\Meshes\SM_Factory_Administration_01.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Administration_02.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Administration_03.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Construction_site_barrier.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Cooling_tower.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Floor_lamp.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Grass_01.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Grass_02.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Grass_04.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Green_space_Middle.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Green_space_Start.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Ground_01.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Ground_02.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Ground_03.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Horizontal_tank_01.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Horizontal_tank_02.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Large_pipe_1m.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Large_pipe_2m.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Large_pipe_3m.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Large_pipe_4m.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Large_pipe_5m.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Parking_Corner_Road_01.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Parking_Corner_Road_02.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Pipe_Support.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_PVC_cone.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Refinery_01.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Refinery_02.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Right_Corner_Road_01.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Road_01.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Road_02.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Road_04.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Road_05.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Road_07.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Road_Parking.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Small_pipe_1m.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Small_pipe_2m.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Small_pipe_3m.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Small_pipe_4m.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Small_pipe_5m.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Small_pipe_Corner.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Smoke_pipe_01.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Smoke_pipe_02.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Smoke_pipe_03.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Storage_room.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Tank_01.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Tank_02.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Tank_03.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Tree_01.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Tree_02.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Tree_03.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Tree_04.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Tree_05.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Warehouse_01.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Warehouse_02.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Warehouse_03.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Warehouse_04.fbx
+  Assets\Factory_LP\Meshes\SM_Factory_Warehouse_05.fbx
+## JMO Assets  (1개, 2.4MB)
+  Assets\JMO Assets\Cartoon FX FREE (old legacy effects).unitypackage
+## Audio\SFX  (264개, 2.4MB)
+  Assets\Audio\SFX\Impact\footstep_carpet_000.ogg
+  Assets\Audio\SFX\Impact\footstep_carpet_001.ogg
+  Assets\Audio\SFX\Impact\footstep_carpet_002.ogg
+  Assets\Audio\SFX\Impact\footstep_carpet_003.ogg
+  Assets\Audio\SFX\Impact\footstep_carpet_004.ogg
+  Assets\Audio\SFX\Impact\footstep_concrete_000.ogg
+  Assets\Audio\SFX\Impact\footstep_concrete_001.ogg
+  Assets\Audio\SFX\Impact\footstep_concrete_002.ogg
+  Assets\Audio\SFX\Impact\footstep_concrete_003.ogg
+  Assets\Audio\SFX\Impact\footstep_concrete_004.ogg
+  Assets\Audio\SFX\Impact\footstep_grass_000.ogg
+  Assets\Audio\SFX\Impact\footstep_grass_001.ogg
+  Assets\Audio\SFX\Impact\footstep_grass_002.ogg
+  Assets\Audio\SFX\Impact\footstep_grass_003.ogg
+  Assets\Audio\SFX\Impact\footstep_grass_004.ogg
+  Assets\Audio\SFX\Impact\footstep_snow_000.ogg
+  Assets\Audio\SFX\Impact\footstep_snow_001.ogg
+  Assets\Audio\SFX\Impact\footstep_snow_002.ogg
+  Assets\Audio\SFX\Impact\footstep_snow_003.ogg
+  Assets\Audio\SFX\Impact\footstep_snow_004.ogg
+  Assets\Audio\SFX\Impact\footstep_wood_000.ogg
+  Assets\Audio\SFX\Impact\footstep_wood_001.ogg
+  Assets\Audio\SFX\Impact\footstep_wood_002.ogg
+  Assets\Audio\SFX\Impact\footstep_wood_003.ogg
+  Assets\Audio\SFX\Impact\footstep_wood_004.ogg
+  Assets\Audio\SFX\Impact\impactBell_heavy_001.ogg
+  Assets\Audio\SFX\Impact\impactBell_heavy_002.ogg
+  Assets\Audio\SFX\Impact\impactBell_heavy_003.ogg
+  Assets\Audio\SFX\Impact\impactBell_heavy_004.ogg
+  Assets\Audio\SFX\Impact\impactGeneric_light_000.ogg
+  Assets\Audio\SFX\Impact\impactGeneric_light_001.ogg
+  Assets\Audio\SFX\Impact\impactGeneric_light_002.ogg
+  Assets\Audio\SFX\Impact\impactGeneric_light_003.ogg
+  Assets\Audio\SFX\Impact\impactGeneric_light_004.ogg
+  Assets\Audio\SFX\Impact\impactGlass_heavy_000.ogg
+  Assets\Audio\SFX\Impact\impactGlass_heavy_001.ogg
+  Assets\Audio\SFX\Impact\impactGlass_heavy_002.ogg
+  Assets\Audio\SFX\Impact\impactGlass_heavy_003.ogg
+  Assets\Audio\SFX\Impact\impactGlass_heavy_004.ogg
+  Assets\Audio\SFX\Impact\impactGlass_light_000.ogg
+  Assets\Audio\SFX\Impact\impactGlass_light_001.ogg
+  Assets\Audio\SFX\Impact\impactGlass_light_002.ogg
+  Assets\Audio\SFX\Impact\impactGlass_light_003.ogg
+  Assets\Audio\SFX\Impact\impactGlass_light_004.ogg
+  Assets\Audio\SFX\Impact\impactGlass_medium_001.ogg
+  Assets\Audio\SFX\Impact\impactGlass_medium_002.ogg
+  Assets\Audio\SFX\Impact\impactGlass_medium_003.ogg
+  Assets\Audio\SFX\Impact\impactGlass_medium_004.ogg
+  Assets\Audio\SFX\Impact\impactMetal_heavy_001.ogg
+  Assets\Audio\SFX\Impact\impactMetal_heavy_002.ogg
+  Assets\Audio\SFX\Impact\impactMetal_heavy_003.ogg
+  Assets\Audio\SFX\Impact\impactMetal_heavy_004.ogg
+  Assets\Audio\SFX\Impact\impactMetal_light_000.ogg
+  Assets\Audio\SFX\Impact\impactMetal_light_001.ogg
+  Assets\Audio\SFX\Impact\impactMetal_light_002.ogg
+  Assets\Audio\SFX\Impact\impactMetal_light_003.ogg
+  Assets\Audio\SFX\Impact\impactMetal_light_004.ogg
+  Assets\Audio\SFX\Impact\impactMetal_medium_000.ogg
+  Assets\Audio\SFX\Impact\impactMetal_medium_001.ogg
+  Assets\Audio\SFX\Impact\impactMetal_medium_002.ogg
+  Assets\Audio\SFX\Impact\impactMetal_medium_003.ogg
+  Assets\Audio\SFX\Impact\impactMetal_medium_004.ogg
+  Assets\Audio\SFX\Impact\impactMining_000.ogg
+  Assets\Audio\SFX\Impact\impactMining_001.ogg
+  Assets\Audio\SFX\Impact\impactMining_002.ogg
+  Assets\Audio\SFX\Impact\impactMining_003.ogg
+  Assets\Audio\SFX\Impact\impactMining_004.ogg
+  Assets\Audio\SFX\Impact\impactPlank_medium_003.ogg
+  Assets\Audio\SFX\Impact\impactPlank_medium_004.ogg
+  Assets\Audio\SFX\Impact\impactPlate_heavy_000.ogg
+  Assets\Audio\SFX\Impact\impactPlate_heavy_001.ogg
+  Assets\Audio\SFX\Impact\impactPlate_heavy_002.ogg
+  Assets\Audio\SFX\Impact\impactPlate_heavy_003.ogg
+  Assets\Audio\SFX\Impact\impactPlate_heavy_004.ogg
+  Assets\Audio\SFX\Impact\impactPlate_light_000.ogg
+  Assets\Audio\SFX\Impact\impactPlate_light_001.ogg
+  Assets\Audio\SFX\Impact\impactPlate_light_002.ogg
+  Assets\Audio\SFX\Impact\impactPlate_light_003.ogg
+  Assets\Audio\SFX\Impact\impactPlate_light_004.ogg
+  Assets\Audio\SFX\Impact\impactPlate_medium_000.ogg
+  Assets\Audio\SFX\Impact\impactPlate_medium_001.ogg
+  Assets\Audio\SFX\Impact\impactPlate_medium_002.ogg
+  Assets\Audio\SFX\Impact\impactPlate_medium_003.ogg
+  Assets\Audio\SFX\Impact\impactPlate_medium_004.ogg
+  Assets\Audio\SFX\Impact\impactPunch_heavy_000.ogg
+  Assets\Audio\SFX\Impact\impactPunch_heavy_001.ogg
+  Assets\Audio\SFX\Impact\impactPunch_heavy_002.ogg
+  Assets\Audio\SFX\Impact\impactPunch_heavy_003.ogg
+  Assets\Audio\SFX\Impact\impactPunch_heavy_004.ogg
+  Assets\Audio\SFX\Impact\impactPunch_medium_003.ogg
+  Assets\Audio\SFX\Impact\impactPunch_medium_004.ogg
+  Assets\Audio\SFX\Impact\impactSoft_heavy_003.ogg
+  Assets\Audio\SFX\Impact\impactSoft_heavy_004.ogg
+  Assets\Audio\SFX\Impact\impactSoft_medium_000.ogg
+  Assets\Audio\SFX\Impact\impactSoft_medium_001.ogg
+  Assets\Audio\SFX\Impact\impactSoft_medium_002.ogg
+  Assets\Audio\SFX\Impact\impactSoft_medium_003.ogg
+  Assets\Audio\SFX\Impact\impactSoft_medium_004.ogg
+  Assets\Audio\SFX\Impact\impactTin_medium_000.ogg
+  Assets\Audio\SFX\Impact\impactTin_medium_001.ogg
+  Assets\Audio\SFX\Impact\impactTin_medium_002.ogg
+  Assets\Audio\SFX\Impact\impactTin_medium_003.ogg
+  Assets\Audio\SFX\Impact\impactTin_medium_004.ogg
+  Assets\Audio\SFX\Impact\impactWood_heavy_000.ogg
+  Assets\Audio\SFX\Impact\impactWood_heavy_001.ogg
+  Assets\Audio\SFX\Impact\impactWood_heavy_002.ogg
+  Assets\Audio\SFX\Impact\impactWood_heavy_003.ogg
+  Assets\Audio\SFX\Impact\impactWood_heavy_004.ogg
+  Assets\Audio\SFX\Impact\impactWood_light_000.ogg
+  Assets\Audio\SFX\Impact\impactWood_light_001.ogg
+  Assets\Audio\SFX\Impact\impactWood_light_002.ogg
+  Assets\Audio\SFX\Impact\impactWood_light_003.ogg
+  Assets\Audio\SFX\Impact\impactWood_light_004.ogg
+  Assets\Audio\SFX\Impact\impactWood_medium_000.ogg
+  Assets\Audio\SFX\Impact\impactWood_medium_001.ogg
+  Assets\Audio\SFX\Impact\impactWood_medium_002.ogg
+  Assets\Audio\SFX\Impact\impactWood_medium_003.ogg
+  Assets\Audio\SFX\Impact\impactWood_medium_004.ogg
+  Assets\Audio\SFX\Inteface\back_001.ogg
+  Assets\Audio\SFX\Inteface\back_002.ogg
+  Assets\Audio\SFX\Inteface\back_003.ogg
+  Assets\Audio\SFX\Inteface\back_004.ogg
+  Assets\Audio\SFX\Inteface\bong_001.ogg
+  Assets\Audio\SFX\Inteface\click_001.ogg
+  Assets\Audio\SFX\Inteface\click_002.ogg
+  Assets\Audio\SFX\Inteface\click_003.ogg
+  Assets\Audio\SFX\Inteface\click_004.ogg
+  Assets\Audio\SFX\Inteface\click_005.ogg
+  Assets\Audio\SFX\Inteface\close_001.ogg
+  Assets\Audio\SFX\Inteface\close_002.ogg
+  Assets\Audio\SFX\Inteface\close_003.ogg
+  Assets\Audio\SFX\Inteface\close_004.ogg
+  Assets\Audio\SFX\Inteface\confirmation_001.ogg
+  Assets\Audio\SFX\Inteface\confirmation_003.ogg
+  Assets\Audio\SFX\Inteface\drop_001.ogg
+  Assets\Audio\SFX\Inteface\drop_002.ogg
+  Assets\Audio\SFX\Inteface\drop_003.ogg
+  Assets\Audio\SFX\Inteface\drop_004.ogg
+  Assets\Audio\SFX\Inteface\error_001.ogg
+  Assets\Audio\SFX\Inteface\error_002.ogg
+  Assets\Audio\SFX\Inteface\error_003.ogg
+  Assets\Audio\SFX\Inteface\error_005.ogg
+  Assets\Audio\SFX\Inteface\error_006.ogg
+  Assets\Audio\SFX\Inteface\error_007.ogg
+  Assets\Audio\SFX\Inteface\error_008.ogg
+  Assets\Audio\SFX\Inteface\glass_001.ogg
+  Assets\Audio\SFX\Inteface\glass_002.ogg
+  Assets\Audio\SFX\Inteface\glass_003.ogg
+  Assets\Audio\SFX\Inteface\glass_004.ogg
+  Assets\Audio\SFX\Inteface\glass_005.ogg
+  Assets\Audio\SFX\Inteface\glass_006.ogg
+  Assets\Audio\SFX\Inteface\glitch_001.ogg
+  Assets\Audio\SFX\Inteface\glitch_002.ogg
+  Assets\Audio\SFX\Inteface\glitch_003.ogg
+  Assets\Audio\SFX\Inteface\glitch_004.ogg
+  Assets\Audio\SFX\Inteface\maximize_001.ogg
+  Assets\Audio\SFX\Inteface\maximize_002.ogg
+  Assets\Audio\SFX\Inteface\maximize_003.ogg
+  Assets\Audio\SFX\Inteface\maximize_004.ogg
+  Assets\Audio\SFX\Inteface\maximize_005.ogg
+  Assets\Audio\SFX\Inteface\maximize_006.ogg
+  Assets\Audio\SFX\Inteface\maximize_007.ogg
+  Assets\Audio\SFX\Inteface\maximize_008.ogg
+  Assets\Audio\SFX\Inteface\maximize_009.ogg
+  Assets\Audio\SFX\Inteface\minimize_001.ogg
+  Assets\Audio\SFX\Inteface\minimize_002.ogg
+  Assets\Audio\SFX\Inteface\minimize_003.ogg
+  Assets\Audio\SFX\Inteface\minimize_004.ogg
+  Assets\Audio\SFX\Inteface\minimize_005.ogg
+  Assets\Audio\SFX\Inteface\minimize_006.ogg
+  Assets\Audio\SFX\Inteface\minimize_007.ogg
+  Assets\Audio\SFX\Inteface\minimize_008.ogg
+  Assets\Audio\SFX\Inteface\minimize_009.ogg
+  Assets\Audio\SFX\Inteface\open_001.ogg
+  Assets\Audio\SFX\Inteface\open_002.ogg
+  Assets\Audio\SFX\Inteface\open_003.ogg
+  Assets\Audio\SFX\Inteface\open_004.ogg
+  Assets\Audio\SFX\Inteface\pluck_001.ogg
+  Assets\Audio\SFX\Inteface\pluck_002.ogg
+  Assets\Audio\SFX\Inteface\question_001.ogg
+  Assets\Audio\SFX\Inteface\question_002.ogg
+  Assets\Audio\SFX\Inteface\question_003.ogg
+  Assets\Audio\SFX\Inteface\question_004.ogg
+  Assets\Audio\SFX\Inteface\scratch_001.ogg
+  Assets\Audio\SFX\Inteface\scratch_002.ogg
+  Assets\Audio\SFX\Inteface\scratch_003.ogg
+  Assets\Audio\SFX\Inteface\scratch_004.ogg
+  Assets\Audio\SFX\Inteface\scratch_005.ogg
+  Assets\Audio\SFX\Inteface\scroll_001.ogg
+  Assets\Audio\SFX\Inteface\scroll_002.ogg
+  Assets\Audio\SFX\Inteface\scroll_003.ogg
+  Assets\Audio\SFX\Inteface\scroll_004.ogg
+  Assets\Audio\SFX\Inteface\scroll_005.ogg
+  Assets\Audio\SFX\Inteface\select_001.ogg
+  Assets\Audio\SFX\Inteface\select_002.ogg
+  Assets\Audio\SFX\Inteface\select_003.ogg
+  Assets\Audio\SFX\Inteface\select_004.ogg
+  Assets\Audio\SFX\Inteface\select_005.ogg
+  Assets\Audio\SFX\Inteface\select_006.ogg
+  Assets\Audio\SFX\Inteface\select_007.ogg
+  Assets\Audio\SFX\Inteface\select_008.ogg
+  Assets\Audio\SFX\Inteface\switch_001.ogg
+  Assets\Audio\SFX\Inteface\switch_002.ogg
+  Assets\Audio\SFX\Inteface\switch_003.ogg
+  Assets\Audio\SFX\Inteface\switch_004.ogg
+  Assets\Audio\SFX\Inteface\switch_005.ogg
+  Assets\Audio\SFX\Inteface\switch_006.ogg
+  Assets\Audio\SFX\Inteface\switch_007.ogg
+  Assets\Audio\SFX\Inteface\tick_001.ogg
+  Assets\Audio\SFX\Inteface\tick_002.ogg
+  Assets\Audio\SFX\Inteface\tick_004.ogg
+  Assets\Audio\SFX\Inteface\toggle_001.ogg
+  Assets\Audio\SFX\Inteface\toggle_002.ogg
+  Assets\Audio\SFX\Inteface\toggle_003.ogg
+  Assets\Audio\SFX\Inteface\toggle_004.ogg
+  Assets\Audio\SFX\Rpg\beltHandle1.ogg
+  Assets\Audio\SFX\Rpg\beltHandle2.ogg
+  Assets\Audio\SFX\Rpg\bookClose.ogg
+  Assets\Audio\SFX\Rpg\bookFlip1.ogg
+  Assets\Audio\SFX\Rpg\bookFlip2.ogg
+  Assets\Audio\SFX\Rpg\bookFlip3.ogg
+  Assets\Audio\SFX\Rpg\bookOpen.ogg
+  Assets\Audio\SFX\Rpg\bookPlace1.ogg
+  Assets\Audio\SFX\Rpg\bookPlace2.ogg
+  Assets\Audio\SFX\Rpg\bookPlace3.ogg
+  Assets\Audio\SFX\Rpg\chop.ogg
+  Assets\Audio\SFX\Rpg\cloth1.ogg
+  Assets\Audio\SFX\Rpg\cloth2.ogg
+  Assets\Audio\SFX\Rpg\cloth3.ogg
+  Assets\Audio\SFX\Rpg\cloth4.ogg
+  Assets\Audio\SFX\Rpg\clothBelt.ogg
+  Assets\Audio\SFX\Rpg\clothBelt2.ogg
+  Assets\Audio\SFX\Rpg\creak1.ogg
+  Assets\Audio\SFX\Rpg\creak2.ogg
+  Assets\Audio\SFX\Rpg\creak3.ogg
+  Assets\Audio\SFX\Rpg\doorClose_1.ogg
+  Assets\Audio\SFX\Rpg\doorClose_2.ogg
+  Assets\Audio\SFX\Rpg\doorClose_3.ogg
+  Assets\Audio\SFX\Rpg\doorClose_4.ogg
+  Assets\Audio\SFX\Rpg\doorOpen_1.ogg
+  Assets\Audio\SFX\Rpg\doorOpen_2.ogg
+  Assets\Audio\SFX\Rpg\drawKnife2.ogg
+  Assets\Audio\SFX\Rpg\drawKnife3.ogg
+  Assets\Audio\SFX\Rpg\dropLeather.ogg
+  Assets\Audio\SFX\Rpg\footstep00.ogg
+  Assets\Audio\SFX\Rpg\footstep01.ogg
+  Assets\Audio\SFX\Rpg\footstep02.ogg
+  Assets\Audio\SFX\Rpg\footstep03.ogg
+  Assets\Audio\SFX\Rpg\footstep04.ogg
+  Assets\Audio\SFX\Rpg\footstep05.ogg
+  Assets\Audio\SFX\Rpg\footstep06.ogg
+  Assets\Audio\SFX\Rpg\footstep07.ogg
+  Assets\Audio\SFX\Rpg\footstep08.ogg
+  Assets\Audio\SFX\Rpg\footstep09.ogg
+  Assets\Audio\SFX\Rpg\handleCoins.ogg
+  Assets\Audio\SFX\Rpg\handleCoins2.ogg
+  Assets\Audio\SFX\Rpg\handleSmallLeather.ogg
+  Assets\Audio\SFX\Rpg\handleSmallLeather2.ogg
+  Assets\Audio\SFX\Rpg\knifeSlice2.ogg
+  Assets\Audio\SFX\Rpg\metalClick.ogg
+  Assets\Audio\SFX\Rpg\metalLatch.ogg
+  Assets\Audio\SFX\Rpg\metalPot1.ogg
+  Assets\Audio\SFX\Rpg\metalPot2.ogg
+  Assets\Audio\SFX\Rpg\metalPot3.ogg
+## PurePoly\Free Fantasy RPG Weapons  (53개, 2.3MB)
+  Assets\PurePoly\Free Fantasy RPG Weapons\Read Me.pdf
+  Assets\PurePoly\Free Fantasy RPG Weapons\Materials\PP_Ground.mat
+  Assets\PurePoly\Free Fantasy RPG Weapons\Materials\PP_Standard_Material_Transparent.mat
+  Assets\PurePoly\Free Fantasy RPG Weapons\Materials\URP_To_Built-In_Materials.unitypackage
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_01_Arrow_001.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_01_Axe_Two_Handed_002.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_01_Quiver_001.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_01_Shield_005.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_02_Bow_001.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_02_Fist_Weapon_001.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_03_Bomb_003.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_03_Hammer_001.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_04_Scythe_001.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_04_Spellbook_003.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_05_Chakram_001.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_05_Dynamite_003.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_06_Potion_002.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_06_Shield_002.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_06_Sword_Two-Handed_001.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_07_Scepter_001.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_07_Spear_002.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_08_Wand_001.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_09_Horn_003.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_09_Key_002.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_09_Spear_005.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_09_Throwing_Knife_003.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_10_Torch_001.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Meshes\PP_Theme_11_Sword_One-Handed_003.fbx
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_01_Arrow_001.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_01_Axe_Two_Handed_002.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_01_Quiver_001.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_01_Shield_005.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_02_Bow_001.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_02_Fist_Weapon_001.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_03_Bomb_003.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_03_Hammer_001.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_04_Scythe_001.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_04_Spellbook_003.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_05_Chakram_001.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_05_Dynamite_003.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_06_Potion_002.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_06_Shield_002.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_06_Sword_Two-Handed_001.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_07_Scepter_001.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_07_Spear_002.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_08_Wand_001.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_09_Horn_003.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_09_Key_002.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_09_Spear_005.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_09_Throwing_Knife_003.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_10_Torch_001.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Prefabs\PP_Theme_11_Sword_One-Handed_003.prefab
+  Assets\PurePoly\Free Fantasy RPG Weapons\Scenes\Demo_List.unity
+## GameVFX Buff Collection\Mesh  (7개, 2.1MB)
+  Assets\GameVFX Buff Collection\Mesh\Cloud_Plane001.FBX
+  Assets\GameVFX Buff Collection\Mesh\daodantou.FBX
+  Assets\GameVFX Buff Collection\Mesh\motion-dummy_male.fbx
+  Assets\GameVFX Buff Collection\Mesh\Plane_Line_01.FBX
+  Assets\GameVFX Buff Collection\Mesh\pzplane.FBX
+  Assets\GameVFX Buff Collection\Mesh\sphere_18pl.fbx
+  Assets\GameVFX Buff Collection\Mesh\sphere_24pl.fbx
+## Materials  (12개, 1.4MB)
+  Assets\Materials\Blade.mat
+  Assets\Materials\Blade_Trail.mat
+  Assets\Materials\BossProjectile.mat
+  Assets\Materials\Boss_Purple.mat
+  Assets\Materials\Enemy_Red.mat
+  Assets\Materials\Hellfire_Boom.mat
+  Assets\Materials\Projectile_Yellow.mat
+  Assets\Materials\roughness.png
+  Assets\Materials\Sura_Cube.mat
+  Assets\Materials\Sura_Trail.mat
+  Assets\Materials\Vacuum_Cube.mat
+  Assets\Materials\Vacuum_Trail.mat
+## RPGPP_LT\Scene  (4개, 1.2MB)
+  Assets\RPGPP_LT\Scene\rpgpp_lt_scene_1.0.unity
+  Assets\RPGPP_LT\Scene\rpgpp_lt_scene_1.0Settings.lighting
+  Assets\RPGPP_LT\Scene\rpgpp_lt_scene_1.0\LightingData.asset
+  Assets\RPGPP_LT\Scene\rpgpp_lt_scene_1.0\ReflectionProbe-0.exr
+## Eric VFX Studio\Free RPG VFX Sprite Sheet Starter Pack  (11개, 1.2MB)
+  Assets\Eric VFX Studio\Free RPG VFX Sprite Sheet Starter Pack\Prefabs\Explosion 01 Cyan.prefab
+  Assets\Eric VFX Studio\Free RPG VFX Sprite Sheet Starter Pack\Prefabs\Explosion 01 Green.prefab
+  Assets\Eric VFX Studio\Free RPG VFX Sprite Sheet Starter Pack\Prefabs\Explosion 01.prefab
+  Assets\Eric VFX Studio\Free RPG VFX Sprite Sheet Starter Pack\Prefabs\Explosion 02 Cyan.prefab
+  Assets\Eric VFX Studio\Free RPG VFX Sprite Sheet Starter Pack\Prefabs\Explosion 02 Green.prefab
+  Assets\Eric VFX Studio\Free RPG VFX Sprite Sheet Starter Pack\Prefabs\Explosion 02 Purple.prefab
+  Assets\Eric VFX Studio\Free RPG VFX Sprite Sheet Starter Pack\Prefabs\Explosion 02.prefab
+  Assets\Eric VFX Studio\Free RPG VFX Sprite Sheet Starter Pack\Prefabs\Magic Circle 01.prefab
+  Assets\Eric VFX Studio\Free RPG VFX Sprite Sheet Starter Pack\Prefabs\Magic Hit 01.prefab
+  Assets\Eric VFX Studio\Free RPG VFX Sprite Sheet Starter Pack\Prefabs\Magic Slash 01.prefab
+  Assets\Eric VFX Studio\Free RPG VFX Sprite Sheet Starter Pack\Scene\Free RPG VFX Sprite Sheet Starter Pack.unity
+## Free Slash VFX\Textures  (10개, 0.7MB)
+  Assets\Free Slash VFX\Textures\blink 2.png
+  Assets\Free Slash VFX\Textures\blink.png
+  Assets\Free Slash VFX\Textures\Cut.png
+  Assets\Free Slash VFX\Textures\Flare.png
+  Assets\Free Slash VFX\Textures\Gradient 1.png
+  Assets\Free Slash VFX\Textures\Gradient 3.png
+  Assets\Free Slash VFX\Textures\Ground Crack.png
+  Assets\Free Slash VFX\Textures\Looping Laser 2.png
+  Assets\Free Slash VFX\Textures\Looping Laser.png
+  Assets\Free Slash VFX\Textures\Looping Laser_albedo.png
+## TextMesh Pro\Documentation  (1개, 0.7MB)
+  Assets\TextMesh Pro\Documentation\TextMesh Pro User Guide 2016.pdf
+## Scripts\Items  (25개, 0.3MB)
+  Assets\Scripts\Items\handleGen.cs
+  Assets\Scripts\Items\MaterialRandomizer.cs
+  Assets\Scripts\Items\pinicalGenerator2.cs
+  Assets\Scripts\Items\texOverrideGen.cs
+  Assets\Scripts\Items\WeaponGenSpreader.cs
+  Assets\Scripts\Items\sheilds\sheildGenerator.cs
+  Assets\Scripts\Items\weapons\armorGenerator.cs
+  Assets\Scripts\Items\weapons\CrossBowGenerator.cs
+  Assets\Scripts\Items\weapons\gunGenerator.cs
+  Assets\Scripts\Items\weapons\weaponGenerator.cs
+  Assets\Scripts\Items\weapons\bow\bowGenerator.cs
+  Assets\Scripts\Items\weapons\IMPROVED_Melee\axeGen_Improved.cs
+  Assets\Scripts\Items\weapons\IMPROVED_Melee\HammerWeaponImproved.cs
+  Assets\Scripts\Items\weapons\IMPROVED_Melee\MagicStaffGen.cs
+  Assets\Scripts\Items\weapons\IMPROVED_Melee\MeleeParentScript.cs
+  Assets\Scripts\Items\weapons\IMPROVED_Melee\spearGen_Improved.cs
+  Assets\Scripts\Items\weapons\IMPROVED_Melee\swordGen_Improved.cs
+  Assets\Scripts\Items\weapons\meleeMetalShapeGens\axeBladeGen.cs
+  Assets\Scripts\Items\weapons\meleeMetalShapeGens\BladeBaseGen.cs
+  Assets\Scripts\Items\weapons\meleeMetalShapeGens\CrossGaurdGenerator.cs
+  Assets\Scripts\Items\weapons\meleeMetalShapeGens\flatFaceGen.cs
+  Assets\Scripts\Items\weapons\meleeMetalShapeGens\MetalShapeGen.cs
+  Assets\Scripts\Items\weapons\meleeMetalShapeGens\roundFaceGen.cs
+  Assets\Scripts\Items\weapons\meleeMetalShapeGens\spikeGen.cs
+  Assets\Scripts\Items\weapons\meleeMetalShapeGens\SwordBladeGen.cs
+## Factory_LP\Shaders  (2개, 0.3MB)
+  Assets\Factory_LP\Shaders\M_Factory.shader
+  Assets\Factory_LP\Shaders\M_Road.shader
+## Factory_LP\Prefabs  (57개, 0.2MB)
+  Assets\Factory_LP\Prefabs\SM_Factory_Administration_01.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Administration_02.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Administration_03.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Construction_site_barrier.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Cooling_tower.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Floor_lamp.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Grass_01.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Grass_02.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Grass_04.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Green_space_Middle.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Green_space_Start.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Ground_01.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Ground_02.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Ground_03.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Horizontal_tank_01.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Horizontal_tank_02.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Large_pipe_1m.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Large_pipe_2m.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Large_pipe_3m.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Large_pipe_4m.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Large_pipe_5m.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Parking_Corner_Road_01.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Parking_Corner_Road_02.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Pipe_Support.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_PVC_cone.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Refinery_01.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Refinery_02.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Right_Corner_Road_01.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Road_01.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Road_02.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Road_04.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Road_05.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Road_07.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Road_Parking.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Small_pipe_1m.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Small_pipe_2m.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Small_pipe_3m.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Small_pipe_4m.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Small_pipe_5m.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Small_pipe_Corner.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Smoke_pipe_01.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Smoke_pipe_02.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Smoke_pipe_03.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Storage_room.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Tank_01.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Tank_02.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Tank_03.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Tree_01.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Tree_02.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Tree_03.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Tree_04.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Tree_05.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Warehouse_01.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Warehouse_02.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Warehouse_03.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Warehouse_04.prefab
+  Assets\Factory_LP\Prefabs\SM_Factory_Warehouse_05.prefab
+## JMO Assets\Welcome Screen  (5개, 0.2MB)
+  Assets\JMO Assets\Welcome Screen\CFXR.WelcomeScreen.asmdef
+  Assets\JMO Assets\Welcome Screen\CFXR_WelcomeScreen.cs
+  Assets\JMO Assets\Welcome Screen\CFXR_WelcomeScreen.uss
+  Assets\JMO Assets\Welcome Screen\CFXR_WelcomeScreen.uxml
+  Assets\JMO Assets\Welcome Screen\CFXR_WelcomeScreen_Background.png
+## RPGPP_LT\Prefabs  (76개, 0.2MB)
+  Assets\RPGPP_LT\Prefabs\Buildings\Bld_closed\rpgpp_lt_building_01.prefab
+  Assets\RPGPP_LT\Prefabs\Buildings\Bld_closed\rpgpp_lt_building_02.prefab
+  Assets\RPGPP_LT\Prefabs\Buildings\Bld_closed\rpgpp_lt_building_03.prefab
+  Assets\RPGPP_LT\Prefabs\Buildings\Bld_closed\rpgpp_lt_building_04.prefab
+  Assets\RPGPP_LT\Prefabs\Buildings\Bld_closed\rpgpp_lt_building_05.prefab
+  Assets\RPGPP_LT\Prefabs\Exterior\Wood_path\rpgpp_lt_awning_standing_01a.prefab
+  Assets\RPGPP_LT\Prefabs\Exterior\Wood_path\rpgpp_lt_awning_standing_01b.prefab
+  Assets\RPGPP_LT\Prefabs\Exterior\Wood_path\rpgpp_lt_fence_wood_01a.prefab
+  Assets\RPGPP_LT\Prefabs\Exterior\Wood_path\rpgpp_lt_fence_wood_01b.prefab
+  Assets\RPGPP_LT\Prefabs\Exterior\Wood_path\rpgpp_lt_fence_wood_01_corner_a.prefab
+  Assets\RPGPP_LT\Prefabs\Exterior\Wood_path\rpgpp_lt_fence_wood_02a.prefab
+  Assets\RPGPP_LT\Prefabs\Exterior\Wood_path\rpgpp_lt_fence_wood_02b.prefab
+  Assets\RPGPP_LT\Prefabs\Exterior\Wood_path\rpgpp_lt_fence_wood_02c.prefab
+  Assets\RPGPP_LT\Prefabs\Exterior\Wood_path\rpgpp_lt_shed_wood_01.prefab
+  Assets\RPGPP_LT\Prefabs\Exterior\Wood_path\rpgpp_lt_shed_wood_02.prefab
+  Assets\RPGPP_LT\Prefabs\Exterior\Wood_path\rpgpp_lt_wood_path_01a.prefab
+  Assets\RPGPP_LT\Prefabs\Exterior\Wood_path\rpgpp_lt_wood_path_01b.prefab
+  Assets\RPGPP_LT\Prefabs\Nature\Rocks\rpgpp_lt_rocks_tiny_01.prefab
+  Assets\RPGPP_LT\Prefabs\Nature\Rocks\rpgpp_lt_rock_small_02.prefab
+  Assets\RPGPP_LT\Prefabs\Nature\Sky\rpgpp_lt_cloud_01.prefab
+  Assets\RPGPP_LT\Prefabs\Nature\Sky\rpgpp_lt_cloud_02.prefab
+  Assets\RPGPP_LT\Prefabs\Nature\Sky\rpgpp_lt_sky_01.prefab
+  Assets\RPGPP_LT\Prefabs\Nature\Terrain\rpgpp_lt_hill_small_01.prefab
+  Assets\RPGPP_LT\Prefabs\Nature\Terrain\rpgpp_lt_hill_small_02.prefab
+  Assets\RPGPP_LT\Prefabs\Nature\Terrain\rpgpp_lt_mountain_01.prefab
+  Assets\RPGPP_LT\Prefabs\Nature\Terrain\rpgpp_lt_terrain_path_01a.prefab
+  Assets\RPGPP_LT\Prefabs\Nature\Terrain\rpgpp_lt_terrain_path_01b.prefab
+  Assets\RPGPP_LT\Prefabs\Nature\Terrain\rpgpp_lt_terrain_sand_01.prefab
+  Assets\RPGPP_LT\Prefabs\Nature\Vegetation\Flowers\rpgpp_lt_flower_02.prefab
+  Assets\RPGPP_LT\Prefabs\Nature\Vegetation\Flowers\rpgpp_lt_flower_03.prefab
+  Assets\RPGPP_LT\Prefabs\Nature\Vegetation\Grass\rpgpp_lt_grass_small_01b.prefab
+  Assets\RPGPP_LT\Prefabs\Nature\Vegetation\Plants\rpgpp_lt_plant_02.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Banners\rpgpp_lt_banner_01a.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Banners\rpgpp_lt_banner_01b.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Benches\rpgpp_lt_bench_wood_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Benches\rpgpp_lt_bench_wood_02.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Benches\rpgpp_lt_bench_wood_03.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Chairs\rpgpp_lt_chair_01a.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Chairs\rpgpp_lt_chair_01b.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_barrel_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_barrel_02.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_basket_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_basket_02.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_bathtub_wood_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_bowl_metal_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_box_wood_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_bucket_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_crate_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_crate_02.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_crate_03.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_jug_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_package_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_sack_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_sack_02.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_sack_02_set.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_sack_open_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_trough_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_vase_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_vase_02.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Containers\rpgpp_lt_vase_03.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Hangers\rpgpp_lt_hanger_clothes_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Hangers\rpgpp_lt_hanger_wood_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Hangers\rpgpp_lt_hanger_wood_02.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Items\rpgpp_lt_broom_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Items\rpgpp_lt_ladder_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Items\rpgpp_lt_rake_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Misc\rpgpp_lt_bird_house_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Misc\rpgpp_lt_stones_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Misc\rpgpp_lt_wagon_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Misc\rpgpp_lt_well_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Shields\rpgpp_lt_shield_wall_01a.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Shields\rpgpp_lt_shield_wall_01b.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Tables\rpgpp_lt_table_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Wood\rpgpp_lt_log_wood_01.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Wood\rpgpp_lt_log_wood_02a.prefab
+  Assets\RPGPP_LT\Prefabs\Props\Wood\rpgpp_lt_log_wood_02b.prefab
+## Free Slash VFX\Shaders  (1개, 0.2MB)
+  Assets\Free Slash VFX\Shaders\Orb Warp Lit.shadergraph
+## Free Slash VFX\Model  (5개, 0.2MB)
+  Assets\Free Slash VFX\Model\Katana\Katana License.txt
+  Assets\Free Slash VFX\Model\Katana\Low-Poly Katana.fbx
+  Assets\Free Slash VFX\Model\Katana\Low-Poly Katana.prefab
+  Assets\Free Slash VFX\Model\Rock\Stylized Rock Credits.txt
+  Assets\Free Slash VFX\Model\Rock\stylizedrock.fbx
+## DungeonFreeVersion\Materials  (11개, 0.1MB)
+  Assets\DungeonFreeVersion\Materials\_Barrel.mat
+  Assets\DungeonFreeVersion\Materials\_Beam.mat
+  Assets\DungeonFreeVersion\Materials\_Box.mat
+  Assets\DungeonFreeVersion\Materials\_FireCandle.mat
+  Assets\DungeonFreeVersion\Materials\_Floor.mat
+  Assets\DungeonFreeVersion\Materials\_Ladder.mat
+  Assets\DungeonFreeVersion\Materials\_Plane.mat
+  Assets\DungeonFreeVersion\Materials\_RopeCandle.mat
+  Assets\DungeonFreeVersion\Materials\_Wall.mat
+  Assets\DungeonFreeVersion\Materials\_WallCandles.mat
+  Assets\DungeonFreeVersion\Materials\_WallTransparent.mat
+## DungeonFreeVersion\Scenes  (1개, 0.1MB)
+  Assets\DungeonFreeVersion\Scenes\Demo.unity
+## Prefabs\generators  (2개, 0.1MB)
+  Assets\Prefabs\generators\items\weapons\previous\Bow\BowRig.fbx
+  Assets\Prefabs\generators\items\weapons\previous\Bow\bowString.prefab
+## GameVFX Buff Collection\Materials  (35개, 0.1MB)
+  Assets\GameVFX Buff Collection\Materials\alpha_point_8.mat
+  Assets\GameVFX Buff Collection\Materials\dare_01.mat
+  Assets\GameVFX Buff Collection\Materials\Electric_Splat_Hit_02.mat
+  Assets\GameVFX Buff Collection\Materials\eye_lwy_W 1.mat
+  Assets\GameVFX Buff Collection\Materials\fireball_green.mat
+  Assets\GameVFX Buff Collection\Materials\flare02_white.mat
+  Assets\GameVFX Buff Collection\Materials\Flare21cg.mat
+  Assets\GameVFX Buff Collection\Materials\Furnace_Buff.mat
+  Assets\GameVFX Buff Collection\Materials\glowblue.mat
+  Assets\GameVFX Buff Collection\Materials\glowblurry.mat
+  Assets\GameVFX Buff Collection\Materials\glow_ball2_grey.mat
+  Assets\GameVFX Buff Collection\Materials\glow_blue_01.mat
+  Assets\GameVFX Buff Collection\Materials\glow_point2_yellow_3.mat
+  Assets\GameVFX Buff Collection\Materials\Hexagon_01.mat
+  Assets\GameVFX Buff Collection\Materials\Life.mat
+  Assets\GameVFX Buff Collection\Materials\lightning02_01_blue.mat
+  Assets\GameVFX Buff Collection\Materials\lightning_blue.mat
+  Assets\GameVFX Buff Collection\Materials\M_Glow_01C.mat
+  Assets\GameVFX Buff Collection\Materials\particle_sprite_lensflare-add.mat
+  Assets\GameVFX Buff Collection\Materials\ring.mat
+  Assets\GameVFX Buff Collection\Materials\ring02_09.mat
+  Assets\GameVFX Buff Collection\Materials\ring_05.mat
+  Assets\GameVFX Buff Collection\Materials\SG_UVTrail.mat
+  Assets\GameVFX Buff Collection\Materials\Shader Graphs_UVFlow_Shader.mat
+  Assets\GameVFX Buff Collection\Materials\sl-g01g_1R.mat
+  Assets\GameVFX Buff Collection\Materials\SL_002.mat
+  Assets\GameVFX Buff Collection\Materials\smoke_pink3.mat
+  Assets\GameVFX Buff Collection\Materials\Trail42bcg 1.mat
+  Assets\GameVFX Buff Collection\Materials\Trail_01.mat
+  Assets\GameVFX Buff Collection\Materials\Twinkle_b.mat
+  Assets\GameVFX Buff Collection\Materials\twink_01.mat
+  Assets\GameVFX Buff Collection\Materials\vfx-ult_particle_sprite_point.mat
+  Assets\GameVFX Buff Collection\Materials\vfx_particle_01.mat
+  Assets\GameVFX Buff Collection\Materials\vfx_twinkle-blurred-add-[1.0].mat
+  Assets\GameVFX Buff Collection\Materials\yuan_00000.mat
+## DungeonFreeVersion\Models  (1개, 0.1MB)
+  Assets\DungeonFreeVersion\Models\Models (FreeVersion).fbx
+## Factory_LP\Textures  (2개, 0.1MB)
+  Assets\Factory_LP\Textures\T_Factory.png
+  Assets\Factory_LP\Textures\T_Road.png
+## Scripts\Language  (4개, 0.1MB)
+  Assets\Scripts\Language\LetterBuilder.cs
+  Assets\Scripts\Language\MagicParameterHolder.cs
+  Assets\Scripts\Language\RandomPatternGen.cs
+  Assets\Scripts\Language\Word_Language_Rand.cs
+## Game VFX - MagicCircle\Textures  (2개, 0.1MB)
+  Assets\Game VFX - MagicCircle\Textures\m09_1_2.png
+  Assets\Game VFX - MagicCircle\Textures\Rune_01.png
+## DungeonFreeVersion\Prefabs  (12개, 0.1MB)
+  Assets\DungeonFreeVersion\Prefabs\_Barrel.prefab
+  Assets\DungeonFreeVersion\Prefabs\_Beam.prefab
+  Assets\DungeonFreeVersion\Prefabs\_Box.prefab
+  Assets\DungeonFreeVersion\Prefabs\_Boxes.prefab
+  Assets\DungeonFreeVersion\Prefabs\_BoxOpen.prefab
+  Assets\DungeonFreeVersion\Prefabs\_Crates.prefab
+  Assets\DungeonFreeVersion\Prefabs\_FloorRock.prefab
+  Assets\DungeonFreeVersion\Prefabs\_Ladder.prefab
+  Assets\DungeonFreeVersion\Prefabs\_Plane.prefab
+  Assets\DungeonFreeVersion\Prefabs\_Wall.prefab
+  Assets\DungeonFreeVersion\Prefabs\_WallCandles.prefab
+  Assets\DungeonFreeVersion\Prefabs\_WallSmall.prefab
+## Prefabs  (12개, 0.1MB)
+  Assets\Prefabs\Blade_Orbit.prefab
+  Assets\Prefabs\BossProjectile.prefab
+  Assets\Prefabs\BossProjectile_FX.prefab
+  Assets\Prefabs\Explosion_Hellfire.prefab
+  Assets\Prefabs\Explosion_Hellfire_FX.prefab
+  Assets\Prefabs\Fx_Blade.prefab
+  Assets\Prefabs\Projectile_Basic.prefab
+  Assets\Prefabs\Projectile_Sura.prefab
+  Assets\Prefabs\Projectile_Sura_FX.prefab
+  Assets\Prefabs\Projectile_Vacuum.prefab
+  Assets\Prefabs\Projectile_Vacuum_FX.prefab
+  Assets\Prefabs\Zone_Frost.prefab
+## GameVFX Buff Collection\Scene  (2개, 0MB)
+  Assets\GameVFX Buff Collection\Scene\FX_Buff Collection.unity
+  Assets\GameVFX Buff Collection\Scene\FX_Buff Collection\Global Volume Profile.asset
+## Free Slash VFX\Materials  (7개, 0MB)
+  Assets\Free Slash VFX\Materials\Earth Version\Flying Particles Earth.mat
+  Assets\Free Slash VFX\Materials\Earth Version 1\Smoke.mat
+  Assets\Free Slash VFX\Materials\Fire Version\Slash World Fire.mat
+  Assets\Free Slash VFX\Materials\Variations\Flying var 1.mat
+  Assets\Free Slash VFX\Materials\Variations\Flying var 2.mat
+  Assets\Free Slash VFX\Materials\Variations\Flying var 3.mat
+  Assets\Free Slash VFX\Materials\Variations\Slash World Var 1.mat
+## Game VFX - MagicCircle\Scene  (2개, 0MB)
+  Assets\Game VFX - MagicCircle\Scene\Global Volume Profile.asset
+  Assets\Game VFX - MagicCircle\Scene\Magic Circle.unity
+## TutorialInfo\Icons  (1개, 0MB)
+  Assets\TutorialInfo\Icons\URP.png
+## TutorialInfo  (1개, 0MB)
+  Assets\TutorialInfo\Layout.wlt
+## GameVFX Buff Collection\Shader  (1개, 0MB)
+  Assets\GameVFX Buff Collection\Shader\Alpha Blended.shader
+## Game VFX - MagicCircle\Materials  (4개, 0MB)
+  Assets\Game VFX - MagicCircle\Materials\m08_5_G.mat
+  Assets\Game VFX - MagicCircle\Materials\m08_5_P.mat
+  Assets\Game VFX - MagicCircle\Materials\m08_5_Y.mat
+  Assets\Game VFX - MagicCircle\Materials\Plane.mat
+## Scripts  (3개, 0MB)
+  Assets\Scripts\BaseMono.cs
+  Assets\Scripts\ImprovedCrystalGen.cs
+  Assets\Scripts\swordSpreaderForFun.cs
+## Factory_LP\Settings  (3개, 0MB)
+  Assets\Factory_LP\Settings\ForwardRenderer.asset
+  Assets\Factory_LP\Settings\Global Volume Profile.asset
+  Assets\Factory_LP\Settings\UniversalRP-HighQuality.asset
+## RPGPP_LT\Presets  (1개, 0MB)
+  Assets\RPGPP_LT\Presets\FBXImporter.preset
+## RPGPP_LT\Textures  (1개, 0MB)
+  Assets\RPGPP_LT\Textures\rpgpp_lt_sky_a.tga
+## TutorialInfo\Scripts  (2개, 0MB)
+  Assets\TutorialInfo\Scripts\Readme.cs
+  Assets\TutorialInfo\Scripts\Editor\ReadmeEditor.cs
+## Factory_LP\Materials  (4개, 0MB)
+  Assets\Factory_LP\Materials\MI_Road.mat
+  Assets\Factory_LP\Materials\M_Factory.mat
+  Assets\Factory_LP\Materials\M_Road.mat
+  Assets\Factory_LP\Materials\No Name.mat
+## RPGPP_LT\Materials  (2개, 0MB)
+  Assets\RPGPP_LT\Materials\rpgpp_lt_cloud_a.mat
+  Assets\RPGPP_LT\Materials\rpgpp_lt_sky_a.mat
+## Scripts\PrefabGeneration  (3개, 0MB)
+  Assets\Scripts\PrefabGeneration\ItemReColorer.cs
+  Assets\Scripts\PrefabGeneration\PreAssetGenEditorController.cs
+  Assets\Scripts\PrefabGeneration\PrefabAssetGen.cs
+## Readme.asset\Assets  (1개, 0MB)
+  Assets\Readme.asset
+## GameVFX Buff Collection  (1개, 0MB)
+  Assets\GameVFX Buff Collection\Readme.txt
+## Game VFX - MagicCircle  (1개, 0MB)
+  Assets\Game VFX - MagicCircle\Readme.txt
