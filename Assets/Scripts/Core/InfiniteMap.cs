@@ -13,7 +13,7 @@ public class InfiniteMap : MonoBehaviour
     [SerializeField] float tileSizeOverride = 0f; // 0이면 타일 프리팹 크기에서 자동 측정
     [SerializeField] float groundY = 0f;
     [SerializeField] float tileYOffset = 0.03f;  // 바닥 Plane(충돌용, 초록색 기본 바닥) 위로 살짝 띄움 → 타일 사이 빈틈은 이 초록 바닥이 채움
-    [SerializeField, Range(0f, 1f)] float tileFlatten = 0.03f; // 풀 패치의 볼록한 정도 (0=완전히 평평). 플레이어 발이 둔덕에 파묻히지 않게 눌러 둠
+    [SerializeField, Range(0f, 1f)] float tileFlatten = 0.01f; // 풀 패치의 볼록한 정도 (0=완전히 평평). 플레이어 발이 둔덕에 파묻히지 않게 눌러 둠
     [SerializeField] int propsPerTile = 6;       // 타일 한 칸당 최대 소품 수
     [SerializeField, Range(0f, 1f)] float propChance = 0.55f;
     [SerializeField] float propClearRadius = 6f; // 시작 지점 주변은 소품을 비움

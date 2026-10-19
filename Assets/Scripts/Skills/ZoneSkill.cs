@@ -7,7 +7,7 @@ public class ZoneSkill : SkillBase
 {
     [SerializeField] float searchRadius = 12f;
     [SerializeField] float clusterRadius = 3f;
-    [SerializeField] float groundY = 0.04f;
+    [SerializeField] float groundY = 0.4f;   // 장판 높이 (볼록한 바닥에 가려지지 않게 위로 띄움)
 
     readonly List<Vector3> points = new List<Vector3>();
 

@@ -8,7 +8,7 @@ public class ExplosionSkill : SkillBase
     [SerializeField] float searchRadius = 15f;   // 플레이어 기준 탐색 반경
     [SerializeField] float clusterRadius = 3f;   // 밀집도 계산 반경
     [SerializeField] float warnTime = 0.5f;
-    [SerializeField] float groundY = 0.05f;      // 경고 원 높이
+    [SerializeField] float groundY = 0.4f;       // 경고 원 높이 (볼록한 바닥에 가려지지 않게 위로 띄움)
 
     readonly List<Vector3> points = new List<Vector3>();
     readonly List<Transform> hitBuffer = new List<Transform>();
