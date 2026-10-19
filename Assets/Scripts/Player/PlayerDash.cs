@@ -40,7 +40,12 @@ public class PlayerDash : MonoBehaviour
         charges = maxCharges;
     }
 
-    void Start() => DashUI.Create(this);
+    // 대쉬 UI는 시작 화면이 닫힌 뒤에 만듦
+    System.Collections.IEnumerator Start()
+    {
+        while (StartMenuUI.IsOpen) yield return null;
+        DashUI.Create(this);
+    }
 
     void OnDisable() => EndDash();
 

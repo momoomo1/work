@@ -24,7 +24,7 @@ public class LevelUpUI : MonoBehaviour
     static bool isOpen;
     static int lastCloseFrame = -1;
     // 같은 프레임에 숫자키가 다른 디버그 입력과 겹치지 않게 하는 용도
-    public static bool BlocksInput => isOpen || Time.frameCount == lastCloseFrame;
+    public static bool BlocksInput => isOpen || Time.frameCount == lastCloseFrame || StartMenuUI.IsOpen;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     static void ResetStatics() { isOpen = false; lastCloseFrame = -1; }

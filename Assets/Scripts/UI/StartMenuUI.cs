@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +10,16 @@ public class StartMenuUI : MonoBehaviour
 {
     [SerializeField] string title = "ASURA SURVIVOR"; // 게임 제목
 
+    // 시작 화면이 떠 있는 동안 true. 다른 시스템(스킬 지급, 대쉬 UI, 소품 표시 등)이 이 값을 보고 대기한다.
+    public static bool IsOpen { get; private set; }
+
     TMP_FontAsset font;
+    Canvas myCanvas;
+    readonly List<Renderer> hiddenRenderers = new List<Renderer>();
+    readonly List<Canvas> hiddenCanvases = new List<Canvas>();
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
+    static void ResetStatics() => IsOpen = false;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.AfterSceneLoad)]
     static void Boot()
@@ -19,6 +29,7 @@ public class StartMenuUI : MonoBehaviour
 
     void Awake()
     {
+        IsOpen = true;
         Time.timeScale = 0f; // 시작을 누르기 전까지 정지
     }
 
@@ -26,6 +37,7 @@ public class StartMenuUI : MonoBehaviour
     {
         font = FindKoreanFont();
         Build();
+        HideGameVisuals(); // 바닥(맵)만 남기고 캐릭터와 HUD를 숨김
     }
 
     // 씬의 다른 TMP 텍스트(HUD 등)가 쓰는 한글 폰트를 가져옴
@@ -44,6 +56,7 @@ public class StartMenuUI : MonoBehaviour
     void Build()
     {
         var canvas = gameObject.AddComponent<Canvas>();
+        myCanvas = canvas;
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         canvas.sortingOrder = 200; // 모든 UI 위
         var scaler = gameObject.AddComponent<CanvasScaler>();
@@ -63,10 +76,39 @@ public class StartMenuUI : MonoBehaviour
         NewButton("QuitButton", panel, center, new Vector2(0f, -170f), "게임 종료", new Color(0.35f, 0.37f, 0.42f), QuitGame);
     }
 
+    // 플레이어 모델과 HUD 등 UI를 숨김 (시작 전에는 바닥만 보임)
+    void HideGameVisuals()
+    {
+        var player = PlayerLocator.Player;
+        if (player != null)
+        {
+            foreach (var r in player.GetComponentsInChildren<Renderer>(true))
+                if (r.enabled) { r.enabled = false; hiddenRenderers.Add(r); }
+        }
+        foreach (var c in FindObjectsByType<Canvas>(FindObjectsInactive.Exclude, FindObjectsSortMode.None))
+            if (c != myCanvas && c.enabled && c.isRootCanvas) { c.enabled = false; hiddenCanvases.Add(c); }
+    }
+
+    void RestoreGameVisuals()
+    {
+        foreach (var r in hiddenRenderers) if (r != null) r.enabled = true;
+        foreach (var c in hiddenCanvases) if (c != null) c.enabled = true;
+        hiddenRenderers.Clear();
+        hiddenCanvases.Clear();
+    }
+
     void StartGame()
     {
+        RestoreGameVisuals();
+        IsOpen = false;
         Time.timeScale = 1f;
         Destroy(gameObject);
+    }
+
+    void OnDestroy()
+    {
+        // 혹시 다른 경로로 파괴돼도 숨긴 것을 되돌림
+        if (IsOpen) { RestoreGameVisuals(); IsOpen = false; }
     }
 
     // 에디터에서는 플레이 모드를 끄고, 빌드에서는 프로그램을 종료

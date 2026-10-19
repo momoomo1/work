@@ -108,9 +108,19 @@ public class InfiniteMap : MonoBehaviour
         return Mathf.Max(b.size.x, b.size.z);
     }
 
+    bool propsShown = true;
+
     void LateUpdate()
     {
         if (!ready) return;
+
+        // 시작 화면이 떠 있는 동안은 소품(나무, 바위 등)을 숨기고 바닥만 보여 줌
+        bool showProps = !StartMenuUI.IsOpen;
+        if (showProps != propsShown)
+        {
+            propsShown = showProps;
+            foreach (var tile in tiles) if (tile.anchor != null) tile.anchor.gameObject.SetActive(showProps);
+        }
         if (player == null) { player = PlayerLocator.Player; if (player == null) return; }
 
         // 충돌용 바닥은 플레이어를 따라다님 (높이는 유지)

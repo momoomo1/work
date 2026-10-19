@@ -42,7 +42,7 @@ public class PlayerExperience : MonoBehaviour
 
     void Update()
     {
-        if (debugKey && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
+        if (!StartMenuUI.IsOpen && debugKey && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
             AddExp(debugExp);
     }
 

@@ -32,8 +32,10 @@ public class SkillManager : MonoBehaviour
     public IReadOnlyList<SkillData> AllSkills => allSkills;
     public event Action<SkillData, int> OnSkillChanged; // (스킬, 현재 레벨)
 
-    void Start()
+    // 시작 스킬(기본 공격)은 시작 화면이 닫힌 뒤에 지급 → 게임 시작 전에는 공격이 나가지 않음
+    System.Collections.IEnumerator Start()
     {
+        while (StartMenuUI.IsOpen) yield return null;
         foreach (var s in startingSkills)
             if (s != null && !Has(s)) AddSkill(s);
     }
