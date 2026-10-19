@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class SkillManager : MonoBehaviour
 {
@@ -40,6 +41,18 @@ public class SkillManager : MonoBehaviour
             if (s != null && !Has(s)) AddSkill(s);
     }
 
+    // 테스트용: F1을 누르면 공속/이속/대쉬 카드만 나오게 전환 (다시 누르면 해제)
+    static readonly HashSet<string> testIds = new HashSet<string> { "attack_speed", "move_speed", "dash" };
+    bool testMode;
+
+    void Update()
+    {
+        if (Keyboard.current != null && Keyboard.current.f1Key.wasPressedThisFrame)
+        {
+            testMode = !testMode;
+            Debug.Log($"[Test] 카드 제한 {(testMode ? "ON: 공속/이속/대쉬만" : "OFF")}");
+        }
+    }
     public bool Has(SkillData data) => owned.ContainsKey(data);
     public int GetLevel(SkillData data) => owned.TryGetValue(data, out var s) ? s.Level : 0;
 
@@ -100,6 +113,7 @@ public class SkillManager : MonoBehaviour
         foreach (var data in allSkills)
         {
             if (data == null || evolvedAway.Contains(data)) continue;
+            if (testMode && (data.id == null || !testIds.Contains(data.id))) continue;
             if (data.id == "heal") { healCard = data; continue; } // 평소에는 후보에서 제외
             if (data.IsEvolution)
             {

@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour
         if (cc.isGrounded && verticalVelocity < 0f) verticalVelocity = -2f;
         verticalVelocity += gravity * Time.deltaTime;
 
-        Vector3 move = dir * moveSpeed;
+        Vector3 move = dir * (moveSpeed * PlayerStats.MoveSpeed);
         move.y = verticalVelocity;
         cc.Move(move * Time.deltaTime);
 

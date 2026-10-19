@@ -34,13 +34,14 @@ public class DashUI : MonoBehaviour
     void Build(PlayerDash target)
     {
         dash = target;
+        if (holder != null) Destroy(holder.gameObject);
         int n = dash.MaxCharges;
         float totalWidth = n * PipWidth + (n - 1) * PipGap;
 
-        var canvas = gameObject.AddComponent<Canvas>();
+        var canvas = gameObject.GetComponent<Canvas>() != null ? gameObject.GetComponent<Canvas>() : gameObject.AddComponent<Canvas>();
         canvas.renderMode = RenderMode.ScreenSpaceOverlay;
         canvas.sortingOrder = 30; // HUD(80), 레벨업 창(100)보다 뒤
-        var scaler = gameObject.AddComponent<CanvasScaler>();
+        var scaler = gameObject.GetComponent<CanvasScaler>() != null ? gameObject.GetComponent<CanvasScaler>() : gameObject.AddComponent<CanvasScaler>();
         scaler.uiScaleMode = CanvasScaler.ScaleMode.ScaleWithScreenSize;
         scaler.referenceResolution = new Vector2(1920f, 1080f);
         scaler.matchWidthOrHeight = 0.5f;
@@ -90,6 +91,7 @@ public class DashUI : MonoBehaviour
     void LateUpdate()
     {
         if (dash == null) { Destroy(gameObject); return; }
+        if (dash.MaxCharges != fills.Length) Build(dash); // 대쉬 칸이 늘어남
         if (cam == null) cam = Camera.main;
         if (cam == null) return;
 

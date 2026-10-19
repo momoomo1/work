@@ -47,6 +47,14 @@ public class PlayerDash : MonoBehaviour
         DashUI.Create(this);
     }
 
+    // 레벨업: 충전 시간 감소 + 칸 추가 (추가된 칸은 바로 사용 가능)
+    public void Upgrade(float rechargeReduce, int extraCharges)
+    {
+        rechargeTime = Mathf.Max(0.5f, rechargeTime - rechargeReduce);
+        maxCharges += extraCharges;
+        charges += extraCharges;
+    }
+
     void OnDisable() => EndDash();
 
     void Update()

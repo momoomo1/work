@@ -40,7 +40,7 @@ public abstract class SkillBase : MonoBehaviour
         if (Data == null) return;
         cooldownTimer -= Time.deltaTime;
         if (cooldownTimer > 0f) return;
-        cooldownTimer = Stat.cooldown;
+        cooldownTimer = Stat.cooldown / PlayerStats.AttackSpeed;
         Activate();
     }
 }
