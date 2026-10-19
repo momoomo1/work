@@ -26,14 +26,35 @@ public class OrbitRingVfx : MonoBehaviour, IPoolable
     }
 
     // scale: 이펙트 크기, startDelay: 고리끼리 모양이 달라 보이도록 시작을 어긋나게 함
-    public void Begin(float scale, float startDelay)
+    public void Begin(float scale, float startDelay, float brightness = 1f)
     {
         transform.localScale = Vector3.one * scale;
+        ApplyBrightness(brightness);
         foreach (var ps in systems)
             if (ps != null) ps.Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear); // playOnAwake로 이미 재생 중이면 멈춤
 
         StopAllCoroutines();
         StartCoroutine(PlayAfter(startDelay));
+    }
+
+    // 파티클의 시작 색을 밝게 (원본 색은 처음 한 번만 저장해서 풀 재사용 때 계속 곱해지지 않게 함)
+    Color[] baseColors;
+    void ApplyBrightness(float brightness)
+    {
+        if (baseColors == null)
+        {
+            baseColors = new Color[systems.Length];
+            for (int i = 0; i < systems.Length; i++)
+                baseColors[i] = systems[i].main.startColor.mode == ParticleSystemGradientMode.Color ? systems[i].main.startColor.color : Color.white;
+        }
+        for (int i = 0; i < systems.Length; i++)
+        {
+            if (systems[i] == null || systems[i].main.startColor.mode != ParticleSystemGradientMode.Color) continue;
+            var main = systems[i].main;
+            Color c = baseColors[i] * brightness;
+            c.a = baseColors[i].a;
+            main.startColor = c;
+        }
     }
 
     IEnumerator PlayAfter(float delay)

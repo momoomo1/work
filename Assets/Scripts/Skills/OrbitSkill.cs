@@ -7,8 +7,9 @@ using UnityEngine;
 // SkillLevelStat.prefab(없으면 SkillData.prefab)에서 가져오고, 코드가 풀 호환 래퍼로 감싸서 쓴다.
 public class OrbitSkill : SkillBase
 {
-    [SerializeField] float ringScale = 0.6f;      // 고리 이펙트 크기 (클수록 큼)
-    [SerializeField] float hitRadius = 0.9f;      // 타격 판정 반경
+    [SerializeField] float ringScale = 1.5f;      // 고리 이펙트 크기 (클수록 큼)
+    [SerializeField] float ringBrightness = 1.6f; // 고리 색을 더 밝고 진하게 (1보다 크면 빛나는 느낌, 블룸이 있으면 더 눈에 띔)
+    [SerializeField] float hitRadius = 1.3f;      // 타격 판정 반경 (고리가 커진 만큼 넓힘)
     [SerializeField] float heightOffset = -0.1f;  // 플레이어 중심 대비 고리 높이
     [SerializeField] float phaseStagger = 0.3f;   // 고리끼리 이펙트 시작 시간차(초)
 
@@ -38,7 +39,7 @@ public class OrbitSkill : SkillBase
         {
             var obj = ObjectPool.Get(fx != null ? GetTemplate(fx) : GetHitOnlyTemplate(), Owner.position, Quaternion.identity);
             if (obj.TryGetComponent<OrbitBlade>(out var blade)) blade.Setup(stat.damage, stat.tickInterval, hitRadius);
-            if (obj.TryGetComponent<OrbitRingVfx>(out var vfx)) vfx.Begin(ringScale, i * phaseStagger);
+            if (obj.TryGetComponent<OrbitRingVfx>(out var vfx)) vfx.Begin(ringScale, i * phaseStagger, ringBrightness);
             rings.Add(obj.transform);
         }
     }
