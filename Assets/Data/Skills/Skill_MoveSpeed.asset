@@ -15,7 +15,7 @@ MonoBehaviour:
   id: move_speed
   displayName: 이동 속도 강화
   description: 이동 속도가 10% 빨라진다.
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: c3b836eab1a245fdb2a737253dffedc0, type: 3}
   type: 4
   choiceWeight: 0.6
   prefab: {fileID: 0}

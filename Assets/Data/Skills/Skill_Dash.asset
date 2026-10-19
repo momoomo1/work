@@ -15,7 +15,7 @@ MonoBehaviour:
   id: dash
   displayName: 대쉬 강화
   description: 대쉬 충전 시간이 0.25초 줄어든다. (Lv3: 대쉬 1칸 추가)
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: aeac403b35c946f89eb01bc91c6ae51d, type: 3}
   type: 4
   choiceWeight: 0.5
   prefab: {fileID: 0}
