@@ -7,7 +7,7 @@ public class Boss : MonoBehaviour, IPoolable
 {
     [SerializeField] Transform telegraph; // 돌진 예고 표시 (납작한 큐브)
     [SerializeField] float stopFactor = 0.3f;  // 접촉 거리 × 이 값보다 가까워지면 멈춤 (작을수록 끝까지 파고듦)
-    [SerializeField] float pushFactor = 0.55f; // 접촉 거리 × 이 값보다 가까우면 플레이어를 밀어냄
+    [SerializeField] float pushFactor = 0.55f; // 몸이 부딪히는 거리 = 접촉 거리 × 이 값. 이 안에서만 밀어내고 피해를 줌
 
     public static event Action<Boss> OnBossDied;
 
@@ -25,6 +25,9 @@ public class Boss : MonoBehaviour, IPoolable
     float damageMult = 1f;
 
     public BossData Data => data;
+
+    // 보스 몸이 실제로 부딪히는 거리: 접촉 피해와 돌진 피해는 이 안에 들어올 때만 (딱 부딪혀서 밀릴 때)
+    float BodyRange => data.contactRange * pushFactor;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     static void ResetStatics() => OnBossDied = null;
@@ -85,7 +88,7 @@ public class Boss : MonoBehaviour, IPoolable
         if (dist < data.contactRange * pushFactor && player.TryGetComponent<CharacterController>(out var cc))
             cc.Move(dir * (data.moveSpeed * 1.3f) * Time.deltaTime);
 
-        if (dist <= data.contactRange && Time.time >= nextContactTime)
+        if (dist <= BodyRange && Time.time >= nextContactTime)
         {
             nextContactTime = Time.time + data.contactInterval;
             PlayerLocator.Damageable?.TakeDamage(data.contactDamage * damageMult);
@@ -125,7 +128,7 @@ public class Boss : MonoBehaviour, IPoolable
     {
         Move(chargeDir * data.chargeSpeed);
 
-        if (!chargeHit && Flat(player.position - transform.position).sqrMagnitude <= data.contactRange * data.contactRange)
+        if (!chargeHit && Flat(player.position - transform.position).sqrMagnitude <= BodyRange * BodyRange * 1.3f)
         {
             chargeHit = true;
             PlayerLocator.Damageable?.TakeDamage(data.chargeDamage * damageMult);
