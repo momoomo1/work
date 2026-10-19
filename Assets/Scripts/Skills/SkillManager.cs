@@ -48,6 +48,14 @@ public class SkillManager : MonoBehaviour
     {
         if (data == null) return null;
 
+        // 체력 회복 카드: 스킬이 아니라 즉시 효과 (value = 최대 체력 대비 회복 비율). 몇 번이든 고를 수 있음
+        if (data.id == "heal")
+        {
+            if (TryGetComponent<Health>(out var hp)) hp.Heal(hp.MaxHealth * data.levels[0].value);
+            OnSkillChanged?.Invoke(data, 0);
+            return null;
+        }
+
         if (owned.TryGetValue(data, out var skill))
         {
             skill.LevelUp();
@@ -88,9 +96,11 @@ public class SkillManager : MonoBehaviour
     public List<SkillData> GetRandomChoices(int count)
     {
         var candidates = new List<SkillData>();
+        SkillData healCard = null;
         foreach (var data in allSkills)
         {
             if (data == null || evolvedAway.Contains(data)) continue;
+            if (data.id == "heal") { healCard = data; continue; } // 평소에는 후보에서 제외
             if (data.IsEvolution)
             {
                 // 원본이 최대 레벨이고 아직 진화 스킬이 없을 때만
@@ -103,6 +113,9 @@ public class SkillManager : MonoBehaviour
                 candidates.Add(data);
             }
         }
+
+        // 모든 스킬을 최대 레벨까지 올렸으면 체력 회복 카드를 제시
+        if (candidates.Count == 0 && healCard != null) return new List<SkillData> { healCard };
 
         // 가중치(choiceWeight)에 따라 중복 없이 count개 선택 (가중치가 작은 카드는 드물게 나옴)
         int n = Mathf.Min(count, candidates.Count);

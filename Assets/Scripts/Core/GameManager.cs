@@ -32,6 +32,19 @@ public class GameManager : MonoBehaviour
     [SerializeField] float enemyDamageGrowth = 0.1f;   // 일반 적 접촉 피해 +10%
     [SerializeField] float enemySpeedGrowth = 0.03f;   // 일반 적 이동 속도 +3% (최대 +60%)
 
+    [Header("점수")]
+    [SerializeField] int scorePerKill = 10;
+    [SerializeField] int scorePerSecond = 2;     // 버틴 시간 1초당
+    [SerializeField] int scorePerBoss = 1000;    // 보스 처치당
+
+    [Header("시간이 갈수록 어려워짐 (가만히 서 있으면 못 버티게)")]
+    [SerializeField] float timeDamagePerMinute = 0.6f;   // 1분마다 적 접촉 피해 +60%
+    [SerializeField] float timeSpeedPerMinute = 0.05f;   // 1분마다 적 이동 속도 +5%
+    [SerializeField] float maxSpeedMultiplier = 1.7f;    // 속도 배율 상한 (플레이어가 달리면 도망칠 수는 있게)
+    [SerializeField] float timeHealthPerMinute = 0.15f;  // 1분마다 적 체력 +15%
+
+    const string BestScoreKey = "BestScore";
+
     bool bossSpawned;
     int nextBossKill;
     int bossesDefeated;
@@ -40,9 +53,16 @@ public class GameManager : MonoBehaviour
     public int KillCount => killCount;
     public int Wave => bossesDefeated + 1;            // 보스를 잡을 때마다 웨이브가 오름
     public int BossesDefeated => bossesDefeated;
-    public float EnemyHealthMultiplier => 1f + enemyHealthGrowth * bossesDefeated;
-    public float EnemyDamageMultiplier => 1f + enemyDamageGrowth * bossesDefeated;
-    public float EnemySpeedMultiplier => 1f + Mathf.Min(0.6f, enemySpeedGrowth * bossesDefeated);
+    float Minutes => SurvivalTime / 60f;
+    public float EnemyHealthMultiplier => (1f + enemyHealthGrowth * bossesDefeated) * (1f + timeHealthPerMinute * Minutes);
+    public float EnemyDamageMultiplier => (1f + enemyDamageGrowth * bossesDefeated) * (1f + timeDamagePerMinute * Minutes);
+    public float EnemySpeedMultiplier => Mathf.Min(maxSpeedMultiplier, (1f + Mathf.Min(0.6f, enemySpeedGrowth * bossesDefeated)) * (1f + timeSpeedPerMinute * Minutes));
+
+    // ---- 점수 ----
+    public int Score => killCount * scorePerKill + Mathf.FloorToInt(SurvivalTime) * scorePerSecond + bossesDefeated * scorePerBoss;
+    public int BestScore { get; private set; }                       // 저장된 최고 기록
+    public int DisplayBestScore => Mathf.Max(BestScore, Score);       // 지금 점수가 넘으면 실시간으로 최고 기록이 됨
+    public bool IsNewRecord { get; private set; }                    // 이번 판에서 최고 기록을 갱신했는지
     public bool BossAlive { get; private set; }
     public bool IsGameOver { get; private set; }
     public float SurvivalTime { get; private set; } // 게임이 멈춰 있는 동안은 증가하지 않음
@@ -68,6 +88,7 @@ public class GameManager : MonoBehaviour
         if (instance != null && instance != this) { Destroy(gameObject); return; }
         instance = this;
         nextBossKill = bossKillThreshold;
+        BestScore = PlayerPrefs.GetInt(BestScoreKey, 0);
         Time.timeScale = 1f; // 씬 재로드 시 정지 상태가 남지 않게
     }
 
@@ -82,12 +103,31 @@ public class GameManager : MonoBehaviour
         if (!IsGameOver) SurvivalTime += Time.deltaTime;
     }
 
+    // 최고 기록을 넘었으면 저장 (게임오버 또는 게임 종료 시)
+    void CommitBestScore()
+    {
+        int score = Score;
+        if (score > BestScore)
+        {
+            BestScore = score;
+            IsNewRecord = true;
+            PlayerPrefs.SetInt(BestScoreKey, BestScore);
+            PlayerPrefs.Save();
+        }
+    }
+
+    void OnApplicationQuit()
+    {
+        if (!IsGameOver) CommitBestScore(); // 도중에 종료해도 기록은 남김
+    }
+
     void HandlePlayerDied()
     {
         if (IsGameOver) return;
         IsGameOver = true;
+        CommitBestScore();
         Time.timeScale = 0f;
-        Debug.Log($"[GameOver] 생존 {FormatTime(SurvivalTime)}, 처치 {killCount}");
+        Debug.Log($"[GameOver] 생존 {FormatTime(SurvivalTime)}, 처치 {killCount}, 점수 {Score} (최고 {BestScore})");
         OnPlayerDied?.Invoke();
     }
 

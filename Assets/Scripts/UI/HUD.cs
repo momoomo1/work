@@ -17,6 +17,9 @@ public class HUD : MonoBehaviour
     [SerializeField] RectTransform bossFill;
     [SerializeField] TMP_Text bossText;
 
+    TMP_Text scoreText;
+    int lastScore = -1;
+    int lastBest = -1;
     GameManager gm;
     Health playerHealth;
     PlayerExperience exp;
@@ -27,6 +30,8 @@ public class HUD : MonoBehaviour
     {
         bossGroup.SetActive(false);
         killText.textWrappingMode = TextWrappingModes.NoWrap; // "웨이브 n · 처치 m"이 길어져도 한 줄 유지
+
+        CreateScoreText();
 
         gm = GameManager.Instance;
         gm.OnEnemyKilled += HandleKill;
@@ -65,9 +70,35 @@ public class HUD : MonoBehaviour
         if (bossHealth != null) bossHealth.OnChanged -= UpdateBoss;
     }
 
+    // 처치 수 글자를 복제해서 그 아래에 점수 줄을 만듦
+    void CreateScoreText()
+    {
+        scoreText = Instantiate(killText, killText.transform.parent);
+        scoreText.name = "ScoreText";
+        var rt = (RectTransform)scoreText.transform;
+        rt.pivot = new Vector2(1f, 0.5f);
+        rt.sizeDelta = new Vector2(760f, rt.sizeDelta.y);
+        rt.anchoredPosition = new Vector2(-20f, ((RectTransform)killText.transform).anchoredPosition.y - 46f);
+        scoreText.fontSize = 26f;
+        scoreText.alignment = TextAlignmentOptions.Right;
+        scoreText.textWrappingMode = TextWrappingModes.NoWrap;
+    }
+
+    void UpdateScore()
+    {
+        int score = gm.Score, best = gm.DisplayBestScore;
+        if (score == lastScore && best == lastBest) return;
+        lastScore = score;
+        lastBest = best;
+        scoreText.text = $"최고 기록 {best:N0}점 : 현재 점수 {score:N0}";
+        // 최고 기록을 넘은 동안은 금색
+        scoreText.color = (score > 0 && score >= best) ? new Color(1f, 0.85f, 0.25f) : Color.white;
+    }
+
     void Update()
     {
         if (gm == null) return;
+        if (scoreText != null) UpdateScore();
         int s = Mathf.FloorToInt(gm.SurvivalTime);
         if (s == lastSecond) return;
         lastSecond = s;

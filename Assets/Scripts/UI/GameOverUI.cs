@@ -42,7 +42,10 @@ public class GameOverUI : MonoBehaviour
 
     void Show()
     {
-        resultText.text = $"생존 시간  {GameManager.FormatTime(gm.SurvivalTime)}\n처치 수  {gm.KillCount}";
+        resultText.fontSize = 38f;
+        ((RectTransform)resultText.transform).sizeDelta = new Vector2(900f, 260f);
+        string record = gm.IsNewRecord ? "\n<color=#FFD94A>★ 최고 기록 갱신! ★</color>" : "";
+        resultText.text = $"생존 시간  {GameManager.FormatTime(gm.SurvivalTime)}   처치 수  {gm.KillCount}\n점수  {gm.Score:N0}점   (최고 기록 {gm.BestScore:N0}점){record}";
         panel.SetActive(true);
     }
 

@@ -26,7 +26,9 @@ public class SkillCardUI : MonoBehaviour
         descText.text = skill.description;
         keyText.text = $"[{index + 1}]";
 
-        if (skill.IsEvolution)
+        if (skill.id == "heal")
+            levelText.text = "즉시 회복";
+        else if (skill.IsEvolution)
             levelText.text = $"진화! {skill.evolvesFrom.displayName} → {skill.displayName}";
         else if (currentLevel <= 0)
             levelText.text = "NEW";

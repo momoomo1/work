@@ -30,6 +30,8 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField] float swarmInterval = 30f;        // 0이면 사용 안 함
     [SerializeField] int swarmBaseCount = 100;
     [SerializeField] int swarmPerWave = 30;
+    [SerializeField] float swarmMinInterval = 12f;     // 시간이 갈수록 습격 주기가 이 값까지 짧아짐
+    [SerializeField] float swarmSpeedupPerSecond = 0.04f;
 
     [Header("보스전")]
     [SerializeField, Range(0f, 1f)] float spawnRateDuringBoss = 0.4f; // 0 = 보스 생존 중 스폰 중지
@@ -86,7 +88,8 @@ public class EnemySpawner : MonoBehaviour
         if (swarmInterval > 0f)
         {
             swarmTimer += dt * rate;
-            if (swarmTimer >= swarmInterval)
+            float effectiveSwarm = Mathf.Max(swarmMinInterval, swarmInterval - elapsed * swarmSpeedupPerSecond);
+            if (swarmTimer >= effectiveSwarm)
             {
                 swarmTimer = 0f;
                 int room = cap - Enemy.ActiveCount;
