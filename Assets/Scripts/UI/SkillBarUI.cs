@@ -130,7 +130,11 @@ public class SkillBarUI : MonoBehaviour
         int n = slots.Count;
         float total = n * SlotSize + Mathf.Max(0, n - 1) * SlotGap;
         holder.sizeDelta = new Vector2(Mathf.Max(SlotSize, total), SlotSize);
-        for (int i = 0; i < n; i++) slots[i].root.anchoredPosition = new Vector2(i * (SlotSize + SlotGap), 0f);
+        // 쿨타임이 있는 스킬을 왼쪽에 몰고, 각각 얻은 순서는 유지
+        int x = 0;
+        for (int pass = 0; pass < 2; pass++)
+            foreach (var s in slots)
+                if (s.showCooldown == (pass == 0)) s.root.anchoredPosition = new Vector2(x++ * (SlotSize + SlotGap), 0f);
     }
 
     void Update()
