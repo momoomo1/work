@@ -1319,6 +1319,7 @@ MonoBehaviour:
   orbPrefab: {fileID: 4825137265500672484, guid: 98a1ecdadef19e04e8ed2f754b1a34bc, type: 3}
   orbY: 0.5
   bossScatterRadius: 3
+  maxOrbs: 220
 --- !u!4 &631099396
 Transform:
   m_ObjectHideFlags: 0
@@ -1761,6 +1762,63 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &805569885
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4338046692633095576, guid: 28959f423afe7dd4b9eb496bb760a138, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -2.5848
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338046692633095576, guid: 28959f423afe7dd4b9eb496bb760a138, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.88
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338046692633095576, guid: 28959f423afe7dd4b9eb496bb760a138, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.88751
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338046692633095576, guid: 28959f423afe7dd4b9eb496bb760a138, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338046692633095576, guid: 28959f423afe7dd4b9eb496bb760a138, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338046692633095576, guid: 28959f423afe7dd4b9eb496bb760a138, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338046692633095576, guid: 28959f423afe7dd4b9eb496bb760a138, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338046692633095576, guid: 28959f423afe7dd4b9eb496bb760a138, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338046692633095576, guid: 28959f423afe7dd4b9eb496bb760a138, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4338046692633095576, guid: 28959f423afe7dd4b9eb496bb760a138, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7276292554753924425, guid: 28959f423afe7dd4b9eb496bb760a138, type: 3}
+      propertyPath: m_Name
+      value: Explosion 02
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 28959f423afe7dd4b9eb496bb760a138, type: 3}
 --- !u!1 &820550742
 GameObject:
   m_ObjectHideFlags: 0
@@ -2182,6 +2240,7 @@ MonoBehaviour:
   tileSizeOverride: 0
   groundY: 0
   tileYOffset: 0.03
+  tileFlatten: 0.03
   propsPerTile: 6
   propChance: 0.55
   propClearRadius: 6
@@ -2462,6 +2521,7 @@ MonoBehaviour:
   baseRunSpeed: 6
   attackRange: 0
   attackCooldown: 1
+  animLodRange: 14
   playDeath: 1
 --- !u!114 &910000014
 MonoBehaviour:
@@ -2481,6 +2541,10 @@ MonoBehaviour:
   vfxHeight: 1
   hitSfx: 3
   deathSfx: 0
+  tintBody: 1
+  playerColor: {r: 0.3, g: 0.5, b: 0.85, a: 1}
+  enemyColor: {r: 0.82, g: 0.78, b: 0.62, a: 1}
+  bossColor: {r: 0.55, g: 0.15, b: 0.6, a: 1}
   showDamageNumber: 1
   numberHeight: 1.8
   flashDuration: 0.09
@@ -2488,6 +2552,8 @@ MonoBehaviour:
   knockbackSpeed: 4
   playerHitShake: 0.2
   bossDeathShake: 0.5
+  playerHitInvuln: 0.35
+  minVfxInterval: 0.04
 --- !u!114 &910000020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3449,13 +3515,23 @@ MonoBehaviour:
   - {fileID: 11400000, guid: db53e086f5974614296c6bbfc940fbe3, type: 2}
   player: {fileID: 910000001}
   spawnRadius: 18
+  radiusJitter: 4
   spawnY: 1.1
   maxAlive: 500
   maxAlivePerWave: 60
   maxAliveCap: 900
+  prewarmCount: 150
   startInterval: 0.8
   minInterval: 0.12
   intervalDecayPerSecond: 0.005
+  groupStart: 8
+  groupMax: 48
+  groupGrowSeconds: 15
+  groupPerWave: 4
+  groupArc: 40
+  swarmInterval: 30
+  swarmBaseCount: 100
+  swarmPerWave: 30
   spawnRateDuringBoss: 0.4
 --- !u!4 &1653511948
 Transform:
@@ -4963,3 +5039,4 @@ SceneRoots:
   - {fileID: 1940250789}
   - {fileID: 1292178177}
   - {fileID: 1112941894}
+  - {fileID: 805569885}
