@@ -16,7 +16,7 @@ MonoBehaviour:
   displayName: "\uD5EC\uD30C\uC774\uC5B4"
   description: "\uC218\uB77C\uCC38\uC758 \uAC15\uD654\uD615. \uAC70\uB300\uD55C \uBD88\uB369\uC774\uAC00
     \uC801\uC744 \uB04C\uC5B4\uB2F9\uAE30\uBA70 \uAD00\uD1B5\uD55C\uB2E4."
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: fc4fb7026f884bc7a47af982379442bb, type: 3}
   type: 0
   prefab: {fileID: 5341647638327698553, guid: 3a7748d4463a22944a511a54bebecddc, type: 3}
   castSfx: {fileID: 8300000, guid: 8b417f5a30d4cb046b983e95379119b9, type: 3}

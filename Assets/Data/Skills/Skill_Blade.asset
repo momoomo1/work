@@ -15,7 +15,7 @@ MonoBehaviour:
   id: blade
   displayName: "\uD68C\uC804 \uCE7C\uB0A0"
   description: "\uD50C\uB808\uC774\uC5B4 \uC8FC\uBCC0\uC744 \uB3C4\uB294 \uACE0\uB9AC\uAC00 \uB2FF\uB294 \uC801\uC744 \uBCA4\uB2E4. \uB808\uBCA8\uC774 \uC624\uB97C\uC218\uB85D \uACE0\uB9AC\uAC00 \uD558\uB098\uC529 \uB298\uC5B4\uB09C\uB2E4."
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 80b9e346d2174618bddb021368427333, type: 3}
   type: 2
   prefab: {fileID: 6710139492206580332, guid: 95b8d3d65b5d7f1409c4ed1723887826, type: 3}
   castSfx: {fileID: 0}

@@ -15,7 +15,7 @@ MonoBehaviour:
   id: frost
   displayName: "\uC11C\uB9AC \uAC10\uC625"
   description: "\uC801\uC774 \uBAA8\uC778 \uACF3\uC5D0 \uD558\uB298\uC0C9 \uB9C8\uBC95\uC9C4 \uAC10\uC625\uC744 \uD3BC\uCCD0 \uD53C\uD574\uB97C \uC8FC\uACE0 \uC774\uB3D9\uC744 \uB290\uB9AC\uAC8C \uB9CC\uB4E0\uB2E4."
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 381a1cdfc5174ac19760c3cd86e8aa59, type: 3}
   type: 3
   prefab: {fileID: 3648709750599057289, guid: e7a79295f5f44194c94f3b3757a12629, type: 3}
   castSfx: {fileID: 8300000, guid: a2aebaf6471b4fb40a3c85ef157cbf39, type: 3}

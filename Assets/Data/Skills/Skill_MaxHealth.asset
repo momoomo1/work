@@ -15,7 +15,7 @@ MonoBehaviour:
   id: max_health
   displayName: "\uCCB4\uB825 \uAC15\uD654"
   description: "\uCD5C\uB300 \uCCB4\uB825\uC774 20 \uB298\uC5B4\uB098\uACE0 \uCCB4\uB825\uC744 \uD68C\uBCF5\uD55C\uB2E4."
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 7dfac5292cce4f5fb16f2bce052fb235, type: 3}
   type: 4
   choiceWeight: 0.3
   prefab: {fileID: 0}
