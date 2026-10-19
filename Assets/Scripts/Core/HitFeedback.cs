@@ -13,7 +13,7 @@ public class HitFeedback : MonoBehaviour
     [SerializeField] Sfx hitSfx = Sfx.EnemyHit;
     [SerializeField] Sfx deathSfx = Sfx.EnemyDeath;
 
-    [Header("몸 색 (텍스처가 없을 때 단색으로 채움)")]
+    [Header("몸 색 (텍스처가 연결돼 있지 않은 머티리얼만 단색으로 채움)")]
     [SerializeField] bool tintBody = true;
     [SerializeField] Color playerColor = new Color(0.30f, 0.50f, 0.85f);  // 강철 청색
     [SerializeField] Color enemyColor = new Color(0.82f, 0.78f, 0.62f);   // 뼈 색
@@ -69,6 +69,12 @@ public class HitFeedback : MonoBehaviour
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     static void ResetTintCache() => tintCache.Clear();
 
+    static bool HasTexture(Material m)
+    {
+        return (m.HasProperty("_BaseMap") && m.GetTexture("_BaseMap") != null) ||
+               (m.HasProperty("_MainTex") && m.GetTexture("_MainTex") != null);
+    }
+
     void ApplyBodyColor(Color color)
     {
         foreach (var smr in GetComponentsInChildren<SkinnedMeshRenderer>(true))
@@ -78,6 +84,8 @@ public class HitFeedback : MonoBehaviour
             for (int i = 0; i < src.Length; i++)
             {
                 if (src[i] == null) { dst[i] = null; continue; }
+                // 이미 텍스처가 연결된 머티리얼은 그대로 둠 (모델 텍스처를 추출해 연결하면 자동으로 원래 모습이 나옴)
+                if (HasTexture(src[i])) { dst[i] = src[i]; continue; }
                 // 재질 칸마다 살짝 어둡게 해서 (몸/옷/장비 등) 구분이 되게 함
                 Color c = color * (1f - 0.15f * Mathf.Min(i, 3));
                 c.a = 1f;
