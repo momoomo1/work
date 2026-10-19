@@ -39,6 +39,15 @@ public static class PlayerAim
         direction = d.normalized;
         return true;
     }
+    // 왼쪽 버튼을 누르고 있는 동안 커서 방향 그대로 (적 무리 보정 없음)
+    public static bool TryGetHeldCursorDirection(Vector3 origin, out Vector3 direction)
+    {
+        direction = Vector3.zero;
+        var mouse = Mouse.current;
+        if (mouse == null || !mouse.leftButton.isPressed) return false;
+        if (EventSystem.current != null && EventSystem.current.IsPointerOverGameObject()) return false;
+        return TryGetCursorDirection(origin, out direction);
+    }
     public static bool TryGetAimDirection(Vector3 origin, float range, out Vector3 direction)
     {
         direction = Vector3.zero;

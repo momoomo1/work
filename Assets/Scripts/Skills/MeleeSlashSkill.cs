@@ -42,7 +42,7 @@ public class MeleeSlashSkill : SkillBase
         // 마우스 클릭 중이면 클릭 방향(+ 무리 보정), 아니면 자동 공격:
         // 가까운 적(autoEngageRange 안)이 있으면 그쪽, 없으면 바라보는 방향으로 계속 휘두름
         Vector3 dir;
-        if (!PlayerAim.TryGetAimDirection(origin, stat.area, out dir))
+        if (!PlayerAim.TryGetHeldCursorDirection(origin, out dir))
         {
             var target = TargetFinder.FindNearest(origin, Mathf.Max(stat.area, autoEngageRange));
             if (target != null)

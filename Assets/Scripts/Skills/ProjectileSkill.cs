@@ -11,9 +11,9 @@ public class ProjectileSkill : SkillBase
         var stat = Stat;
         Vector3 origin = Owner.position;
 
-        // 왼쪽 버튼을 누르고 있으면 마우스 방향, 아니면 가장 가까운 적 방향
+        // 왼쪽 버튼을 누르고 있으면 커서 방향 그대로, 아니면 가장 가까운 적 방향
         Vector3 dir;
-        if (!PlayerAim.TryGetAimDirection(origin, stat.speed * stat.duration, out dir))
+        if (!PlayerAim.TryGetHeldCursorDirection(origin, out dir))
         {
             // 탐색 반경 = 투사체 사거리(속도 × 수명)
             var target = TargetFinder.FindNearest(origin, stat.speed * stat.duration);
