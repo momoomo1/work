@@ -20,6 +20,7 @@ public class SkillBarUI : MonoBehaviour
         public Text cooldownText;
         public Text levelText;
         public bool showCooldown;
+        public int lastTenths = -1;
     }
 
     SkillManager manager;
@@ -142,7 +143,11 @@ public class SkillBarUI : MonoBehaviour
             bool show = remain > 0.05f && total >= 1f; // 쿨타임이 짧은 스킬(기본 공격 등)은 숫자 없이 덮개만
             s.cover.fillAmount = s.skill.CooldownRatio;
             s.cooldownText.gameObject.SetActive(show);
-            if (show) s.cooldownText.text = remain >= 10f ? Mathf.CeilToInt(remain).ToString() : remain.ToString("0.0");
+            if (!show) { s.lastTenths = -1; continue; }
+            int shown = remain >= 10f ? Mathf.CeilToInt(remain) * 10 : Mathf.RoundToInt(remain * 10f); // 바뀔 때만 문자열 생성
+            if (shown == s.lastTenths) continue;
+            s.lastTenths = shown;
+            s.cooldownText.text = remain >= 10f ? Mathf.CeilToInt(remain).ToString() : remain.ToString("0.0");
         }
     }
 

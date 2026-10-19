@@ -25,6 +25,8 @@ public class HUD : MonoBehaviour
     PlayerExperience exp;
     Health bossHealth;
     int lastSecond = -1;
+    bool killDirty;
+    int lastLevel = -1;
 
     void Start()
     {
@@ -99,6 +101,7 @@ public class HUD : MonoBehaviour
     {
         if (gm == null) return;
         if (scoreText != null) UpdateScore();
+        if (killDirty) { killDirty = false; killText.text = $"난이도 {gm.Wave} · 처치 {gm.KillCount}"; } // 한 프레임에 수십 마리 죽어도 한 번만
         int s = Mathf.FloorToInt(gm.SurvivalTime);
         if (s == lastSecond) return;
         lastSecond = s;
@@ -116,10 +119,10 @@ public class HUD : MonoBehaviour
     void UpdateExp(int cur, int next)
     {
         SetBar(expFill, next > 0 ? (float)cur / next : 0f);
-        levelText.text = $"Lv {exp.Level}";
+        if (exp.Level != lastLevel) { lastLevel = exp.Level; levelText.text = $"Lv {lastLevel}"; }
     }
 
-    void HandleKill(EnemyData _) => killText.text = $"난이도 {gm.Wave} · 처치 {gm.KillCount}";
+    void HandleKill(EnemyData _) => killDirty = true;
 
     void HandleBossSpawned(Boss boss)
     {

@@ -7,7 +7,8 @@ public class OrbitBlade : MonoBehaviour, IPoolable
     [SerializeField] float hitRadius = 0.6f;
 
     readonly Dictionary<int, float> nextHitTime = new Dictionary<int, float>();
-    readonly Collider[] hits = new Collider[16];
+    readonly Collider[] hits = new Collider[48];
+    readonly List<int> expired = new List<int>(32);
     TrailRenderer trail;
     bool initialized;
     float damage;
@@ -54,7 +55,7 @@ public class OrbitBlade : MonoBehaviour, IPoolable
     void Prune()
     {
         float now = Time.time;
-        var expired = new List<int>();
+        expired.Clear();
         foreach (var kv in nextHitTime) if (kv.Value < now) expired.Add(kv.Key);
         foreach (var id in expired) nextHitTime.Remove(id);
     }

@@ -1,6 +1,5 @@
 using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerExperience : MonoBehaviour
 {
@@ -11,10 +10,6 @@ public class PlayerExperience : MonoBehaviour
 
     [Header("획득")]
     [SerializeField] float pickupRange = 4f;
-
-    [Header("디버그")]
-    [SerializeField] bool debugKey = true; // E = +50 경험치
-    [SerializeField] int debugExp = 50;
 
     [SerializeField] int level = 1;
     [SerializeField] int currentExp;
@@ -40,12 +35,6 @@ public class PlayerExperience : MonoBehaviour
 
     void Start() => OnExpChanged?.Invoke(currentExp, ExpToNext);
 
-    void Update()
-    {
-        if (!StartMenuUI.IsOpen && debugKey && Keyboard.current != null && Keyboard.current.eKey.wasPressedThisFrame)
-            AddExp(debugExp);
-    }
-
     public void AddExp(int amount)
     {
         if (amount <= 0) return;
@@ -56,7 +45,6 @@ public class PlayerExperience : MonoBehaviour
         {
             currentExp -= ExpToNext;
             level++;
-            Debug.Log($"[Exp] 레벨 업! Lv{level}");
             OnLevelUp?.Invoke(level);
         }
         OnExpChanged?.Invoke(currentExp, ExpToNext);

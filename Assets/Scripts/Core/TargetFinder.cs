@@ -4,7 +4,8 @@ using UnityEngine;
 // "Enemy" 레이어 기준 탐색 유틸. 내부 버퍼를 재사용하므로 호출 사이에 결과를 보관하지 말 것.
 public static class TargetFinder
 {
-    const int MaxHits = 256;
+    const int MaxHits = 512;
+    const int MaxCandidates = 48; // 밀집 지점 탐색 시 비교할 후보 수 상한 (적이 수백 마리여도 n^2이 되지 않게)
     static readonly Collider[] buffer = new Collider[MaxHits];
     static int enemyMask = -1;
 
@@ -75,7 +76,9 @@ public static class TargetFinder
 
         float clusterSqr = clusterRadius * clusterRadius;
         int bestCount = 0;
-        for (int i = 0; i < n; i++)
+        int stride = Mathf.Max(1, n / MaxCandidates); // 후보만 건너뛰며 고르고, 이웃 수는 전체를 대상으로 셈
+        int start = n > MaxCandidates ? Random.Range(0, stride) : 0;
+        for (int i = start; i < n; i += stride)
         {
             Vector3 pi = buffer[i].transform.position;
             Vector3 sum = Vector3.zero;

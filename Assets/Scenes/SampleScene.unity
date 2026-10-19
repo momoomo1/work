@@ -2203,10 +2203,8 @@ GameObject:
   - component: {fileID: 910000005}
   - component: {fileID: 910000006}
   - component: {fileID: 910000007}
-  - component: {fileID: 910000008}
   - component: {fileID: 910000009}
   - component: {fileID: 910000011}
-  - component: {fileID: 910000010}
   - component: {fileID: 910000012}
   - component: {fileID: 910000013}
   - component: {fileID: 910000014}
@@ -2362,19 +2360,6 @@ MonoBehaviour:
   targetRenderer: {fileID: 910000003}
   flashColor: {r: 1, g: 1, b: 1, a: 1}
   duration: 0.1
---- !u!114 &910000008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910000000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0de0000000000000000000000000004, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  debugDamage: 10
 --- !u!114 &910000009
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2395,18 +2380,6 @@ MonoBehaviour:
   pierceCount: 0
   projectileLifetime: 1.2
   muzzleOffset: 0.6
---- !u!114 &910000010
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 910000000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c0de0000000000000000000000000026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::SkillDebugInput
 --- !u!114 &910000011
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2450,8 +2423,6 @@ MonoBehaviour:
   growth: 1.15
   addPerLevel: 3
   pickupRange: 4
-  debugKey: 1
-  debugExp: 50
   level: 1
   currentExp: 0
 --- !u!114 &910000013

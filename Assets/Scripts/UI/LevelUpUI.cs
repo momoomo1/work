@@ -96,7 +96,6 @@ public class LevelUpUI : MonoBehaviour
             // 후보가 없으면 패널 없이 보상
             pending--;
             if (playerHealth != null) playerHealth.Heal(noChoiceHeal);
-            Debug.Log($"[LevelUp] 선택지가 없어 체력 {noChoiceHeal} 회복");
             if (pending > 0) ShowNext();
             return;
         }

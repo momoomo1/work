@@ -14,6 +14,25 @@ public class Enemy : MonoBehaviour, IPoolable
 
     static readonly List<Enemy> active = new List<Enemy>();
     public static int ActiveCount => active.Count;
+    int activeIndex = -1;
+
+    static void AddActive(Enemy e)
+    {
+        if (e.activeIndex >= 0) return;
+        e.activeIndex = active.Count;
+        active.Add(e);
+    }
+
+    static void RemoveActive(Enemy e)
+    {
+        int i = e.activeIndex;
+        if (i < 0 || i >= active.Count || active[i] != e) { e.activeIndex = -1; return; }
+        var last = active[active.Count - 1];
+        active[i] = last;
+        last.activeIndex = i;
+        active.RemoveAt(active.Count - 1);
+        e.activeIndex = -1;
+    }
 
     static Transform player;
     static IDamageable playerDamageable;
@@ -92,7 +111,7 @@ public class Enemy : MonoBehaviour, IPoolable
 
     void OnDestroy()
     {
-        active.Remove(this); // 씬 재로드로 파괴될 때 정적 목록에 남지 않게
+        RemoveActive(this); // 씬 재로드로 파괴될 때 정적 목록에 남지 않게
         if (health != null) health.OnDeath -= HandleDeath;
     }
 
@@ -140,10 +159,10 @@ public class Enemy : MonoBehaviour, IPoolable
         slowUntil = 0f;
         speedMultiplier = 1f;
         knockVelocity = Vector3.zero;
-        active.Add(this);
+        AddActive(this);
     }
 
-    public void OnDespawn() => active.Remove(this);
+    public void OnDespawn() => RemoveActive(this);
 
     void Update()
     {

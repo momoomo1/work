@@ -12,6 +12,7 @@ public class ExplosionSkill : SkillBase
 
     readonly List<Vector3> points = new List<Vector3>();
     readonly List<Transform> hitBuffer = new List<Transform>();
+    WaitForSeconds warnWait;
 
     protected override void Activate()
     {
@@ -36,7 +37,8 @@ public class ExplosionSkill : SkillBase
 
     IEnumerator Explode(Vector3 point, float damage, float radius, float vfxDuration)
     {
-        yield return new WaitForSeconds(warnTime);
+        if (warnWait == null) warnWait = new WaitForSeconds(warnTime);
+        yield return warnWait;
         PlayCastSound();
 
         if (Data.prefab != null)

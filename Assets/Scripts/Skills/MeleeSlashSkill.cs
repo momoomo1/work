@@ -24,6 +24,7 @@ public class MeleeSlashSkill : SkillBase
     static readonly HashSet<GameObject> calibrated = new HashSet<GameObject>();
     static readonly Dictionary<GameObject, int> attempts = new Dictionary<GameObject, int>();
     readonly List<Transform> hits = new List<Transform>();
+    WaitForSeconds hitWait;
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
     static void ResetStatics()
@@ -73,7 +74,11 @@ public class MeleeSlashSkill : SkillBase
             for (int i = 0; i < count; i++)
             {
                 DealDamage(dir, stat);
-                if (i < count - 1) yield return new WaitForSeconds(hitDelay);
+                if (i < count - 1)
+            {
+                if (hitWait == null) hitWait = new WaitForSeconds(hitDelay);
+                yield return hitWait;
+            }
             }
             yield break;
         }

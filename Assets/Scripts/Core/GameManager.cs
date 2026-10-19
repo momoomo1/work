@@ -127,7 +127,6 @@ public class GameManager : MonoBehaviour
         IsGameOver = true;
         CommitBestScore();
         Time.timeScale = 0f;
-        Debug.Log($"[GameOver] 생존 {FormatTime(SurvivalTime)}, 처치 {killCount}, 점수 {Score} (최고 {BestScore})");
         OnPlayerDied?.Invoke();
     }
 
@@ -172,7 +171,6 @@ public class GameManager : MonoBehaviour
         // 보스가 나올 때마다 체력/피해량 증가 (모양은 동일)
         boss.Init(bossData, Mathf.Pow(bossHealthGrowth, bossesDefeated), Mathf.Pow(bossDamageGrowth, bossesDefeated));
         BossAlive = true;
-        Debug.Log($"[Boss] 웨이브 {Wave} 보스 등장! (체력 x{Mathf.Pow(bossHealthGrowth, bossesDefeated):0.0})");
         OnBossSpawned?.Invoke(boss);
     }
 
@@ -182,7 +180,6 @@ public class GameManager : MonoBehaviour
         bossesDefeated++;
         bossSpawned = false;                       // 다음 보스를 다시 소환할 수 있게
         nextBossKill = killCount + killsPerBoss;
-        Debug.Log($"[Boss] 보스 처치! 웨이브 {bossesDefeated} 클리어 → 웨이브 {Wave} 시작 (다음 보스: 처치 {nextBossKill})");
         OnBossDefeated?.Invoke();
     }
 }

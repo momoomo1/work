@@ -32,7 +32,16 @@ public class DamageNumber : MonoBehaviour, IPoolable
         // 겹치지 않게 약간 흩뿌림
         position += new Vector3(Random.Range(-0.4f, 0.4f), 0f, Random.Range(-0.2f, 0.2f));
         var obj = ObjectPool.Get(template, position, Quaternion.identity);
-        obj.GetComponent<DamageNumber>().Show(Mathf.Max(1, Mathf.RoundToInt(amount)).ToString(), color, scale);
+        obj.GetComponent<DamageNumber>().Show(NumberString(Mathf.Max(1, Mathf.RoundToInt(amount))), color, scale);
+    }
+
+    // 자주 나오는 작은 숫자는 문자열을 한 번만 만들어 재사용 (피격마다 할당 방지)
+    static readonly string[] numberCache = new string[1000];
+
+    static string NumberString(int v)
+    {
+        if (v >= numberCache.Length) return v.ToString();
+        return numberCache[v] ?? (numberCache[v] = v.ToString());
     }
 
     static GameObject CreateTemplate()

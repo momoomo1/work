@@ -31,7 +31,7 @@ public class ObjectPool : MonoBehaviour
     readonly Dictionary<GameObject, Queue<GameObject>> pools = new Dictionary<GameObject, Queue<GameObject>>();
     readonly Dictionary<GameObject, Transform> containers = new Dictionary<GameObject, Transform>();
     readonly Dictionary<GameObject, GameObject> instanceToPrefab = new Dictionary<GameObject, GameObject>();
-    readonly List<IPoolable> buffer = new List<IPoolable>();
+    readonly Dictionary<GameObject, IPoolable[]> poolables = new Dictionary<GameObject, IPoolable[]>();
 
     void Awake()
     {
@@ -79,8 +79,8 @@ public class ObjectPool : MonoBehaviour
         obj.transform.SetPositionAndRotation(pos, rot);
         obj.SetActive(true);
 
-        obj.GetComponentsInChildren(true, buffer);
-        for (int i = 0; i < buffer.Count; i++) buffer[i].OnSpawn();
+        var list = GetPoolables(obj);
+        for (int i = 0; i < list.Length; i++) list[i].OnSpawn();
         return obj;
     }
 
@@ -93,12 +93,22 @@ public class ObjectPool : MonoBehaviour
         }
         if (!obj.activeSelf) return; // 이미 반환됨
 
-        obj.GetComponentsInChildren(true, buffer);
-        for (int i = 0; i < buffer.Count; i++) buffer[i].OnDespawn();
+        var list = GetPoolables(obj);
+        for (int i = 0; i < list.Length; i++) list[i].OnDespawn();
 
         obj.SetActive(false);
         obj.transform.SetParent(containers[prefab], false);
         pools[prefab].Enqueue(obj);
+    }
+
+    IPoolable[] GetPoolables(GameObject obj)
+    {
+        if (!poolables.TryGetValue(obj, out var list))
+        {
+            list = obj.GetComponentsInChildren<IPoolable>(true);
+            poolables[obj] = list;
+        }
+        return list;
     }
 
     Queue<GameObject> GetQueue(GameObject prefab)
