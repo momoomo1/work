@@ -26,7 +26,7 @@ public class StageClearUI : MonoBehaviour
     {
         // 무한 웨이브: 몇 번째 웨이브를 클리어했는지 표시
         var label = textObject.GetComponent<TMP_Text>();
-        if (label != null) label.text = $"BOSS CLEAR!  난이도 {gm.Wave}";
+        if (label != null) label.text = $"보스 클리어\n난이도 {gm.Wave}";
 
         StopAllCoroutines();
         StartCoroutine(ShowRoutine());
