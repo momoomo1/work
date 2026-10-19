@@ -119,7 +119,7 @@ public class HUD : MonoBehaviour
         levelText.text = $"Lv {exp.Level}";
     }
 
-    void HandleKill(EnemyData _) => killText.text = $"웨이브 {gm.Wave} · 처치 {gm.KillCount}";
+    void HandleKill(EnemyData _) => killText.text = $"난이도 {gm.Wave} · 처치 {gm.KillCount}";
 
     void HandleBossSpawned(Boss boss)
     {

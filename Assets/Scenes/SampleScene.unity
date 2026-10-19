@@ -1741,7 +1741,7 @@ MonoBehaviour:
   killCount: 0
   bossKillThreshold: 120
   bossData: {fileID: 11400000, guid: 23fa1f19d0ba0174c9bdc9eceec7e544, type: 2}
-  killsPerBoss: 40
+  killsPerBoss: 150
   bossHealthGrowth: 1.6
   bossDamageGrowth: 1.15
   enemyHealthGrowth: 0.2

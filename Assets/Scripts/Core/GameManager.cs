@@ -38,10 +38,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] int scorePerBoss = 1000;    // 보스 처치당
 
     [Header("시간이 갈수록 어려워짐 (가만히 서 있으면 못 버티게)")]
-    [SerializeField] float timeDamagePerMinute = 0.6f;   // 1분마다 적 접촉 피해 +60%
-    [SerializeField] float timeSpeedPerMinute = 0.05f;   // 1분마다 적 이동 속도 +5%
+    [SerializeField] float timeDamagePerMinute = 0.3f;   // 1분마다 적 접촉 피해 +30%
+    [SerializeField] float timeSpeedPerMinute = 0.025f;  // 1분마다 적 이동 속도 +2.5%
     [SerializeField] float maxSpeedMultiplier = 1.7f;    // 속도 배율 상한 (플레이어가 달리면 도망칠 수는 있게)
-    [SerializeField] float timeHealthPerMinute = 0.15f;  // 1분마다 적 체력 +15%
+    [SerializeField] float timeHealthPerMinute = 0.08f;  // 1분마다 적 체력 +8%
 
     const string BestScoreKey = "BestScore";
 

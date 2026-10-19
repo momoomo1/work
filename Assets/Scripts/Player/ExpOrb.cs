@@ -7,9 +7,20 @@ public class ExpOrb : MonoBehaviour, IPoolable
     [SerializeField] float collectDistance = 0.6f;
 
     public static int ActiveCount { get; private set; }
+    static readonly System.Collections.Generic.List<ExpOrb> all = new System.Collections.Generic.List<ExpOrb>();
+
+    // 필드에 떨어진 구슬을 전부 즉시 플레이어 쪽으로 끌어당김 (보스 처치 보상 등)
+    public static void AttractAll(float speedMultiplier = 2.5f)
+    {
+        foreach (var orb in all)
+        {
+            orb.attracted = true;
+            orb.speed = Mathf.Max(orb.speed, orb.attractSpeed * speedMultiplier);
+        }
+    }
 
     [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.SubsystemRegistration)]
-    static void ResetStatics() => ActiveCount = 0;
+    static void ResetStatics() { ActiveCount = 0; all.Clear(); }
 
     int value;
     bool attracted;
@@ -23,9 +34,16 @@ public class ExpOrb : MonoBehaviour, IPoolable
         attracted = false;
         speed = attractSpeed;
         ActiveCount++;
+        all.Add(this);
     }
 
-    public void OnDespawn() { ActiveCount = Mathf.Max(0, ActiveCount - 1); }
+    public void OnDespawn()
+    {
+        ActiveCount = Mathf.Max(0, ActiveCount - 1);
+        all.Remove(this);
+    }
+
+    void OnDestroy() => all.Remove(this);
 
     void Update()
     {

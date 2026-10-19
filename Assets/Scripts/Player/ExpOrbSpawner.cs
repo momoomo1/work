@@ -36,6 +36,9 @@ public class ExpOrbSpawner : MonoBehaviour
             Vector2 offset = Random.insideUnitCircle * bossScatterRadius;
             Drop(boss.transform.position + new Vector3(offset.x, 0f, offset.y), each);
         }
+
+        // 보스를 잡으면 필드에 떨어진 구슬을 전부 한꺼번에 플레이어에게 끌어옴
+        ExpOrb.AttractAll();
     }
 
     void Drop(Vector3 pos, int value)
