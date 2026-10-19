@@ -11,6 +11,17 @@ public abstract class SkillBase : MonoBehaviour
 
     float cooldownTimer;
 
+    // 스킬 바 UI용: 다음 발동까지 남은 시간과 비율 (1 = 방금 발동, 0 = 곧 발동)
+    public float CooldownRemaining => Mathf.Max(0f, cooldownTimer);
+    public float CooldownRatio
+    {
+        get
+        {
+            float total = Stat.cooldown / PlayerStats.AttackSpeed;
+            return total > 0f ? Mathf.Clamp01(cooldownTimer / total) : 0f;
+        }
+    }
+
     public void Init(SkillData data)
     {
         Data = data;

@@ -37,6 +37,7 @@ public class SkillManager : MonoBehaviour
     System.Collections.IEnumerator Start()
     {
         while (StartMenuUI.IsOpen) yield return null;
+        SkillBarUI.Create(this); // 스킬 아이콘/쿨타임 바 (시작 스킬을 얻기 전에 만들어 이벤트를 받음)
         foreach (var s in startingSkills)
             if (s != null && !Has(s)) AddSkill(s);
     }
@@ -53,6 +54,8 @@ public class SkillManager : MonoBehaviour
             Debug.Log($"[Test] 카드 제한 {(testMode ? "ON: 공속/이속/대쉬만" : "OFF")}");
         }
     }
+    public bool TryGetOwned(SkillData data, out SkillBase skill) => owned.TryGetValue(data, out skill);
+
     public bool Has(SkillData data) => owned.ContainsKey(data);
     public int GetLevel(SkillData data) => owned.TryGetValue(data, out var s) ? s.Level : 0;
 
