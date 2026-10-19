@@ -1,7 +1,7 @@
 using UnityEngine;
 
 // 능력치 강화 스킬 (공격하지 않음). SkillData.id로 종류를 구분하고, 레벨의 value가 증가량이다.
-//  max_health : 최대 체력 +value (그만큼 현재 체력도 회복)
+//  max_health : 최대 체력 +value, 그리고 체력 회복 (늘어난 만큼 + 최대 체력의 25%)
 // 새 패시브를 추가하려면 Apply의 switch에 id를 추가하면 된다.
 public class PassiveSkill : SkillBase
 {
@@ -16,7 +16,7 @@ public class PassiveSkill : SkillBase
                 if (Owner.TryGetComponent<Health>(out var health))
                 {
                     health.SetMaxHealth(health.MaxHealth + value, false);
-                    health.Heal(value);
+                    health.Heal(value + health.MaxHealth * 0.25f); // 늘어난 만큼 + 최대 체력의 25% 회복
                 }
                 break;
             default:

@@ -8,6 +8,8 @@ public class SkillData : ScriptableObject
     [TextArea] public string description;
     public Sprite icon;
     public SkillType type;
+    [Tooltip("레벨업 카드로 뽑힐 확률 가중치. 1이 보통, 작을수록 드물게 나옴")]
+    public float choiceWeight = 1f;
     public GameObject prefab;
     public AudioClip castSfx; // 발동 사운드 (비워두면 무음)
     [Tooltip("보조 비주얼 (헬파이어의 경고 원 등). 파티클 등으로 교체 가능")]

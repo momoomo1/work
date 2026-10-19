@@ -102,13 +102,23 @@ public class SkillManager : MonoBehaviour
             }
         }
 
-        // 부분 셔플로 count개 선택
+        // 가중치(choiceWeight)에 따라 중복 없이 count개 선택 (가중치가 작은 카드는 드물게 나옴)
         int n = Mathf.Min(count, candidates.Count);
-        for (int i = 0; i < n; i++)
+        var result = new List<SkillData>(n);
+        for (int k = 0; k < n; k++)
         {
-            int j = UnityEngine.Random.Range(i, candidates.Count);
-            (candidates[i], candidates[j]) = (candidates[j], candidates[i]);
+            float total = 0f;
+            foreach (var c in candidates) total += Mathf.Max(0.01f, c.choiceWeight);
+            float roll = UnityEngine.Random.value * total;
+            int pick = candidates.Count - 1;
+            for (int i = 0; i < candidates.Count; i++)
+            {
+                roll -= Mathf.Max(0.01f, candidates[i].choiceWeight);
+                if (roll <= 0f) { pick = i; break; }
+            }
+            result.Add(candidates[pick]);
+            candidates.RemoveAt(pick);
         }
-        return candidates.GetRange(0, n);
+        return result;
     }
 }

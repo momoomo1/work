@@ -2426,6 +2426,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: a6fa6b28acf409d44a30477501f56b12, type: 2}
   - {fileID: 11400000, guid: fb5f7be9ad5c2f1469774d7fda0a7e31, type: 2}
   - {fileID: 11400000, guid: b7c2e9a4d1f84630a5e8c3d2f1b09a47, type: 2}
+  - {fileID: 11400000, guid: 5e9a1c3d7b2f4a6e8d0c1b2a3f4e5d6c, type: 2}
   startingSkills:
   - {fileID: 11400000, guid: b7c2e9a4d1f84630a5e8c3d2f1b09a47, type: 2}
 --- !u!114 &910000012
@@ -2677,7 +2678,7 @@ MonoBehaviour:
   cardPrefab: {fileID: 5070862405640931667, guid: 875328e221427364f8f53c208130c891, type: 3}
   choiceCount: 3
   noChoiceHeal: 30
-  levelUpMaxHealth: 10
+  levelUpMaxHealth: 0
   levelUpHealPercent: 0.1
 --- !u!114 &948544253
 MonoBehaviour:

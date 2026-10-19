@@ -10,7 +10,7 @@ public class LevelUpUI : MonoBehaviour
     [SerializeField] SkillCardUI cardPrefab;
     [SerializeField] int choiceCount = 3;
     [SerializeField] float noChoiceHeal = 30f; // 후보가 없을 때 체력 회복량
-    [SerializeField] float levelUpMaxHealth = 10f;  // 레벨업할 때마다 기본으로 늘어나는 최대 체력
+    [SerializeField] float levelUpMaxHealth = 0f;   // 레벨업할 때마다 기본으로 늘어나는 최대 체력
     [SerializeField, Range(0f, 1f)] float levelUpHealPercent = 0.1f; // 레벨업할 때마다 최대 체력의 이 비율만큼 회복
 
     SkillManager skillManager;
