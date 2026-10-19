@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// 피격/사망 시 타격감: 히트 이펙트(풀), 효과음, 데미지 숫자, 붉은 깜빡임, 넉백, 화면 흔들림.
+// 피격/사망 시 타격감: 히트 이펙트(풀), 효과음, 데미지 숫자, 하얀 번쩍임, 넉백, 화면 흔들림.
 // 플레이어, 적, 보스에 붙임. 종류(플레이어/보스/일반 적)는 컴포넌트로 자동 판별.
 [RequireComponent(typeof(Health))]
 public class HitFeedback : MonoBehaviour
@@ -22,8 +22,9 @@ public class HitFeedback : MonoBehaviour
     [Header("타격감")]
     [SerializeField] bool showDamageNumber = true;
     [SerializeField] float numberHeight = 1.8f;       // 숫자가 뜨는 월드 높이 (보스는 자동으로 더 높게)
-    [SerializeField] float flashDuration = 0.09f;
-    [SerializeField] Color flashColor = new Color(1f, 0.35f, 0.35f);
+    [SerializeField] float flashIntensity = 3f;       // 맞았을 때 몸이 하얗게 번쩍이는 밝기 (클수록 더 하얗고 빛남)
+    [SerializeField] float flashTime = 0.12f;         // 번쩍이는 시간
+    [SerializeField] float blinkInterval = 0.06f;     // 플레이어는 무적 시간 동안 이 간격으로 깜빡임
     [SerializeField] float knockbackSpeed = 4f;       // 일반 적만 해당
     [SerializeField] float playerHitShake = 0.2f;     // 플레이어 피격 시 화면 흔들림 세기
     [SerializeField] float bossDeathShake = 0.5f;
@@ -161,29 +162,53 @@ public class HitFeedback : MonoBehaviour
         if (isBoss) CameraFollow.Shake(bossDeathShake, 0.5f);
     }
 
+    float blinkUntil;
+
     void Update()
     {
+        // 플레이어는 맞은 뒤 무적 시간 동안 번쩍번쩍 깜빡임
+        if (isPlayer && Time.time < blinkUntil)
+        {
+            bool on = (int)((blinkUntil - Time.time) / Mathf.Max(0.02f, blinkInterval)) % 2 == 0;
+            if (on) ApplyFlash(); else RestoreMaterials();
+            return;
+        }
+        if (blinkUntil > 0f) { blinkUntil = 0f; RestoreMaterials(); }
+
         if (flashTimer <= 0f) return;
         flashTimer -= Time.deltaTime;
         if (flashTimer <= 0f) ClearFlash();
     }
 
+    // 맞으면 몸 전체가 하얗게 번쩍 (HDR로 1보다 크게 곱해서 빛나는 느낌)
     void StartFlash()
     {
         if (flashRenderers.Length == 0) return;
-        block.SetColor(BaseColorId, flashColor);
-        block.SetColor(ColorId, flashColor);
+        ApplyFlash();
+        flashTimer = flashTime;
+        if (isPlayer && playerHitInvuln > 0f) blinkUntil = Time.time + playerHitInvuln;
+    }
+
+    void ApplyFlash()
+    {
+        var c = new Color(flashIntensity, flashIntensity, flashIntensity, 1f);
+        block.SetColor(BaseColorId, c);
+        block.SetColor(ColorId, c);
         foreach (var r in flashRenderers) if (r != null) r.SetPropertyBlock(block);
-        flashTimer = flashDuration;
+    }
+
+    void RestoreMaterials()
+    {
+        if (flashRenderers == null) return;
+        foreach (var r in flashRenderers) if (r != null) r.SetPropertyBlock(null);
     }
 
     void ClearFlash()
     {
         flashTimer = 0f;
-        if (flashRenderers == null) return;
-        foreach (var r in flashRenderers) if (r != null) r.SetPropertyBlock(null);
+        blinkUntil = 0f;
+        RestoreMaterials();
     }
-
     static float lastVfxTime;
     [SerializeField] float minVfxInterval = 0.04f; // 적이 많을 때 이펙트가 쏟아지지 않게 하는 전체 최소 간격
 
