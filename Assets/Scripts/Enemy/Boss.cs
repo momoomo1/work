@@ -6,6 +6,8 @@ using UnityEngine;
 public class Boss : MonoBehaviour, IPoolable
 {
     [SerializeField] Transform telegraph; // 돌진 예고 표시 (납작한 큐브)
+    [SerializeField] float stopFactor = 0.3f;  // 접촉 거리 × 이 값보다 가까워지면 멈춤 (작을수록 끝까지 파고듦)
+    [SerializeField] float pushFactor = 0.55f; // 접촉 거리 × 이 값보다 가까우면 플레이어를 밀어냄
 
     public static event Action<Boss> OnBossDied;
 
@@ -75,8 +77,13 @@ public class Boss : MonoBehaviour, IPoolable
         float dist = to.magnitude;
         Vector3 dir = dist > 0.001f ? to / dist : transform.forward;
 
-        if (dist > data.contactRange * 0.8f) Move(dir * data.moveSpeed);
+        // 플레이어 바로 앞에서 멈추지 않고 계속 밀고 들어옴 (붙어 있어도 가만히 서 있지 않게)
+        if (dist > data.contactRange * stopFactor) Move(dir * data.moveSpeed);
         if (dist > 0.001f) transform.rotation = Quaternion.LookRotation(dir, Vector3.up);
+
+        // 너무 가까우면 플레이어를 앞으로 밀어냄 → 비비고 있으면 계속 밀려서 움직여야 함
+        if (dist < data.contactRange * pushFactor && player.TryGetComponent<CharacterController>(out var cc))
+            cc.Move(dir * (data.moveSpeed * 1.3f) * Time.deltaTime);
 
         if (dist <= data.contactRange && Time.time >= nextContactTime)
         {
